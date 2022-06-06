@@ -17,6 +17,10 @@
     <!-- ============ TITLE END ============ -->
 
     <JobsList />
+    <ContactsWrapper />
+    <FooterWrapper />
+    <LoginPopup />
+    <RegisterPopup />
 
   </div>
 </template>
@@ -26,14 +30,20 @@ import PageLoader from '@/components/PageLoader.vue'
 import NavBar from '@/components/NavBar.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
 import JobsList from '@/components/JobsList.vue'
-
+import ContactsWrapper from '@/components/ContactsWrapper.vue'
+import FooterWrapper from '@/components/FooterWrapper.vue'
+import LoginPopup from '@/components/LoginPopup.vue'
+import RegisterPopup from "@/components/RegisterPopup.vue"
 export default {
     components: {
         PageLoader,
         NavBar,
         HeaderBar,
-        JobsList
-
+        JobsList,
+        ContactsWrapper,
+        FooterWrapper,
+        LoginPopup,
+        RegisterPopup
     }
 }
 </script>
