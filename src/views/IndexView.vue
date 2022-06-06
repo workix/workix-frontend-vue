@@ -16,6 +16,7 @@
       <ClientsWrapper />
       <FooterWrapper />
       <LoginPopup />
+      <RegisterPopup />
   </div>
 </template>
 
@@ -36,6 +37,7 @@ import ContactsWrapper from '@/components/ContactsWrapper.vue'
 import ClientsWrapper from '@/components/ClientsWrapper.vue'
 import FooterWrapper from '@/components/FooterWrapper.vue'
 import LoginPopup from '@/components/LoginPopup.vue'
+import RegisterPopup from "@/components/RegisterPopup.vue"
 export default {
     components: {
         PageLoader,
@@ -53,7 +55,8 @@ export default {
         ContactsWrapper,
         ClientsWrapper,
         FooterWrapper,
-        LoginPopup
+        LoginPopup,
+        RegisterPopup
     }
 }
 </script>
