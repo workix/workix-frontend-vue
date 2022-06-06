@@ -6,6 +6,7 @@
       <SliderWrapper />
       <JobsWrapper /> 
       <CompaniesWrapper />
+      <StatsWrapper />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import HeaderBar from '@/components/HeaderBar.vue'
 import SliderWrapper from '@/components/SliderWrapper.vue'
 import JobsWrapper from "@/components/JobsWrapper.vue"
 import CompaniesWrapper from "@/components/CompaniesWrapper.vue"
+import StatsWrapper from '@/components/StatsWrapper.vue'
 export default {
     components: {
         PageLoader,
@@ -23,7 +25,8 @@ export default {
         HeaderBar,
         SliderWrapper,
         JobsWrapper,
-        CompaniesWrapper
+        CompaniesWrapper,
+        StatsWrapper
     }
 }
 </script>
