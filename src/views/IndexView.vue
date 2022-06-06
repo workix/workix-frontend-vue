@@ -9,6 +9,7 @@
       <StatsWrapper />
       <HowItWorks />
       <MobileApp />
+      <PricingWrapper />
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import CompaniesWrapper from "@/components/CompaniesWrapper.vue"
 import StatsWrapper from '@/components/StatsWrapper.vue'
 import HowItWorks from '@/components/HowItWorks.vue'
 import MobileApp from '@/components/MobileApp.vue'
+import PricingWrapper from '@/components/PricingWrapper.vue'
 export default {
     components: {
         PageLoader,
@@ -32,7 +34,8 @@ export default {
         CompaniesWrapper,
         StatsWrapper,
         HowItWorks,
-        MobileApp
+        MobileApp,
+        PricingWrapper
     }
 }
 </script>
