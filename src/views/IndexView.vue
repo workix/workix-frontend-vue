@@ -11,6 +11,7 @@
       <MobileApp />
       <PricingWrapper />
       <TestimonialsWrapper />
+      <BlogWrapper />
   </div>
 </template>
 
@@ -26,6 +27,7 @@ import HowItWorks from '@/components/HowItWorks.vue'
 import MobileApp from '@/components/MobileApp.vue'
 import PricingWrapper from '@/components/PricingWrapper.vue'
 import TestimonialsWrapper from '@/components/TestimonialsWrapper.vue'
+import BlogWrapper from '@/components/BlogWrapper.vue'
 export default {
     components: {
         PageLoader,
@@ -38,7 +40,8 @@ export default {
         HowItWorks,
         MobileApp,
         PricingWrapper,
-        TestimonialsWrapper
+        TestimonialsWrapper,
+        BlogWrapper
     }
 }
 </script>
