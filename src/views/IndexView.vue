@@ -10,6 +10,7 @@
       <HowItWorks />
       <MobileApp />
       <PricingWrapper />
+      <TestimonialsWrapper />
   </div>
 </template>
 
@@ -24,6 +25,7 @@ import StatsWrapper from '@/components/StatsWrapper.vue'
 import HowItWorks from '@/components/HowItWorks.vue'
 import MobileApp from '@/components/MobileApp.vue'
 import PricingWrapper from '@/components/PricingWrapper.vue'
+import TestimonialsWrapper from '@/components/TestimonialsWrapper.vue'
 export default {
     components: {
         PageLoader,
@@ -35,7 +37,8 @@ export default {
         StatsWrapper,
         HowItWorks,
         MobileApp,
-        PricingWrapper
+        PricingWrapper,
+        TestimonialsWrapper
     }
 }
 </script>
