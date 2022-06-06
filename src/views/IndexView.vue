@@ -14,6 +14,7 @@
       <BlogWrapper />
       <ContactsWrapper />
       <ClientsWrapper />
+      <FooterWrapper />
   </div>
 </template>
 
@@ -32,6 +33,7 @@ import TestimonialsWrapper from '@/components/TestimonialsWrapper.vue'
 import BlogWrapper from '@/components/BlogWrapper.vue'
 import ContactsWrapper from '@/components/ContactsWrapper.vue'
 import ClientsWrapper from '@/components/ClientsWrapper.vue'
+import FooterWrapper from '@/components/FooterWrapper.vue'
 export default {
     components: {
         PageLoader,
@@ -47,7 +49,8 @@ export default {
         TestimonialsWrapper,
         BlogWrapper,
         ContactsWrapper,
-        ClientsWrapper
+        ClientsWrapper,
+        FooterWrapper
     }
 }
 </script>
