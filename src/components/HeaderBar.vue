@@ -1,7 +1,7 @@
 <template>
   <!-- ============ HEADER START ============ -->
 
-		<header>
+		<header style="background-color:#666666;">
 			<div id="header-background"></div>
 			<div class="container">
 				<div class="pull-left">
@@ -35,5 +35,5 @@ export default {
 </script>
 
 <style>
-
+ 
 </style>

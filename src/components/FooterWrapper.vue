@@ -30,7 +30,7 @@
 			<div id="credits">
 				<div class="container text-center">
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-12" style="color: white;">
 							&copy; 2015 Jobseek - Responsive Job Board HTML Template<br>
 							Designed &amp; Developed by <a href="http://themeforest.net/user/Coffeecream" target="_blank">Coffeecream Themes</a>
 						</div>
