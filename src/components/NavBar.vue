@@ -8,8 +8,8 @@
 					<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
 				</div>
 				<ul class="nav">
-					<li class="active"><a href="#home">Início</a></li>
-					<li><a href="jobs.html">Vagas</a></li>
+					<li class="active"><router-link to="/">Início</router-link></li>
+					<li><router-link to="/vagas">Vagas</router-link></li>
 					<li><a href="post-a-job.html">Cadastrar Vaga</a></li>
 					<li><a href="candidates.html">Candidatos</a></li>
 					<li><a href="post-a-resume.html">Cadastrar Currículo</a></li>
