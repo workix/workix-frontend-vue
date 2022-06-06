@@ -1,0 +1,39 @@
+<template>
+    <!-- ============ LOGIN START ============ -->
+		<div class="popup" id="login">
+			<div class="popup-form">
+				<div class="popup-header">
+					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
+					<h2>Login</h2>
+				</div>
+				<form>
+					<ul class="social-login">
+						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Sign In with Facebook</a></li>
+						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Sign In with Google</a></li>
+						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Sign In with LinkedIn</a></li>
+					</ul>
+					<hr>
+					<div class="form-group">
+						<label for="login-username">Username</label>
+						<input type="text" class="form-control" id="login-username">
+					</div>
+					<div class="form-group">
+						<label for="login-password">Password</label>
+						<input type="password" class="form-control" id="login-password">
+					</div>
+					<button type="submit" class="btn btn-primary">Sign In</button>
+				</form>
+			</div>
+		</div>
+		<!-- ============ LOGIN END ============ -->
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
