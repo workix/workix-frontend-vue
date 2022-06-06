@@ -7,6 +7,7 @@
       <JobsWrapper /> 
       <CompaniesWrapper />
       <StatsWrapper />
+      <HowItWorks />
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import SliderWrapper from '@/components/SliderWrapper.vue'
 import JobsWrapper from "@/components/JobsWrapper.vue"
 import CompaniesWrapper from "@/components/CompaniesWrapper.vue"
 import StatsWrapper from '@/components/StatsWrapper.vue'
+import HowItWorks from '@/components/HowItWorks.vue'
 export default {
     components: {
         PageLoader,
@@ -26,7 +28,8 @@ export default {
         SliderWrapper,
         JobsWrapper,
         CompaniesWrapper,
-        StatsWrapper
+        StatsWrapper,
+        HowItWorks
     }
 }
 </script>
