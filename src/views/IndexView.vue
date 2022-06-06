@@ -8,6 +8,7 @@
       <CompaniesWrapper />
       <StatsWrapper />
       <HowItWorks />
+      <MobileApp />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import JobsWrapper from "@/components/JobsWrapper.vue"
 import CompaniesWrapper from "@/components/CompaniesWrapper.vue"
 import StatsWrapper from '@/components/StatsWrapper.vue'
 import HowItWorks from '@/components/HowItWorks.vue'
+import MobileApp from '@/components/MobileApp.vue'
 export default {
     components: {
         PageLoader,
@@ -29,7 +31,8 @@ export default {
         JobsWrapper,
         CompaniesWrapper,
         StatsWrapper,
-        HowItWorks
+        HowItWorks,
+        MobileApp
     }
 }
 </script>
