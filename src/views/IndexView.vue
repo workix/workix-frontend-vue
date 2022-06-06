@@ -12,6 +12,7 @@
       <PricingWrapper />
       <TestimonialsWrapper />
       <BlogWrapper />
+      <ContactsWrapper />
   </div>
 </template>
 
@@ -28,6 +29,7 @@ import MobileApp from '@/components/MobileApp.vue'
 import PricingWrapper from '@/components/PricingWrapper.vue'
 import TestimonialsWrapper from '@/components/TestimonialsWrapper.vue'
 import BlogWrapper from '@/components/BlogWrapper.vue'
+import ContactsWrapper from '@/components/ContactsWrapper.vue'
 export default {
     components: {
         PageLoader,
@@ -41,7 +43,8 @@ export default {
         MobileApp,
         PricingWrapper,
         TestimonialsWrapper,
-        BlogWrapper
+        BlogWrapper,
+        ContactsWrapper
     }
 }
 </script>
