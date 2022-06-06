@@ -14,7 +14,7 @@
 					<form>
 						<div class="form-group">
 							<label class="sr-only" for="searchfield">Searchbox</label>
-							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter">
+							<input type="text" class="form-control" id="searchfield" placeholder="Procurando por ?">
 						</div>
 					</form>
 				</div>
