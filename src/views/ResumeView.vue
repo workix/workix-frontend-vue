@@ -24,7 +24,7 @@
 					<div class="col-sm-8">
 						<article>
 							<h2>Job Details</h2>
-							<img src="http://localhost:8080/resources/placeholder/220x273.jpg" alt="" class="pull-left" />
+							<img :src="`${baseUrl}/resources/placeholder/220x273.jpg`" alt="" class="pull-left" />
 							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
 							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
 							<h3>Skills</h3>
@@ -169,7 +169,12 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
-    }
+    },
+	data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	}
 }
 </script>
 

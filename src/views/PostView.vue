@@ -36,7 +36,7 @@
 						<!-- POSTS START -->
 
 						<article>
-							<p><img src="http://localhost:8080/resources/placeholder/800x530.jpg" alt="" class="img-responsive" /></p>
+							<p><img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" alt="" class="img-responsive" /></p>
 							<p>Proin eu erat tincidunt, scelerisque ipsum non, fringilla dolor. Quisque interdum congue tellus. Aliquam vel odio sit amet ex laoreet finibus. Etiam commodo purus tortor, sed interdum justo faucibus vitae. Praesent ac elit a felis luctus facilisis. Aenean et magna elit. Morbi eget nulla volutpat, egestas ex vel, blandit enim. Pellentesque sit amet metus luctus, congue.</p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum fermentum. Nulla at fringilla dolor. Proin magna nibh, dignissim vitae enim quis, bibendum euismod ipsum. In mattis nulla nulla. Cras suscipit aliquet augue in vulputate. Donec in enim non elit ornare sodales id nec arcu.</p>
 							<h2>Gallery</h2>
@@ -362,7 +362,12 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
-    }
+    },
+	data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	}
 }
 </script>
 

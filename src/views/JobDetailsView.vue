@@ -114,7 +114,12 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
-    }
+    },
+	data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	}
 }
 </script>
 
