@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 import IndexView from '../views/IndexView.vue'
 import JobsView from '../views/JobsView.vue'
+import Jobs2View from '../views/Jobs2View.vue'
 import PostJobView from '../views/PostJobView.vue'
 import AboutView from '../views/AboutView.vue'
 import CandidatesView from '../views/CandidatesView.vue'
@@ -25,6 +26,11 @@ const routes = [
     path: '/vagas',
     name: 'vagas',
     component: JobsView
+  },  
+  {
+    path: '/vagas2',
+    name: 'vagas2',
+    component: Jobs2View
   },  
   {
     path: '/cadastrar_vaga',
