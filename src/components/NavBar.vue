@@ -18,7 +18,7 @@
 							<li><a href="/detalhes_vaga" @click="navigate('/detalhes_vaga')">Detalhes da Vaga</a></li>
 							<li><a href="/curriculo" @click="navigate('/curriculo')">Currículo</a></li>
 							<li><a href="/empresa" @click="navigate('/empresa')">Empresa</a></li>
-							<li><a href="blog.html">Blog</a></li>
+							<li><a href="/blog" @click="navigate('/blog')">Blog</a></li>
 							<li><a href="post.html">Postagem</a></li>
 							<li><a href="/sobre_nos" @click="navigate('/sobre_nos')">Sobre nós</a></li>
 							<li><a href="testimonials.html">Depoimentos</a></li>
