@@ -9,7 +9,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<img src="http://localhost:8080/resources/placeholder/332x120.gif" class="img-responsive" alt="" />
+						<img :src="`${baseUrl}/resources/placeholder/332x120.gif`" class="img-responsive" alt="" />
 					</div>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 								<!-- Job offer 1 -->
 								<a href="#">
 									<div class="featured"></div>
-									<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
 									<div class="title">
 										<h5>Web Designer</h5>
 										<p>Amazon Inc.</p>
@@ -53,7 +53,7 @@
 								<!-- Job offer 2 -->
 								<a href="#">
 									<div class="featured"></div>
-									<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
 									<div class="title">
 										<h5>Senior Web Developer</h5>
 										<p>Dropbox Inc.</p>
@@ -67,7 +67,7 @@
 								
 								<!-- Job offer 3 -->
 								<a href="#">
-									<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
 									<div class="title">
 										<h5>Project Manager</h5>
 										<p>Apple Inc.</p>
@@ -81,7 +81,7 @@
 								
 								<!-- Job offer 4 -->
 								<a href="#">
-									<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
 									<div class="title">
 										<h5>Key Account Manager</h5>
 										<p>Dell Inc.</p>
@@ -95,7 +95,7 @@
 								
 								<!-- Job offer 5 -->
 								<a href="#">
-									<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
 									<div class="title">
 										<h5>Front End Developer</h5>
 										<p>Ebay Inc.</p>
@@ -109,7 +109,7 @@
 								
 								<!-- Job offer 6 -->
 								<a href="#">
-									<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
 									<div class="title">
 										<h5>Web Designer</h5>
 										<p>Amazon Inc.</p>
@@ -178,6 +178,11 @@ export default {
         LoginPopup,
         RegisterPopup
     },
+	data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	},
     methods: {
         initialize(google) {
         //-----------------------------------------------------------------------

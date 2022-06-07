@@ -72,7 +72,7 @@
 						<hr>
 						<div class="sidebar-widget" id="company">
 							<h2>About this company</h2>
-							<p><img src="http://localhost:8080/resources/placeholder/300x109.gif" alt="" class="img-responsive"></p>
+							<p><img :src="`${baseUrl}/resources/placeholder/300x109.gif`" alt="" class="img-responsive"></p>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique euismod lorem, a consequat orci consequat a. Donec ullamcorper tincidunt nunc, ut aliquam est pellentesque porta. In neque erat, malesuada sit amet orci ac, laoreet laoreet mauris.</p>
 							<p><a href="company.html" class="btn btn-primary">Read more</a></p>
 						</div>
