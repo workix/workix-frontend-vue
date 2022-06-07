@@ -12,7 +12,7 @@
 					<li><router-link to="/vagas">Vagas</router-link></li>
 					<li><router-link to="/cadastrar_vaga">Cadastrar Vaga</router-link></li>
 					<li><router-link to="/candidatos">Candidatos</router-link></li>
-					<li><a href="post-a-resume.html">Cadastrar Currículo</a></li>
+					<li><router-link to="/cadastrar_curriculo">Cadastrar Currículo</router-link></li>
 					<li><a href="#">Páginas</a>
 						<ul>
 							<li><a href="job-details.html">Detalhes da Vaga</a></li>
