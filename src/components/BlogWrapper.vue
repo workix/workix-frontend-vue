@@ -14,7 +14,7 @@
 
 							<!-- Blog post 1 -->
 							<div>
-								<img src="http://localhost:8080/resources/placeholder/800x530.jpg" class="img-responsive" alt="Blog Post" />
+								<img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" class="img-responsive" alt="Blog Post" />
 								<h4>Lorem ipsum dolor sit amet</h4>
 								<h5>
 									<span><i class="fa fa-calendar"></i>28.08.2015</span>
@@ -26,7 +26,7 @@
 
 							<!-- Blog post 2 -->
 							<div>
-								<img src="http://localhost:8080/resources/placeholder/800x530.jpg" class="img-responsive" alt="Blog Post" />
+								<img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" class="img-responsive" alt="Blog Post" />
 								<h4>Lorem ipsum dolor sit amet</h4>
 								<h5>
 									<span><i class="fa fa-calendar"></i>28.08.2015</span>
@@ -38,7 +38,7 @@
 
 							<!-- Blog post 3 -->
 							<div>
-								<img src="http://localhost:8080/resources/placeholder/800x530.jpg" class="img-responsive" alt="Blog Post" />
+								<img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" class="img-responsive" alt="Blog Post" />
 								<h4>Lorem ipsum dolor sit amet</h4>
 								<h5>
 									<span><i class="fa fa-calendar"></i>28.08.2015</span>
@@ -50,7 +50,7 @@
 
 							<!-- Blog post 4 -->
 							<div>
-								<img src="http://localhost:8080/resources/placeholder/800x530.jpg" class="img-responsive" alt="Blog Post" />
+								<img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" class="img-responsive" alt="Blog Post" />
 								<h4>Lorem ipsum dolor sit amet</h4>
 								<h5>
 									<span><i class="fa fa-calendar"></i>28.08.2015</span>
@@ -62,7 +62,7 @@
 
 							<!-- Blog post 5 -->
 							<div>
-								<img src="http://localhost:8080/resources/placeholder/800x530.jpg" class="img-responsive" alt="Blog Post" />
+								<img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" class="img-responsive" alt="Blog Post" />
 								<h4>Lorem ipsum dolor sit amet</h4>
 								<h5>
 									<span><i class="fa fa-calendar"></i>28.08.2015</span>
@@ -82,7 +82,11 @@
 
 <script>
 export default {
-
+	data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	}
 }
 </script>
 
