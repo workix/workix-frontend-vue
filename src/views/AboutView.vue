@@ -34,6 +34,10 @@
 
     <TestimonialsWrapper />
     <TeamWrapper />
+    <ContactsWrapper />
+    <FooterWrapper />
+    <LoginPopup />
+    <RegisterPopup />
   
   </div>
 </template>
@@ -44,13 +48,21 @@ import NavBar from '@/components/NavBar.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
 import TestimonialsWrapper from '@/components/TestimonialsWrapper.vue'
 import TeamWrapper from '@/components/TeamWrapper.vue'
+import ContactsWrapper from '@/components/ContactsWrapper.vue'
+import FooterWrapper from '@/components/FooterWrapper.vue'
+import LoginPopup from '@/components/LoginPopup.vue'
+import RegisterPopup from "@/components/RegisterPopup.vue"
 export default {
   components: {
     PageLoader,
     NavBar,
     HeaderBar,
     TestimonialsWrapper,
-    TeamWrapper
+    TeamWrapper,
+    ContactsWrapper,
+    FooterWrapper,
+    LoginPopup,
+    RegisterPopup
   }
 }
 </script>
