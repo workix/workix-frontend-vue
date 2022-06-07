@@ -8,19 +8,19 @@
 					<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
 				</div>
 				<ul class="nav">
-					<li class="active"><router-link to="/">Início</router-link></li>
-					<li><router-link to="/vagas">Vagas</router-link></li>
-					<li><router-link to="/cadastrar_vaga">Cadastrar Vaga</router-link></li>
-					<li><router-link to="/candidatos">Candidatos</router-link></li>
-					<li><router-link to="/cadastrar_curriculo">Cadastrar Currículo</router-link></li>
+					<li class="active"><a href="/" @click="navigate('/')">Início</a></li>
+					<li><a href="/vagas"  @click="navigate('/vagas')">Vagas</a></li>
+					<li><a href="/cadastrar_vaga" @click="navigate('/cadastrar_vaga')">Cadastrar Vaga</a></li>
+					<li><a href="/candidatos" @click="navigate('/candidatos')">Candidatos</a></li>
+					<li><a href="/cadastrar_curriculo" @click="navigate('/cadastrar_curriculo')">Cadastrar Currículo</a></li>
 					<li><a href="#">Páginas</a>
 						<ul>
-							<li><router-link to="/detalhes_vaga">Detalhes da Vaga</router-link></li>
-							<li><router-link to="/curriculo">Currículo</router-link></li>
+							<li><a href="/detalhes_vaga" @click="navigate('/detalhes_vaga')">Detalhes da Vaga</a></li>
+							<li><a href="/curriculo" @click="navigate('/curriculo')">Currículo</a></li>
 							<li><a href="company.html">Empresa</a></li>
 							<li><a href="blog.html">Blog</a></li>
 							<li><a href="post.html">Postagem</a></li>
-							<li><router-link to="/sobre_nos">Sobre nós</router-link></li>
+							<li><a href="/sobre_nos" @click="navigate('/sobre_nos')">Sobre nós</a></li>
 							<li><a href="testimonials.html">Depoimentos</a></li>
 							<li><a href="options.html">Opções</a></li>
 						</ul>
@@ -37,7 +37,12 @@
 
 <script>
 export default {
+	methods: {
+		navigate(link){
+			this.$router.go({path: link, force: true });
 
+		}
+	}
 }
 </script>
 
