@@ -20,7 +20,7 @@
 							<li><a href="company.html">Empresa</a></li>
 							<li><a href="blog.html">Blog</a></li>
 							<li><a href="post.html">Postagem</a></li>
-							<li><a href="about.html">Sobre nós</a></li>
+							<li><router-link to="/sobre_nos">Sobre nós</router-link></li>
 							<li><a href="testimonials.html">Depoimentos</a></li>
 							<li><a href="options.html">Opções</a></li>
 						</ul>
