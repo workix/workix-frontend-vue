@@ -10,8 +10,13 @@
 </template>
 
 <script>
+const $ = require( "jquery" );
 export default {
-
+	created(){		
+		$(window).load(function() {
+			$("#loader").fadeOut("slow");
+		});
+	}
 }
 </script>
 
