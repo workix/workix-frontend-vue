@@ -3,6 +3,25 @@
     <PageLoader />
     <NavBar />
     <HeaderBar />
+
+    <!-- ============ TITLE START ============ -->
+		<section id="title">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<h1>Candidates</h1>
+						<h4>Find your perfect match</h4>
+					</div>
+				</div>
+			</div>
+		</section>
+    <!-- ============ TITLE END ============ -->
+
+    <CandidatesList />
+    <ContactsWrapper />
+    <FooterWrapper />
+    <LoginPopup />
+    <RegisterPopup />
   </div>    
 </template>
 
@@ -10,11 +29,21 @@
 import PageLoader from '@/components/PageLoader.vue'
 import NavBar from '@/components/NavBar.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
+import CandidatesList from '@/components/CandidatesList.vue'
+import ContactsWrapper from '@/components/ContactsWrapper.vue'
+import FooterWrapper from '@/components/FooterWrapper.vue'
+import LoginPopup from '@/components/LoginPopup.vue'
+import RegisterPopup from '@/components/RegisterPopup.vue'
 export default {
     components: {
         PageLoader,
         NavBar,
-        HeaderBar
+        HeaderBar,
+        CandidatesList,
+        ContactsWrapper,
+        FooterWrapper,
+        LoginPopup,
+        RegisterPopup
     }
 }
 </script>
