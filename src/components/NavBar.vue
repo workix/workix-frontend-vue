@@ -11,7 +11,7 @@
 					<li class="active"><router-link to="/">Início</router-link></li>
 					<li><router-link to="/vagas">Vagas</router-link></li>
 					<li><router-link to="/cadastrar_vaga">Cadastrar Vaga</router-link></li>
-					<li><a href="candidates.html">Candidatos</a></li>
+					<li><router-link to="/candidatos">Candidatos</router-link></li>
 					<li><a href="post-a-resume.html">Cadastrar Currículo</a></li>
 					<li><a href="#">Páginas</a>
 						<ul>

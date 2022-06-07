@@ -4,7 +4,7 @@ import IndexView from '../views/IndexView.vue'
 import JobsView from '../views/JobsView.vue'
 import PostJobView from '../views/PostJobView.vue'
 import AboutView from '../views/AboutView.vue'
-
+import CandidatesView from '../views/CandidatesView.vue'
 const routes = [
   {
     path: '/',
@@ -25,6 +25,11 @@ const routes = [
     path: '/sobre_nos',
     name: 'sobre_nos',    
     component: AboutView
+  },  
+  {
+    path: '/candidatos',
+    name: 'candidatos',    
+    component: CandidatesView
   }
 ]
 
