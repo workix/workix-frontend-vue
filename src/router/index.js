@@ -7,6 +7,8 @@ import AboutView from '../views/AboutView.vue'
 import CandidatesView from '../views/CandidatesView.vue'
 import PostResumeView from '../views/PostResumeView.vue'
 import JobDetailsView from '../views/JobDetailsView.vue'
+import ResumeView from '../views/ResumeView.vue'
+
 const routes = [
   {
     path: '/',
@@ -42,6 +44,11 @@ const routes = [
     path: '/detalhes_vaga',
     name: 'detalhes_vaga',    
     component: JobDetailsView
+  },
+  {
+    path: '/curriculo',
+    name: 'curriculo',    
+    component: ResumeView
   }
 ]
 

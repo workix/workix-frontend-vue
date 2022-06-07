@@ -16,7 +16,7 @@
 					<li><a href="#">Páginas</a>
 						<ul>
 							<li><router-link to="/detalhes_vaga">Detalhes da Vaga</router-link></li>
-							<li><a href="resume.html">Currículo</a></li>
+							<li><router-link to="/curriculo">Currículo</router-link></li>
 							<li><a href="company.html">Empresa</a></li>
 							<li><a href="blog.html">Blog</a></li>
 							<li><a href="post.html">Postagem</a></li>
