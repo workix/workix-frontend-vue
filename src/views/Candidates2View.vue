@@ -31,7 +31,7 @@
 							<a href="#" class="featured">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Susie Johnson</h5>
@@ -55,7 +55,7 @@
 							<a href="#" class="featured">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Matt Berry</h5>
@@ -79,7 +79,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Spencer Conner</h5>
@@ -103,7 +103,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Bernard Byrd</h5>
@@ -127,7 +127,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Grace Bailey</h5>
@@ -151,7 +151,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Susie Johnson</h5>
@@ -175,7 +175,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Matt Berry</h5>
@@ -199,7 +199,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Spencer Conner</h5>
@@ -223,7 +223,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Bernard Byrd</h5>
@@ -247,7 +247,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Grace Bailey</h5>
@@ -271,7 +271,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Susie Johnson</h5>
@@ -295,7 +295,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Matt Berry</h5>
@@ -319,7 +319,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Spencer Conner</h5>
@@ -343,7 +343,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Bernard Byrd</h5>
@@ -367,7 +367,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Grace Bailey</h5>
@@ -391,7 +391,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Susie Johnson</h5>
@@ -415,7 +415,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Matt Berry</h5>
@@ -439,7 +439,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Spencer Conner</h5>
@@ -463,7 +463,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Bernard Byrd</h5>
@@ -487,7 +487,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-xs-3 col-sm-1">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									</div>
 									<div class="col-xs-9 col-sm-4 candidate-name">
 										<h5>Grace Bailey</h5>
@@ -552,7 +552,12 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
-    }
+    },
+	data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	}
 }
 </script>
 
