@@ -10,6 +10,7 @@ import JobDetailsView from '../views/JobDetailsView.vue'
 import ResumeView from '../views/ResumeView.vue'
 import CompanyView from '../views/CompanyView.vue'
 import BlogView from '../views/BlogView.vue'
+import PostView from '../views/PostView.vue'
 
 const routes = [
   {
@@ -61,6 +62,11 @@ const routes = [
     path: '/blog',
     name: 'blog',    
     component: BlogView
+  },
+  {
+    path: '/postagem',
+    name: 'postagem',    
+    component: PostView
   }
 ]
 
