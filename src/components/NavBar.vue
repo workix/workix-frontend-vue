@@ -21,7 +21,7 @@
 							<li><a href="/blog" @click="navigate('/blog')">Blog</a></li>
 							<li><a href="/postagem" @click="navigate('/postagem')">Postagem</a></li>
 							<li><a href="/sobre_nos" @click="navigate('/sobre_nos')">Sobre nós</a></li>
-							<li><a href="testimonials.html">Depoimentos</a></li>
+							<li><a href="/depoimentos" @click="navigate('/depoimentos')">Depoimentos</a></li>
 							<li><a href="options.html">Opções</a></li>
 						</ul>
 					</li>
