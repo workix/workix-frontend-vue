@@ -15,7 +15,7 @@
 					<li><router-link to="/cadastrar_curriculo">Cadastrar Currículo</router-link></li>
 					<li><a href="#">Páginas</a>
 						<ul>
-							<li><a href="job-details.html">Detalhes da Vaga</a></li>
+							<li><router-link to="/detalhes_vaga">Detalhes da Vaga</router-link></li>
 							<li><a href="resume.html">Currículo</a></li>
 							<li><a href="company.html">Empresa</a></li>
 							<li><a href="blog.html">Blog</a></li>
