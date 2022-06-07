@@ -1,7 +1,7 @@
 <template>
   <!-- ============ HEADER START ============ -->
 
-		<header style="background-color:#666666;">
+		<header style="background-color:#181818;">
 			<div id="header-background"></div>
 			<div class="container">
 				<div class="pull-left">
