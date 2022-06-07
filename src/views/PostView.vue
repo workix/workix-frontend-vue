@@ -9,7 +9,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
-						<img src="http://localhost:8080/resources/placeholder/140x140.jpg" alt="" class="img-responsive img-circle" />
+						<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" alt="" class="img-responsive img-circle" />
 					</div>
 					<div class="col-sm-10">
 						<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
@@ -42,63 +42,63 @@
 							<h2>Gallery</h2>
 							<ul class="gallery row">
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a href="http://localhost:8080/resources/placeholder/800x530.jpg" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img src="http://localhost:8080/resources/placeholder/200x200.jpg" class="img-responsive" alt="" />
+									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
+										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
 									</a>
 								</li>
 							</ul>
@@ -139,7 +139,7 @@
 
 						<div id="author" class="row">
 							<div class="col-sm-2">
-								<img src="http://localhost:8080/resources/placeholder/140x140.jpg" alt="" class="img-responsive img-circle" />
+								<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" alt="" class="img-responsive img-circle" />
 							</div>
 							<div class="col-sm-10">
 								<h5>About The Author</h5>
@@ -174,19 +174,19 @@
 								<ul class="media-list">
 
 									<li class="media">
-										<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" /></a>
+										<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
 										<div class="media-body">
 											<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
 											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
 											
 											<div class="media" data-scroll-reveal>
-												<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" /></a>
+												<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
 												<div class="media-body">
 													<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
 
 													<div class="media" data-scroll-reveal>
-														<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" /></a>
+														<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
 														<div class="media-body">
 															<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
 															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
@@ -200,19 +200,19 @@
 									</li>
 
 									<li class="media" data-scroll-reveal>
-										<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" /></a>
+										<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
 										<div class="media-body">
 											<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
 											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
 
 											<div class="media" data-scroll-reveal>
-												<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" /></a>
+												<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
 												<div class="media-body">
 													<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
 													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
 
 													<div class="media" data-scroll-reveal>
-														<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" /></a>
+														<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
 														<div class="media-body">
 															<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
 															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
