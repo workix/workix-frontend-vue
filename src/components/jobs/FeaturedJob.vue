@@ -1,8 +1,8 @@
 <template>
     <a href="#">
-        <img src="http://localhost:8080/resources/placeholder/400x265.jpg" alt="Featured Job" class="img-responsive" />
+        <img :src="`${baseUrl}/resources/placeholder/400x265.jpg`" alt="Featured Job" class="img-responsive" />
         <div class="featured-job">
-            <img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-circle" />
+            <img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
             <div class="title">
                 <h5>Web Designer</h5>
                 <p>Amazon</p>
@@ -19,7 +19,11 @@
 
 <script>
 export default {
-
+    data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	}
 }
 </script>
 

@@ -11,7 +11,7 @@
 							<a href="#" class="featured applied">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Web Designer</h5>
@@ -32,7 +32,7 @@
 							<a href="#" class="featured">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Fron End Developer</h5>
@@ -53,7 +53,7 @@
 							<a href="#" class="applied">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Back End Developer</h5>
@@ -74,7 +74,7 @@
 							<a href="#" class="applied">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Project Manager</h5>
@@ -95,7 +95,7 @@
 							<a href="#">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Office Assistant</h5>
@@ -116,7 +116,7 @@
 							<a href="#" class="hidden-job">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Web Designer</h5>
@@ -137,7 +137,7 @@
 							<a href="#" class="hidden-job">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Fron End Developer</h5>
@@ -158,7 +158,7 @@
 							<a href="#" class="hidden-job">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Back End Developer</h5>
@@ -179,7 +179,7 @@
 							<a href="#" class="hidden-job">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Project Manager</h5>
@@ -200,7 +200,7 @@
 							<a href="#" class="hidden-job">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://localhost:8080/resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
 										<h5>Office Assistant</h5>
@@ -242,6 +242,11 @@ import FeaturedJob from '@/components/jobs/FeaturedJob.vue'
 export default {
 	components: {
 		FeaturedJob
+	},
+	data(){
+		return{
+			baseUrl: window.location.origin
+		}
 	}
 }
 </script>
