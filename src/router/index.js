@@ -12,6 +12,7 @@ import CompanyView from '../views/CompanyView.vue'
 import BlogView from '../views/BlogView.vue'
 import PostView from '../views/PostView.vue'
 import TestimonialsView from '../views/TestimonialsView.vue'
+import OptionsView from '../views/OptionsView.vue'
 
 const routes = [
   {
@@ -73,6 +74,11 @@ const routes = [
     path: '/depoimentos',
     name: 'depoimentos',    
     component: TestimonialsView
+  },
+  {
+    path: '/opcoes',
+    name: 'opcoes',    
+    component: OptionsView
   }
 ]
 

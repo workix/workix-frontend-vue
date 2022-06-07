@@ -22,7 +22,7 @@
 							<li><a href="/postagem" @click="navigate('/postagem')">Postagem</a></li>
 							<li><a href="/sobre_nos" @click="navigate('/sobre_nos')">Sobre nós</a></li>
 							<li><a href="/depoimentos" @click="navigate('/depoimentos')">Depoimentos</a></li>
-							<li><a href="options.html">Opções</a></li>
+							<li><a href="/opcoes" @click="navigate('/opcoes')">Opções</a></li>
 						</ul>
 					</li>
 					<li><a class="link-register">Register</a></li>
