@@ -30,7 +30,7 @@
 
 							<div class="post row">
 								<div class="col-sm-2">
-									<img src="http://localhost:8080/resources/placeholder/140x140.jpg" alt="" class="img-responsive img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" alt="" class="img-responsive img-circle" />
 								</div>
 								<div class="col-sm-10">
 									<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
@@ -39,7 +39,7 @@
 										<span><i class="fa fa-calendar"></i>28/09/2015</span>
 										<span><i class="fa fa-comment"></i>24</span>
 									</div>
-									<p><img src="http://localhost:8080/resources/placeholder/800x530.jpg" alt="" class="img-responsive" /></p>
+									<p><img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" alt="" class="img-responsive" /></p>
 									<p>Proin eu erat tincidunt, scelerisque ipsum non, fringilla dolor. Quisque interdum congue tellus. Aliquam vel odio sit amet ex laoreet finibus. Etiam commodo purus tortor, sed interdum justo faucibus vitae. Praesent ac elit a felis luctus facilisis. Aenean et magna elit. Morbi eget nulla volutpat, egestas ex vel, blandit enim.</p>
 									<a href="post.html" class="btn btn-primary">Read more &nbsp; <i class="fa fa-arrow-right"></i></a>
 								</div>
@@ -49,7 +49,7 @@
 
 							<div class="post row">
 								<div class="col-sm-2">
-									<img src="http://localhost:8080/resources/placeholder/140x140.jpg" alt="" class="img-responsive img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" alt="" class="img-responsive img-circle" />
 								</div>
 								<div class="col-sm-10">
 									<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
@@ -58,7 +58,7 @@
 										<span><i class="fa fa-calendar"></i>24/09/2015</span>
 										<span><i class="fa fa-comment"></i>18</span>
 									</div>
-									<p><img src="http://localhost:8080/resources/placeholder/800x530.jpg" alt="" class="img-responsive" /></p>
+									<p><img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" alt="" class="img-responsive" /></p>
 									<p>Proin eu erat tincidunt, scelerisque ipsum non, fringilla dolor. Quisque interdum congue tellus. Aliquam vel odio sit amet ex laoreet finibus. Etiam commodo purus tortor, sed interdum justo faucibus vitae. Praesent ac elit a felis luctus facilisis. Aenean et magna elit. Morbi eget nulla volutpat, egestas ex vel, blandit enim.</p>
 									<a href="post.html" class="btn btn-primary">Read more &nbsp; <i class="fa fa-arrow-right"></i></a>
 								</div>
@@ -68,7 +68,7 @@
 
 							<div class="post row">
 								<div class="col-sm-2">
-									<img src="http://localhost:8080/resources/placeholder/140x140.jpg" alt="" class="img-responsive img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" alt="" class="img-responsive img-circle" />
 								</div>
 								<div class="col-sm-10">
 									<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
@@ -77,7 +77,7 @@
 										<span><i class="fa fa-calendar"></i>21/09/2015</span>
 										<span><i class="fa fa-comment"></i>8</span>
 									</div>
-									<p><img src="http://localhost:8080/resources/placeholder/800x530.jpg" alt="" class="img-responsive" /></p>
+									<p><img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" alt="" class="img-responsive" /></p>
 									<p>Proin eu erat tincidunt, scelerisque ipsum non, fringilla dolor. Quisque interdum congue tellus. Aliquam vel odio sit amet ex laoreet finibus. Etiam commodo purus tortor, sed interdum justo faucibus vitae. Praesent ac elit a felis luctus facilisis. Aenean et magna elit. Morbi eget nulla volutpat, egestas ex vel, blandit enim.</p>
 									<a href="post.html" class="btn btn-primary">Read more &nbsp; <i class="fa fa-arrow-right"></i></a>
 								</div>
@@ -87,7 +87,7 @@
 
 							<div class="post row">
 								<div class="col-sm-2">
-									<img src="http://localhost:8080/resources/placeholder/140x140.jpg" alt="" class="img-responsive img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" alt="" class="img-responsive img-circle" />
 								</div>
 								<div class="col-sm-10">
 									<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
@@ -96,7 +96,7 @@
 										<span><i class="fa fa-calendar"></i>17/09/2015</span>
 										<span><i class="fa fa-comment"></i>9</span>
 									</div>
-									<p><img src="http://localhost:8080/resources/placeholder/800x530.jpg" alt="" class="img-responsive" /></p>
+									<p><img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" alt="" class="img-responsive" /></p>
 									<p>Proin eu erat tincidunt, scelerisque ipsum non, fringilla dolor. Quisque interdum congue tellus. Aliquam vel odio sit amet ex laoreet finibus. Etiam commodo purus tortor, sed interdum justo faucibus vitae. Praesent ac elit a felis luctus facilisis. Aenean et magna elit. Morbi eget nulla volutpat, egestas ex vel, blandit enim.</p>
 									<a href="post.html" class="btn btn-primary">Read more &nbsp; <i class="fa fa-arrow-right"></i></a>
 								</div>
@@ -221,7 +221,12 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
-    }
+    },
+	data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	}
 }
 </script>
 
