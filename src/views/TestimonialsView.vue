@@ -26,7 +26,7 @@
 				<!-- Testimonial 1 -->
 				<div class="row">
 					<div class="col-sm-3 col-md-2">
-						<img src="http://localhost:8080/resources/placeholder/140x140.jpg" class="img-circle img-responsive" alt="testimonial" />
+						<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" class="img-circle img-responsive" alt="testimonial" />
 					</div>
 					<div class="col-sm-9 col-md-10">
 						<blockquote>
@@ -49,7 +49,7 @@
 				<!-- Testimonial 2 -->
 				<div class="row">
 					<div class="col-sm-3 col-md-2">
-						<img src="http://localhost:8080/resources/placeholder/140x140.jpg" class="img-circle img-responsive" alt="testimonial" />
+						<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" class="img-circle img-responsive" alt="testimonial" />
 					</div>
 					<div class="col-sm-9 col-md-10">
 						<blockquote>
@@ -73,7 +73,7 @@
 				<!-- Testimonial 3 -->
 				<div class="row">
 					<div class="col-sm-3 col-md-2">
-						<img src="http://localhost:8080/resources/placeholder/140x140.jpg" class="img-circle img-responsive" alt="testimonial" />
+						<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" class="img-circle img-responsive" alt="testimonial" />
 					</div>
 					<div class="col-sm-9 col-md-10">
 						<blockquote>
@@ -95,7 +95,7 @@
 				<!-- Testimonial 4 -->
 				<div class="row">
 					<div class="col-sm-3 col-md-2">
-						<img src="http://localhost:8080/resources/placeholder/140x140.jpg" class="img-circle img-responsive" alt="testimonial" />
+						<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" class="img-circle img-responsive" alt="testimonial" />
 					</div>
 					<div class="col-sm-9 col-md-10">
 						<blockquote>
@@ -137,7 +137,12 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
-    }
+    },
+	data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	}
 }
 </script>
 
