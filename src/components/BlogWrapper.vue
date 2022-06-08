@@ -4,13 +4,28 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-sm-12">
-						<h1>Latest News</h1>
-						<h4>Specially crafted job posts everyday</h4>
+						<h1>Últimas notícias</h1>
+						<h4>Fique por dentro do mundo Empresarial</h4>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<div class="owl-carousel">
+						<div class="owl-carousel">							
+
+							<!-- Blog post  -->
+							<!-- TODO FIX ME -->
+							<!--
+							<div v-for="(b,i) in blogs" :key="i">
+								<img :src="b.pictures[0]" class="img-responsive" alt="Blog Post" />
+								<h4>{{b.title}}</h4>
+								<h5>
+									<span><i class="fa fa-calendar"></i>{{new Date(b.date).toLocaleString("pt-BR")}}</span>
+									<span><i class="fa fa-comment"></i>8 Comments</span>
+								</h5>
+								<p>{{b.resume}}</p>
+								<p><a :href="`/postagem?id=${b.id}`" class="btn btn-primary">Leia Mais</a></p>
+							</div>
+							-->
 
 							<!-- Blog post 1 -->
 							<div>
@@ -84,8 +99,18 @@
 export default {
 	data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: window.location.origin,
+			blogs: []
 		}
+	},
+	methods:{
+		getBlogPosts(start, max){
+			return this.$http.get(`http://localhost:8080/workix/services/v1/blogs?start=${start}&max=${max}`)
+		}
+	},
+	async created(){
+		const {data} = await this.getBlogPosts(0,5)
+		this.blogs = data
 	}
 }
 </script>
