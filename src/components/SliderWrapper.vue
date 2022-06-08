@@ -10,9 +10,9 @@
 						<div class="bg-img bg-img-1"></div>
 						<div class="tint"></div>
 						<div class="slide-content">
-							<h2>Looking for a job?</h2>
-							<h3>There’s no better place to start</h3>
-							<p><a href="jobs.html" class="btn btn-lg btn-default">Find a job</a></p>
+							<h2>Procurando emprego?</h2>
+							<h3>Não há lugar melhor para começar</h3>
+							<p><a href="/vagas" class="btn btn-lg btn-default">Encontre Vagas</a></p>
 						</div>
 					</div>
 				</div>
@@ -22,9 +22,9 @@
 						<div class="bg-img bg-img-2"></div>
 						<div class="tint"></div>
 						<div class="slide-content">
-							<h2>Need an employee?</h2>
-							<h3>We've got perfect candidates</h3>
-							<p><a href="candidates.html" class="btn btn-lg btn-default">Post a job</a></p>
+							<h2>Precisa de um empregado?</h2>
+							<h3>Temos candidatos perfeitos</h3>
+							<p><a href="/candidatos" class="btn btn-lg btn-default">Publicar uma Vaga</a></p>
 						</div>
 					</div>
 				</div>
@@ -34,9 +34,9 @@
 						<div class="bg-img bg-img-3"></div>
 						<div class="tint"></div>
 						<div class="slide-content">
-							<h2>Evolving your career?</h2>
-							<h3>Find new opportunities here</h3>
-							<p><a href="jobs.html" class="btn btn-lg btn-default">Find a job</a></p>
+							<h2>Evoluindo sua carreira?</h2>
+							<h3>Encontre novas oportunidades aqui</h3>
+							<p><a href="/vagas" class="btn btn-lg btn-default">Procurar Vagas</a></p>
 						</div>
 					</div>
 				</div>
@@ -46,9 +46,9 @@
 						<div class="bg-img bg-img-4"></div>
 						<div class="tint"></div>
 						<div class="slide-content">
-							<h2>Extending your team?</h2>
-							<h3>Find a perfect match</h3>
-							<p><a href="candidates.html" class="btn btn-lg btn-default">Find a cadidate</a></p>
+							<h2>Estendendo sua equipe?</h2>
+							<h3>Encontre uma combinação perfeita</h3>
+							<p><a href="/candidatos" class="btn btn-lg btn-default">Encontre um Candidato</a></p>
 						</div>
 					</div>
 				</div>
@@ -56,8 +56,8 @@
 			</div>
 
 			<nav id="nav-arrows" class="nav-arrows">
-				<span class="nav-arrow-prev">Previous</span>
-				<span class="nav-arrow-next">Next</span>
+				<span class="nav-arrow-prev">Anterior</span>
+				<span class="nav-arrow-next">Próximo</span>
 			</nav>
 
 			<nav id="nav-dots" class="nav-dots">
