@@ -89,9 +89,11 @@
 </template>
 
 <script>
+// eslint-disable-next-line 
 import BlogPost from '@/components/blogs/BlogPost.vue'
 export default {
 	components:{
+		// eslint-disable-next-line 
 		BlogPost
 	},
 	data(){
