@@ -9,7 +9,7 @@
 						<h4>Quantas Pessoas Estamos Ajudando</h4>
 					</div>
 				</div>
-				<div class="row" id="counter" v-if="this.members && this.jobs && this.resumes && this.companies">
+				<div class="row" id="counter" v-if="this.members > 0 || this.jobs > 0 || this.resumes > 0 || this.companies > 0">
 					
 					<div class="counter">
 						<div class="number">{{this.members}}</div>
@@ -46,10 +46,10 @@
 export default {
 	data() {
 		return {
-			members: null,
-			jobs: null,
-			resumes: null,
-			companies: null
+			members: 0,
+			jobs: 0,
+			resumes: 0,
+			companies: 0
 		}
 	},
 	methods: {
