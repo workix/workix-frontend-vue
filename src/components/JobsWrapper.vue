@@ -5,7 +5,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8">
-						<h2>Recent Jobs</h2>
+						<h2>Vagas Recentes</h2>
 						<!-- JOBS -->
 						<div class="jobs"> 
 							<a href="#" class="featured applied">
@@ -221,13 +221,13 @@
 						<!-- JOBS END -->
 
 						<a class="btn btn-primary" id="more-jobs">
-							<span class="more">Show More Jobs <i class="fa fa-arrow-down"></i></span>
-							<span class="less">Show Less Jobs <i class="fa fa-arrow-up"></i></span>
+							<span class="more">Mostrar mais Vagas <i class="fa fa-arrow-down"></i></span>
+							<span class="less">Mostrar menos Vagas <i class="fa fa-arrow-up"></i></span>
 						</a>
 
 					</div>
 					<div class="col-sm-4">
-						<h2>Featured Jobs</h2>
+						<h2>Vagas em Destaque</h2>
 							<FeaturedJob />
 					</div>
 				</div>
@@ -252,5 +252,8 @@ export default {
 </script>
 
 <style>
-
+	.jobs a {
+		margin: 0 !important;	
+		display: "inline-block" !important	
+	}
 </style>
