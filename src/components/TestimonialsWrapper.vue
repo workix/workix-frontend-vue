@@ -9,6 +9,25 @@
 						<h4>Kind words from happy members</h4>
 						<div class="owl-carousel">
 
+							<!-- Testimonial -->
+							<!-- TODO FIX ME -->
+							<!--
+							<div v-for="(t,i) in testimonials" :key="i">
+								<div class="col-sm-3 col-md-2">
+									<img :src="t.picture" class="img-circle img-responsive" alt="testimonial" />
+								</div>
+								<div class="col-sm-9 col-md-10">
+									<blockquote>
+										<p>{{t.text}}</p>
+										<footer>
+											{{t.author.name}}
+											<cite :title="t.signature">{{t.signature}}</cite>
+										</footer>
+									</blockquote>
+								</div>
+							</div>	
+							-->
+
 							<!-- Testimonial 1 -->
 							<div>
 								<div class="col-sm-3 col-md-2">
@@ -89,8 +108,18 @@
 export default {
 	data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: window.location.origin,
+			testimonials: []
 		}
+	},
+	methods: {
+		async getTestimonials(start, max){
+			const { data } = await this.$http.get(`http://localhost:8080/workix/services/v1/testimonials?start=${start}&max=${max}`)
+			this.testimonials = data			
+		}
+	},
+	async created(){
+		await this.getTestimonials(0,9)
 	}
 }
 </script>
