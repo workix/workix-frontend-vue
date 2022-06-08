@@ -4,18 +4,36 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<h2>How does it work</h2>
+						<h2>COMO TUDO FUNCIONA</h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-6">
-						<p>Curabitur et lorem a massa tempus aliquam. Aenean aliquam volutpat gravida. Pellentesque in neque nec tortor sagittis tempor quis in lectus. Vestibulum vehicula aliquet elit ut porta. Sed ipsum felis, interdum blandit purus sed, volutpat ultricies sem. Maecenas feugiat, lectus vitae luctus feugiat, nulla nisl dignissim velit, nec malesuada ligula orci et metus. In vulputate laoreet luctus.</p>
-						<p>Sed hendrerit ligula tortor, eget iaculis velit vestibulum a. Phasellus convallis nisl pretium nisi porttitor, eu scelerisque mauris consectetur. Fusce pretium, dui placerat laoreet consectetur, nibh diam accumsan enim, sed fringilla turpis quam quis ex. Mauris a rhoncus tortor, a cursus urna. Sed et condimentum quam. Nunc dictum erat ut ante aliquam porttitor. Donec diam eros, bibendum et scelerisque egestas, aliquet ut nulla.</p>
-						<p><a href="about.html" class="btn btn-primary">Learn More</a></p>
+						<p>Cansado de participar de processos seletivos e nem ao menos
+						receber feedback das propostas de empregos que existem por aí?</p>
+
+						<p>Milhões de padrões, métricas e regras para seguir, e todas
+						elas sem fundamento algum... Quem as define? Afinal o que é o
+						certo, o que é o errado? Qual você deve seguir?</p>
+
+						<p>E se as informações do seu currículum fossem transformadas em
+						dados relevantes para ajudar na sua contratação?</p> 
+						
+						<p>Você só precisa preencher os campos com informações importantes de sua
+						carreira. O sistema se encarrega do restante; </p>
+					
+						<p>Sem preocupações com o Layout do seu Currículum, se a letra está no
+						padrão agradável para o recrutador X e Y. </p>
+						
+						<p>Queremos trazer a simplicidade e inserir a ajuda da tecnologia no procedimento
+						engessado de recrutamento e seleção.</p>
+						<p><a href="/sobre_nos" class="btn btn-primary">Leia Mais</a></p>
 					</div>
 					<div class="col-sm-6">
 						<div class="video-wrapper">
-							<iframe src="https://player.vimeo.com/video/121698707" allowfullscreen></iframe>
+							<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/VqHbQ-WwMfk" frameborder="0"
+							allowfullscreen="true"></iframe>
 						</div>
 					</div>
 				</div>
