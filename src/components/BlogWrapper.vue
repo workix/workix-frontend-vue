@@ -14,18 +14,11 @@
 
 							<!-- Blog post  -->
 							<!-- TODO FIX ME -->
-							<!--
-							<div v-for="(b,i) in blogs" :key="i">
-								<img :src="b.pictures[0]" class="img-responsive" alt="Blog Post" />
-								<h4>{{b.title}}</h4>
-								<h5>
-									<span><i class="fa fa-calendar"></i>{{new Date(b.date).toLocaleString("pt-BR")}}</span>
-									<span><i class="fa fa-comment"></i>8 Comments</span>
-								</h5>
-								<p>{{b.resume}}</p>
-								<p><a :href="`/postagem?id=${b.id}`" class="btn btn-primary">Leia Mais</a></p>
-							</div>
-							-->
+							<!-- 
+								<template v-for="(b,i) in blogs" :key="i">
+									<BlogPost :blog="b" />
+								</template>
+							-->							
 
 							<!-- Blog post 1 -->
 							<div>
@@ -96,7 +89,11 @@
 </template>
 
 <script>
+import BlogPost from '@/components/blogs/BlogPost.vue'
 export default {
+	components:{
+		BlogPost
+	},
 	data(){
 		return{
 			baseUrl: window.location.origin,
