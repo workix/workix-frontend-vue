@@ -21,7 +21,7 @@
 					</div>
 					<div class="col-sm-4">
 						<h2>Vagas em Destaque</h2>
-							<FeaturedJob />
+							<FeaturedJob :job="featuredJob" v-if="featuredJob"/>
 					</div>
 				</div>
 			</div>
@@ -42,20 +42,23 @@ export default {
 		return{
 			baseUrl: window.location.origin,
 			defaultJobs: [],
-			featuredJobs: []
+			featuredJob: null
 		}
 	},
 	methods:{
 		getJobs(featured) {
 			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/feature?start=0&max=10&feature=${featured}`)
+		},
+		getRandomFeaturedJob(){
+			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/random_featured`)
 		}
 	},
 	async created(){
 		const defaults = await this.getJobs(false)
-		const featureds = await this.getJobs(true)
+		const featureds = await this.getRandomFeaturedJob()
 
 		this.defaultJobs = defaults.data
-		this.featuredJobs = featureds.data
+		this.featuredJob = featureds.data
 	}
 }
 </script>
