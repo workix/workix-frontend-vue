@@ -5,29 +5,30 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<h1>Testimonials</h1>
-						<h4>Kind words from happy members</h4>
+						<h1>Depoimentos</h1>
+						<h4>Algumas palavras de Candidatos Satisfeitos</h4>
 						<div class="owl-carousel">
 
 							<!-- Testimonial -->
 							<!-- TODO FIX ME -->
 							<!--
 							<div v-for="(t,i) in testimonials" :key="i">
-								<div class="col-sm-3 col-md-2">
-									<img :src="t.picture" class="img-circle img-responsive" alt="testimonial" />
-								</div>
-								<div class="col-sm-9 col-md-10">
-									<blockquote>
-										<p>{{t.text}}</p>
-										<footer>
-											{{t.author.name}}
-											<cite :title="t.signature">{{t.signature}}</cite>
-										</footer>
-									</blockquote>
-								</div>
-							</div>	
+								
+									<div class="col-sm-3 col-md-2">
+										<img :src="t.picture" class="img-circle img-responsive" alt="testimonial" />
+									</div>
+									<div class="col-sm-9 col-md-10">
+										<blockquote>
+											<p>{{t.text}}</p>
+											<footer>
+												{{t.author.name}}
+												<cite :title="t.signature">{{t.signature}}</cite>
+											</footer>
+										</blockquote>
+									</div>
+								
+							</div>
 							-->
-
 							<!-- Testimonial 1 -->
 							<div>
 								<div class="col-sm-3 col-md-2">
@@ -94,9 +95,10 @@
 									</blockquote>
 								</div>
 							</div>
+							
 
 						</div>
-						<p><a href="testimonials.html" class="btn btn-primary">Read All</a></p>
+						<p><a href="/depoimentos" class="btn btn-primary">Ler Todos</a></p>
 					</div>
 				</div>
 			</div>
@@ -119,7 +121,7 @@ export default {
 		}
 	},
 	async created(){
-		await this.getTestimonials(0,9)
+		await this.getTestimonials(0,4)
 	}
 }
 </script>
