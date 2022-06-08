@@ -1,20 +1,20 @@
 <template>
-    <a href="#" class="featured applied">
+    <a href="#" :class="isHidden()">
         <div class="row">
             <div class="col-md-1 hidden-sm hidden-xs">
-                <img src="./resources/placeholder/60x60.jpg" alt="" class="img-responsive" />
+                <img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
             </div>
             <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-                <h5>Web Designer</h5>
-                <p><strong>Amazon Inc.</strong> Company slogan goes here</p>
+                <h5>{{job.title}}</h5>
+                <p><strong>{{job.company.name}}</strong> {{job.segment}}</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-                <p><strong>New York City, NY, USA</strong></p>
+                <p><strong>{{job.company.locale.city}}, {{job.company.locale.estate}}</strong></p>
                 <p class="hidden-xs">126.3 miles away</p>
             </div>
             <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-                <p class="job-salary"><strong>$128,000</strong></p>
-                <p class="badge full-time">Full time</p>
+                <p class="job-salary"><strong>R$ {{job.maxPayment.toFixed(2)}}</strong></p>
+                <p :class="badge(job.jobType)">{{job.jobType}}</p>
             </div>
         </div>
     </a>
@@ -37,12 +37,39 @@ class="badge internship" -->
 <script>
 export default {
     props: {
-        type: String,
-        badge: String
+        job: Object
+    },
+    data(){
+		return{
+			baseUrl: window.location.origin
+		}
+	},
+    methods:{
+        isHidden(){
+            return this.job.active ? 'applied' : 'hidden-job'
+        },
+        badge(jobType){
+            switch (jobType) {
+                case "FULLTIME":
+                    return "badge full-time"               
+                case "PARTTIME":
+                    return "badge part-time"
+                case "FREELANCE":
+                    return "badge freelance"
+                case "TEMPORARY":
+                    return "badge temporary"    
+                case "INTERNSHIP":
+                    return "badge internship"        
+                default:
+                    return
+            }
+        }
     }
 }
 </script>
 
 <style>
-
+  .jobs a {
+    display: "inline-block" !important;        
+}
 </style>
