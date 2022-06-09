@@ -6,7 +6,7 @@
       <SliderWrapper />
       <JobsWrapper /> 
       <CompaniesWrapper />
-      <StatsWrapper />
+      <StatsWrapperAsync />
       <HowItWorks />
       <MobileApp />
       <PricingWrapper />
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import { useToast } from "vue-toastification";
 import PageLoader from '@/components/PageLoader.vue'
 import NavBar from '@/components/NavBar.vue'
@@ -28,7 +29,7 @@ import HeaderBar from '@/components/HeaderBar.vue'
 import SliderWrapper from '@/components/SliderWrapper.vue'
 import JobsWrapper from "@/components/JobsWrapper.vue"
 import CompaniesWrapper from "@/components/CompaniesWrapper.vue"
-import StatsWrapper from '@/components/StatsWrapper.vue'
+// import StatsWrapper from '@/components/StatsWrapper.vue'
 import HowItWorks from '@/components/HowItWorks.vue'
 import MobileApp from '@/components/MobileApp.vue'
 import PricingWrapper from '@/components/PricingWrapper.vue'
@@ -47,7 +48,7 @@ export default {
         SliderWrapper,
         JobsWrapper,
         CompaniesWrapper,
-        StatsWrapper,
+        StatsWrapperAsync: defineAsyncComponent({loader: () => import('@/components/StatsWrapper.vue'), delay: 7000, timeout: 3000}),
         HowItWorks,
         MobileApp,
         PricingWrapper,
