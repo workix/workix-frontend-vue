@@ -74,7 +74,14 @@ export default {
 
       // Make it available inside methods
       return { toast }
-    }
+    },
+    created(){
+      
+        let ckeditor = document.createElement('script');  
+        ckeditor.setAttribute('src',"js/settings.js");
+        document.head.appendChild(ckeditor);
+      
+    }    
 }
 </script>
 

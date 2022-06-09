@@ -7,11 +7,11 @@
 						<h2>Nossa Equipe</h2>
 						<div class="owl-carousel">
 								<!-- Team Member-->
-								<stub>
-									<div v-for="(m,i) in members" :key="i" >
-										<TeamMemberAsync :member="m" />							
-									</div>
-								</stub>
+								
+									<template v-for="(m,i) in members" :key="i" >
+										<TeamMember :member="m" />							
+									</template>
+								
 						</div>
 					</div>
 				</div>
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
+import TeamMember from '@/components/TeamMember.vue'
 
 export default {
 	components:{
-		TeamMemberAsync: defineAsyncComponent(() => import('@/components/TeamMember.vue'))
+		TeamMember
 	},
 	data(){
 		return{						
