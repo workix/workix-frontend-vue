@@ -4,7 +4,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<h2>Featured Companies</h2>
+						<h2>Empresas em Destaque</h2>
 						<ul id="featured-companies" class="row">
 							
 							<li class="col-sm-4 col-md-3" v-for="(o,i) in logos" :key="i">

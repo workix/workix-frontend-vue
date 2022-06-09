@@ -4,28 +4,29 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6">
-						<h2>Drop us a line</h2>
-						<form role="form" name="contact-form" id="contact-form" action="process.php">
+						<h2>Deixe-nos uma mensagem</h2>
+						<form role="form" name="contact-form" id="contact-form">
 							<div class="form-group" id="contact-name-group">
-								<label for="contact-name" class="sr-only">Name</label>
-								<input type="text" class="form-control" id="contact-name" placeholder="Name">
+								<label for="contact-name" class="sr-only">Nome</label>
+								<input type="text" class="form-control" id="contact-name" placeholder="Nome">
 							</div>
 							<div class="form-group" id="contact-email-group">
 								<label for="contact-email" class="sr-only">Email</label>
 								<input type="email" class="form-control" id="contact-email" placeholder="Email">
 							</div>
 							<div class="form-group" id="contact-subject-group">
-								<label for="contact-subject" class="sr-only">Subject</label>
-								<input type="text" class="form-control" id="contact-subject" placeholder="Subject">
+								<label for="contact-subject" class="sr-only">Assunto</label>
+								<input type="text" class="form-control" id="contact-subject" placeholder="Assunto">
 							</div>
 							<div class="form-group" id="contact-message-group">
-								<label for="contact-message" class="sr-only">Message</label>
-								<textarea class="form-control" rows="3" id="contact-message"></textarea>
+								<label for="contact-message" class="sr-only">Mensagem</label>
+								<textarea class="form-control" rows="3" id="contact-message" placeholder="Mensagem"></textarea>
 							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
+							<button type="submit" class="btn btn-default">Enviar Mensagem</button>
 						</form>
 					</div>
 					<div class="col-sm-6">
+						<!--
 						<h2>Visit our office</h2>
 						<div class="row">
 							<div class="col-sm-6">
@@ -52,8 +53,8 @@
 								<i class="fa fa-clock-o"></i>Sat 10am - 2pm<br>
 								<i class="fa fa-clock-o"></i>Sun Closed</p>
 							</div>
-						</div>
-					</div>
+						</div> -->
+					</div> <!--  col sm 6 -->
 				</div>
 			</div>
 		</section>
