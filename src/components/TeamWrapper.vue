@@ -7,11 +7,11 @@
 						<h2>Nossa Equipe</h2>
 						<div class="owl-carousel">
 								<!-- Team Member-->
-								<Suspend>
-								<div v-for="(m,i) in members" :key="i" >
-									<TeamMemberAsync :member="m" />							
-								</div>
-								</Suspend>
+								<stub>
+									<div v-for="(m,i) in members" :key="i" >
+										<TeamMemberAsync :member="m" />							
+									</div>
+								</stub>
 						</div>
 					</div>
 				</div>
