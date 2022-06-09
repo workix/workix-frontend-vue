@@ -4,39 +4,15 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-sm-12">
-						<h1>Happy Clients</h1>
-						<h4>Some of the many companies we’ve helped</h4>
+						<h1>Clientes Satisfeitos</h1>
+						<h4>ALGUMAS DAS MUITAS EMPRESAS QUE JÁ AJUDAMOS</h4>
 						<div class="owl-carousel">
 							
-							<!-- Logo 1 -->
-							<div>
-								<a href="company.html"><img :src="`${baseUrl}/resources/placeholder/133x69.gif`" alt="" /></a>
+							<!-- Logo -->
+							<div v-for="(c,i) in companies" :key="i">
+								<a :href="`/empresa?id=${c.id}`"><img :src="c.logo" alt="" /></a>
 							</div>
 							
-							<!-- Logo 2 -->
-							<div>
-								<a href="company.html"><img :src="`${baseUrl}/resources/placeholder/133x69.gif`" alt="" /></a>
-							</div>
-							
-							<!-- Logo 3 -->
-							<div>
-								<a href="company.html"><img :src="`${baseUrl}/resources/placeholder/133x69.gif`" alt="" /></a>
-							</div>
-							
-							<!-- Logo 4 -->
-							<div>
-								<a href="company.html"><img :src="`${baseUrl}/resources/placeholder/133x69.gif`" alt="" /></a>
-							</div>
-							
-							<!-- Logo 5 -->
-							<div>
-								<a href="company.html"><img :src="`${baseUrl}/resources/placeholder/133x69.gif`" alt="" /></a>
-							</div>
-							
-							<!-- Logo 6 -->
-							<div>
-								<a href="company.html"><img :src="`${baseUrl}/resources/placeholder/133x69.gif`" alt="" /></a>
-							</div>
 
 						</div>
 					</div>
@@ -50,7 +26,15 @@
 export default {
 	data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: window.location.origin,
+			companies: [
+				{id: 1, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
+				{id: 2, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
+				{id: 3, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
+				{id: 4, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
+				{id: 5, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
+				{id: 6, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
+			]
 		}
 	}
 }
