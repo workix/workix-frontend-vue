@@ -46,9 +46,9 @@ export default {
         RegisterPopup
     },
     created(){
-	  let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
+      let ckeditor = document.createElement('script');  
+      ckeditor.setAttribute('src',"js/settings.js");
+      document.head.appendChild(ckeditor);
   }
 }
 </script>
