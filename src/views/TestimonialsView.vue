@@ -142,7 +142,12 @@ export default {
 		return{
 			baseUrl: window.location.origin
 		}
-	}
+	},
+	created(){
+	let ckeditor = document.createElement('script');  
+    ckeditor.setAttribute('src',"js/settings.js");
+    document.head.appendChild(ckeditor);
+  }
 }
 </script>
 

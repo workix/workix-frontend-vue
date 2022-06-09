@@ -52,7 +52,12 @@ export default {
         HaveAnAccount,
         JobDetailsForm,
         CompanyDetailsForm,
-    }
+    },
+	created(){
+	let ckeditor = document.createElement('script');  
+    ckeditor.setAttribute('src',"js/settings.js");
+    document.head.appendChild(ckeditor);
+  }
 }
 </script>
 

@@ -44,7 +44,12 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
-    }
+    },
+    created(){
+	  let ckeditor = document.createElement('script');  
+    ckeditor.setAttribute('src',"js/settings.js");
+    document.head.appendChild(ckeditor);
+  }
 }
 </script>
 
