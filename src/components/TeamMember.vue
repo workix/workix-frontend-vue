@@ -8,8 +8,7 @@
         <p>
             <template v-for="(media,idx) in member.medias" :key="idx">
                 <a :href="media.url"><i :class="getClass(media.media)"></i></a>&nbsp;&nbsp;&nbsp;
-            </template>	
-            
+            </template>	            
         </p>
     </div>
 </template>
