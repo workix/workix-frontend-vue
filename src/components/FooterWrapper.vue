@@ -34,8 +34,8 @@
 				<div class="container text-center">
 					<div class="row">
 						<div class="col-sm-12" style="color: white;">
-							&copy; 2015 Jobseek - Responsive Job Board HTML Template<br>
-							Designed &amp; Developed by <a href="http://themeforest.net/user/Coffeecream" target="_blank">Coffeecream Themes</a>
+							&copy; {{new Date().getFullYear()}} Workix - Plataforma de Empregos Totalmente Grátis<br>
+							Desenvolvido por <a href="https://github.com/frmichetti" target="_blank">Felipe Rodrigues Michetti</a>
 						</div>
 					</div>
 				</div>
