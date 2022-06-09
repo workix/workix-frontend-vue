@@ -5,24 +5,27 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6" id="newsletter">
-							<h2>Newsletter</h2>
+							<h2>BOLETIM INFORMATIVO</h2>
 							<form class="form-inline">
 								<div class="form-group">
-									<label class="sr-only" for="newsletter-email">Email address</label>
-									<input type="email" class="form-control" id="newsletter-email" placeholder="Email address">
+									<label class="sr-only" for="newsletter-email">Email</label>
+									<input type="email" class="form-control" id="newsletter-email" placeholder="Insira seu email para receber as novidades">
 								</div>
-								<button type="submit" class="btn btn-primary">Sign up</button>
+								<button type="submit" class="btn btn-primary">Assinar</button>
 							</form>
 						</div>
 						<div class="col-sm-6" id="social-networks">
-							<h2>Get in touch</h2>
-							<a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+							<h2>ENTRE EM CONTATO</h2>
+							<a href="https://github.com/frmichetti/workix"><i class="fa fa-2x fa-github-square"></i></a>
+							<a href="https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F"><i class="fa fa-2x fa-youtube-square"></i></a>
+							<!--
 							<a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
 							<a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-youtube-square"></i></a>
+							
 							<a href="#"><i class="fa fa-2x fa-vimeo-square"></i></a>
 							<a href="#"><i class="fa fa-2x fa-pinterest-square"></i></a>
 							<a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+							-->
 						</div>
 					</div>
 				</div>
