@@ -11,10 +11,10 @@
 					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
 				</div>
 				<div id="searchbox" class="pull-right">
-					<form>
+					<form @submit.prevent="sendToSearcher">
 						<div class="form-group">
 							<label class="sr-only" for="searchfield">Searchbox</label>
-							<input type="text" class="form-control" id="searchfield" placeholder="Procurando por ?">
+							<input v-model="keyword" type="text" class="form-control" id="searchfield" placeholder="Procurando por ?">							
 						</div>
 					</form>
 				</div>
@@ -30,7 +30,18 @@
 
 <script>
 export default {
-
+	data(){
+		return {
+			keyword: ""
+		}
+	},
+	methods:{
+		sendToSearcher(){
+			// this.$router.push({path: `/localizar`, query: {keyword: this.keyword} });
+			//this.$router.go({path: `/localizar?keyword=${this.keyword}`,  force: true})
+			window.location.href = `/localizar?keyword=${this.keyword}`;
+		}
+	}
 }
 </script>
 

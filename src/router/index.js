@@ -15,6 +15,7 @@ import BlogView from '../views/BlogView.vue'
 import PostView from '../views/PostView.vue'
 import TestimonialsView from '../views/TestimonialsView.vue'
 import OptionsView from '../views/OptionsView.vue'
+import SearchView from '../views/SearchView.vue'
 
 const routes = [
   {
@@ -91,7 +92,12 @@ const routes = [
     path: '/opcoes',
     name: 'opcoes',    
     component: OptionsView
-  }
+  },
+  {
+    path: '/localizar',
+    name: 'localizar',
+    component: SearchView
+  },
 ]
 
 const router = createRouter({
