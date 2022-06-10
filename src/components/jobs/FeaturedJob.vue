@@ -1,5 +1,5 @@
 <template>
-    <a href="#">
+    <a :href="`/detalhes_vaga?id=${job.id}`">
         <img :src="`${baseUrl}/resources/placeholder/400x265.jpg`" alt="Featured Job" class="img-responsive" />
         <div class="featured-job">
             <img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />

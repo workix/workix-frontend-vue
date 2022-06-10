@@ -5,15 +5,15 @@
     <HeaderBar />
 
     <!-- ============ TITLE START ============ -->
-		<section id="title">
+		<section id="title" v-if="jobId != null && jobId > 0 && job != null">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1>Senior Back End Developer</h1>
+						<h1>{{job.title}}</h1>
 						<h4>
-							<span><i class="fa fa-map-marker"></i>Chicago</span>
-							<span><i class="fa fa-clock-o"></i>Full time</span>
-							<span><i class="fa fa-dollar"></i>50,000-75,000</span>
+							<span><i class="fa fa-map-marker"></i>{{job.company.locale.city}}</span>
+							<span><i class="fa fa-clock-o"></i>{{job.jobType}}</span>
+							<span><i class="fa fa-dollar"></i>R$ {{job.minPayment.toFixed(2)}} - {{job.maxPayment.toFixed(2)}}</span>
 						</h4>
 					</div>
 				</div>
@@ -21,17 +21,23 @@
 		</section>
     <!-- ============ TITLE END ============ -->
 
+		<section v-else>
+			<h1> Job Id is not Defined</h1>
+		</section>	
+
+
     <!-- ============ CONTENT START ============ -->
-		<section id="jobs">
+		<section id="jobs" v-if="jobId != null && jobId > 0 && job != null">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8">
 						<article>
-							<h2>Job Details</h2>
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
-							<h3>Requirements</h3>
-							<ul>
+							<h2>Detalhes da Vaga</h2>
+							<p>{{job.description}}</p>
+							
+							<h3>Requisitos</h3>
+								<template v-if="job.requirement">{{job.requirement}}</template>
+							<ul v-else>
 								<li>Aliquam rhoncus justo eget tellus scelerisque, at mollis mi aliquam.</li>
 								<li>Quisque pretium convallis pulvinar.</li>
 								<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
@@ -40,8 +46,9 @@
 								<li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
 								<li>Morbi rhoncus luctus interdum.</li>
 							</ul>
-							<h3>Benefits</h3>
-							<ul>
+							<h3>Benefícios</h3>
+								<template v-if="job.benefits">{{job.benefits}}</template>
+							<ul v-else>								
 								<li>Aliquam rhoncus justo eget tellus scelerisque, at mollis mi aliquam.</li>
 								<li>Quisque pretium convallis pulvinar.</li>
 								<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
@@ -50,18 +57,18 @@
 								<li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
 								<li>Morbi rhoncus luctus interdum.</li>
 							</ul>
-							<h3>How to apply</h3>
-							<p>Vivamus pulvinar <a href="mailto:hr@netvibes.com">hr@netvibes.com</a> lobortis placerat. Cras non est nibh. In a quam id justo aliquam elementum. In cursus urna ac sem tincidunt aliquet. Vivamus a aliquet purus, luctus tincidunt orci.</p>
+							<h3>Como se Candidatar</h3>
+							<p>Vivamus pulvinar <a :href="`mailto:${job.company.user.email}`">{{job.company.user.email}}</a> lobortis placerat. Cras non est nibh. In a quam id justo aliquam elementum. In cursus urna ac sem tincidunt aliquet. Vivamus a aliquet purus, luctus tincidunt orci.</p>
 							<p>
-								<a href="#" class="btn btn-primary btn-lg">Apply Here</a>
+								<a href="#" class="btn btn-primary btn-lg">Candidatar Aqui</a>
 								&nbsp;
-								<a href="#" class="btn btn-default btn-lg">Apply via LinkedIn</a>
+								<a href="#" class="btn btn-default btn-lg">Candidatar via LinkedIn</a>
 							</p>
 						</article>
 					</div>
 					<div class="col-sm-4" id="sidebar">
 						<div class="sidebar-widget" id="share">
-							<h2>Share this job</h2>
+							<h2>Compartilhe essa Vaga</h2>
 							<ul>
 								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-twitter"></i></a></li>
@@ -71,18 +78,17 @@
 						</div>
 						<hr>
 						<div class="sidebar-widget" id="company">
-							<h2>About this company</h2>
+							<h2>Sobre essa Empresa</h2>
 							<p><img :src="`${baseUrl}/resources/placeholder/300x109.gif`" alt="" class="img-responsive"></p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique euismod lorem, a consequat orci consequat a. Donec ullamcorper tincidunt nunc, ut aliquam est pellentesque porta. In neque erat, malesuada sit amet orci ac, laoreet laoreet mauris.</p>
-							<p><a href="company.html" class="btn btn-primary">Read more</a></p>
+							<p>{{job.company.description}}</p>
+							<p><a :href="`/empresa?id=${job.company.id}`" class="btn btn-primary">Leia mais</a></p>
 						</div>
 						<hr>
 						<div class="sidebar-widget" id="company-jobs">
-							<h2>More jobs from this company</h2>
+							<h2>Mais vagas desta Empresa</h2>
 							<ul>
-								<li><a href="#">Senior Web Designer</a></li>
-								<li><a href="#">Junior System Administrator</a></li>
-								<li><a href="#">Key Account Manager</a></li>
+								<li v-for="(j,i) in jobs" :key="i"><a :href="`/detalhes_vaga?id=${j.id}`">{{j.title}}</a></li>
+								
 							</ul>
 						</div>
 					</div>
@@ -117,13 +123,34 @@ export default {
     },
 	data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: window.location.origin,
+			jobId:0,
+			job: null,
+			jobs: []
 		}
 	},
-	created(){
+	methods: {
+		getJob(){
+			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/${this.jobId}`)
+		},
+		getJobsFromCompany(){
+			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/company/${this.job.company.id}`)
+		}
+	},
+	async created(){
 	let ckeditor = document.createElement('script');  
     ckeditor.setAttribute('src',"js/settings.js");
     document.head.appendChild(ckeditor);
+	
+	this.jobId = this.$route.query.id
+	const {data} = await this.getJob()
+	this.job = data
+
+	const resp = await this.getJobsFromCompany()
+	this.jobs = resp.data.filter(i => i.id != this.job.id)
+  },
+  async mounted(){
+	
   }
 }
 </script>
