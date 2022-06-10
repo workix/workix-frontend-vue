@@ -6,10 +6,10 @@
 					<div class="row">
 						<div class="col-sm-6" id="newsletter">
 							<h2>BOLETIM INFORMATIVO</h2>
-							<form class="form-inline">
+							<form class="form-inline" @submit.prevent="sendToSubscribers">
 								<div class="form-group">
 									<label class="sr-only" for="newsletter-email">Email</label>
-									<input type="email" class="form-control" id="newsletter-email" placeholder="Insira seu email para receber as novidades">
+									<input v-model="email" type="email" class="form-control" id="newsletter-email" placeholder="Insira seu email para receber as novidades">
 								</div>
 								<button type="submit" class="btn btn-primary">Assinar</button>
 							</form>
@@ -45,8 +45,38 @@
 </template>
 
 <script>
+import { useToast } from "vue-toastification";
 export default {
+	setup(){
+		// Get toast interface
+		const toast = useToast();
 
+		return {toast}
+	},
+	data(){
+		return {
+			email: ""
+		}
+	},
+	methods:{
+		validateEmail: email => {
+			const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			return String(email).toLowerCase().match(regex)
+				},
+		async sendToSubscribers(){
+			if (this.validateEmail(this.email) == null){
+				this.toast.warning("Please enter a valid email!", { timeout: 2000 });
+				return;
+			}
+			const {data} = await this.$http.post("http://localhost:8080/workix/services/v1/subscribers/subscribe", { email: this.email} )
+
+			if (data.subscribed){
+				this.toast.success(data.message, { timeout: 2000 });
+			}else {
+				this.toast.info(data.message, { timeout: 2000 });
+			}			 
+		}
+	}
 }
 </script>
 
