@@ -5,22 +5,22 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<h2>Deixe-nos uma mensagem</h2>
-						<form role="form" name="contact-form" id="contact-form">
+						<form role="form" name="contact-form" id="contact-form" @submit.prevent="sendToForms">
 							<div class="form-group" id="contact-name-group">
 								<label for="contact-name" class="sr-only">Nome</label>
-								<input type="text" class="form-control" id="contact-name" placeholder="Nome">
+								<input v-model="name" type="text" class="form-control" id="contact-name" placeholder="Nome" required>
 							</div>
 							<div class="form-group" id="contact-email-group">
 								<label for="contact-email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="contact-email" placeholder="Email">
+								<input v-model="email" type="email" class="form-control" id="contact-email" placeholder="Email" required>
 							</div>
 							<div class="form-group" id="contact-subject-group">
 								<label for="contact-subject" class="sr-only">Assunto</label>
-								<input type="text" class="form-control" id="contact-subject" placeholder="Assunto">
+								<input v-model="subject" type="text" class="form-control" id="contact-subject" placeholder="Assunto" required>
 							</div>
 							<div class="form-group" id="contact-message-group">
 								<label for="contact-message" class="sr-only">Mensagem</label>
-								<textarea class="form-control" rows="3" id="contact-message" placeholder="Mensagem"></textarea>
+								<textarea  v-model="message" class="form-control" rows="3" id="contact-message" placeholder="Mensagem" required></textarea>
 							</div>
 							<button type="submit" class="btn btn-default">Enviar Mensagem</button>
 						</form>
@@ -62,8 +62,44 @@
 </template>
 
 <script>
+import { useToast } from "vue-toastification";
 export default {
+	setup(){
+		// Get toast interface
+		const toast = useToast();
 
+		return {toast}
+	},
+	data(){
+		return {
+			name: "",
+			subject: "",
+			email: "",
+			message: ""
+		}
+	},
+	methods:{
+		validateEmail: email => {
+			const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			return String(email).toLowerCase().match(regex)
+				},
+		async sendToForms () {
+				if (this.validateEmail(this.email) == null){
+				this.toast.warning("Please enter a valid email!", { timeout: 2000 });
+				return;
+			}
+			const resp = await this.$http.post("http://localhost:8080/workix/services/v1/forms", { email: this.email, name: this.name, subject: this.subject, message: this.message} )
+				if(resp.status == 201){
+					this.toast.success("Dados Enviados com Sucesso", { timeout: 2000 });
+					this.email = ""
+					this.name = ""
+					this.message = ""
+					this.subject = ""
+				} else {
+					this.toast.warning("OOPS, não foi possivel processar os seus dados", { timeout: 2000 });
+				}
+		}				
+	}
 }
 </script>
 
