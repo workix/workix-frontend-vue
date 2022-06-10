@@ -5,7 +5,7 @@
       <HeaderBar />
 
 		<!-- ============ TITLE START ============ -->
-		<section id="title">
+		<section id="title" v-if="companyId != null || companyId > 0">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
@@ -16,110 +16,45 @@
 		</section>
 		<!-- ============ TITLE END ============ -->
 
+		<section v-else>
+			<h1> Company Id is not Defined</h1>
+		</section>	
+
         <!-- ============ CONTENT START ============ -->
-		<section id="jobs">
+		<section id="jobs" v-if="companyId != null && companyId > 0 && company != null">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8">
 						<article>
-							<h2>About this company</h2>
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
+							<h2>Sobre {{company.name}}</h2>
+							<p>{{company.description}}</p>
+							
 							<hr>
-							<h2>Location</h2>							
+							<h2>Localização</h2>							
 
 							<div id="map-canvas"></div>
 
 							<hr>
-							<h2>Jobs</h2>
+							<h2>Vagas</h2>
 
 							<div class="jobs">
 								
-								<!-- Job offer 1 -->
-								<a href="#">
+								<!-- Job offer -->
+								<template v-for="(j,i) in jobs" :key="i">
+								<a :href="`/vagas?id=${j.id}`">
 									<div class="featured"></div>
 									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
 									<div class="title">
-										<h5>Web Designer</h5>
-										<p>Amazon Inc.</p>
+										<h5>{{j.title}}</h5>
+										<p>{{j.company.name}}</p>
 									</div>
 									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>New York City</span>
-										<span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>45,000</span>
+										<span class="city"><i class="fa fa-map-marker"></i> {{j.company.locale.city}}</span>
+										<span class="type full-time"><i class="fa fa-clock-o"></i> {{j.jobType}}</span>
+										<span class="sallary"><i class="fa fa-dollar"></i> R$ {{j.maxPayment.toFixed(2)}}</span>
 									</div>
-								</a>
-								
-								<!-- Job offer 2 -->
-								<a href="#">
-									<div class="featured"></div>
-									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
-									<div class="title">
-										<h5>Senior Web Developer</h5>
-										<p>Dropbox Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>Los Angeles</span>
-										<span class="type part-time"><i class="fa fa-clock-o"></i>Part Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>85,000</span>
-									</div>
-								</a>
-								
-								<!-- Job offer 3 -->
-								<a href="#">
-									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
-									<div class="title">
-										<h5>Project Manager</h5>
-										<p>Apple Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>San Francisco</span>
-										<span class="type freelance"><i class="fa fa-clock-o"></i>Freelance</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>60,000</span>
-									</div>
-								</a>
-								
-								<!-- Job offer 4 -->
-								<a href="#">
-									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
-									<div class="title">
-										<h5>Key Account Manager</h5>
-										<p>Dell Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>Boston</span>
-										<span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>55,000</span>
-									</div>
-								</a>
-								
-								<!-- Job offer 5 -->
-								<a href="#">
-									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
-									<div class="title">
-										<h5>Front End Developer</h5>
-										<p>Ebay Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>Chicago</span>
-										<span class="type part-time"><i class="fa fa-clock-o"></i>Part Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>75,000</span>
-									</div>
-								</a>
-								
-								<!-- Job offer 6 -->
-								<a href="#">
-									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
-									<div class="title">
-										<h5>Web Designer</h5>
-										<p>Amazon Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>New York City</span>
-										<span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>45,000</span>
-									</div>
-								</a>
+								</a>	
+								</template>							
 
 							</div>
 
@@ -127,23 +62,28 @@
 					</div>
 					<div class="col-sm-4" id="sidebar">
 						<div class="sidebar-widget" id="share">
-							<h2>Share it</h2>
-							<ul>
+							<h2>Compartilhe</h2>
+							<ul v-if="company.medias.length == 0">
 								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="https://plus.google.com/share?url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-google-plus"></i></a></li>
 								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html&amp;title=Jobseek%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-linkedin"></i></a></li>
 							</ul>
+							<ul v-else>
+								<template v-for="(m,i) in company.medias" :key="i">
+								<li><a :href="m.url"><i :class="getClass(m.media)"></i></a></li>
+								</template>
+							</ul>
 						</div>
 						<hr>
 						<div class="sidebar-widget" id="widget-contact">
-							<h2>Contact</h2>
+							<h2>Contato</h2>
 							<ul>
-								<li><i class="fa fa-building"></i>Netvibes</li>
-								<li><i class="fa fa-map-marker"></i>2 Madison Avenue</li>
-								<li><i class="fa"></i>New York City, 29478 USA</li>
-								<li><i class="fa fa-phone"></i>01.22.987.8392</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:company@yourdomain.com">Send an email</a></li>
+								<li><i class="fa fa-building"></i>{{company.segment}}</li>
+								<li><i class="fa fa-map-marker"></i>{{company.locale.street}}</li>
+								<li><i class="fa"></i>{{company.locale.city}}, {{company.locale.zipCode}} {{company.locale.estate}}</li>
+								<li><i class="fa fa-phone"></i>{{company.contact.mobilePhone}}</li>
+								<li><i class="fa fa-envelope"></i><a :href="`mailto:${company.user.email}`">Enviar Email</a></li>
 							</ul>
 						</div>
 					</div>
@@ -180,7 +120,10 @@ export default {
     },
 	data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: window.location.origin,
+			companyId: 0,
+			company: null,
+			jobs: []
 		}
 	},
     methods: {
@@ -271,15 +214,42 @@ export default {
         google.maps.event.addListener(myMarker, 'click', function() {
             myMarker.info.open(map, myMarker);
         });
-    }
 
-    // google.maps.event.addDomListener(window, 'load', initialize);
-
+		google.maps.event.addDomListener(window, 'load', this.initialize);
     },
-	created(){
+		getCompany() {
+			return this.$http.get(`http://localhost:8080/workix/services/v1/companies/${this.companyId}`)
+		},
+		getJobsFromCompany(){
+			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/company/${this.companyId}`)
+		},
+		getClass(media){
+			switch (media) {
+				case "Facebook":					
+					return "fa fa-facebook"
+				case "Twitter":
+					return "fa fa-twitter"		
+				case "Linkedin":
+					return "fa fa-linkedin"
+				case "instagram":
+					return "fa fa-instagram"	
+				case "GitHub":
+					return "fa fa-github"
+				default:
+					break;
+			}
+		}
+    },
+	async created(){
 	let ckeditor = document.createElement('script');  
     ckeditor.setAttribute('src',"js/settings.js");
     document.head.appendChild(ckeditor);
+
+	this.companyId = this.$route.query.id
+	const {data} = await this.getCompany()
+	this.company = data
+	const resp = await this.getJobsFromCompany()
+	this.jobs = resp.data
   }
 }
 </script>
