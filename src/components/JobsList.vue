@@ -5,462 +5,71 @@
 				<div class="row">
 					<div class="col-sm-8">
 
-						<div class="jobs">
+						<div class="jobs">						
 							
-							<!-- Job offer 1 -->
-							<a href="#" class="featured applied">
+							<!-- Job offer -->
+							<template v-for="(j,i) in jobs" :key="i">
+							<a :href="`/detalhes_vaga?id=${j.id}`">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
 										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Web Designer</h5>
-										<p><strong>Amazon Inc.</strong> Company slogan goes here</p>
+										<h5>{{j.title}}</h5>
+										<p><strong>{{j.company.name}}</strong> {{j.company.segment}}</p>
 									</div>
 									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>New York City, NY, USA</strong></p>
-										<p class="hidden-xs">126.3 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$128,000</strong></p>
-										<p class="badge full-time">Full time</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 2 -->
-							<a href="#" class="featured">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Front End Developer</h5>
-										<p><strong>Ebay Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Chicago, IL, USA</strong></p>
-										<p class="hidden-xs">792.1 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$142,000</strong></p>
-										<p class="badge part-time">Part time</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 3 -->
-							<a href="#" class="applied">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Back End Developer</h5>
-										<p><strong>Google</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>San Diego, CA, USA</strong></p>
-										<p class="hidden-xs">875.3 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$220,000</strong></p>
-										<p class="badge freelance">Freelance</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 4 -->
-							<a href="#" class="applied">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Project Manager</h5>
-										<p><strong>Dropbox Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Los Angeles, CA, USA</strong></p>
-										<p class="hidden-xs">943.4 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$95,000</strong></p>
-										<p class="badge temporary">Temporary</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 5 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Office Assistant</h5>
-										<p><strong>Dell Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Seattle, WA, USA</strong></p>
+										<p><strong>{{j.company.locale.city}}, {{j.company.locale.estate}}, BR</strong></p>
 										<p class="hidden-xs">1168.7 miles away</p>
 									</div>
 									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$36,000</strong></p>
-										<p class="badge internship">Internship</p>
+										<!-- <p class="job-salary"><strong>R$ {{j.minPayment.toFixed(2)}} - {{j.maxPayment.toFixed(2)}}</strong></p>-->
+										<p class="job-salary"><strong>R$ {{j.maxPayment.toFixed(2)}}</strong></p>
+										<p :class="getBadge(j.jobType)">{{j.jobType}}</p>
 									</div>
 								</div>
 							</a>
-							
-							<!-- Job offer 6 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Web Designer</h5>
-										<p><strong>Amazon Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>New York City, NY, USA</strong></p>
-										<p class="hidden-xs">126.3 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$128,000</strong></p>
-										<p class="badge full-time">Full time</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 7 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Front End Developer</h5>
-										<p><strong>Ebay Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Chicago, IL, USA</strong></p>
-										<p class="hidden-xs">792.1 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$142,000</strong></p>
-										<p class="badge part-time">Part time</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 8 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Back End Developer</h5>
-										<p><strong>Google</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>San Diego, CA, USA</strong></p>
-										<p class="hidden-xs">875.3 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$220,000</strong></p>
-										<p class="badge freelance">Freelance</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 9 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Project Manager</h5>
-										<p><strong>Dropbox Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Los Angeles, CA, USA</strong></p>
-										<p class="hidden-xs">943.4 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$95,000</strong></p>
-										<p class="badge temporary">Temporary</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 10 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Office Assistant</h5>
-										<p><strong>Dell Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Seattle, WA, USA</strong></p>
-										<p class="hidden-xs">1168.7 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$36,000</strong></p>
-										<p class="badge internship">Internship</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 1 -->
-							<a href="#" class="applied">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Web Designer</h5>
-										<p><strong>Amazon Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>New York City, NY, USA</strong></p>
-										<p class="hidden-xs">126.3 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$128,000</strong></p>
-										<p class="badge full-time">Full time</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 2 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Front End Developer</h5>
-										<p><strong>Ebay Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Chicago, IL, USA</strong></p>
-										<p class="hidden-xs">792.1 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$142,000</strong></p>
-										<p class="badge part-time">Part time</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 3 -->
-							<a href="#" class="applied">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Back End Developer</h5>
-										<p><strong>Google</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>San Diego, CA, USA</strong></p>
-										<p class="hidden-xs">875.3 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$220,000</strong></p>
-										<p class="badge freelance">Freelance</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 4 -->
-							<a href="#" class="applied">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Project Manager</h5>
-										<p><strong>Dropbox Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Los Angeles, CA, USA</strong></p>
-										<p class="hidden-xs">943.4 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$95,000</strong></p>
-										<p class="badge temporary">Temporary</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 5 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Office Assistant</h5>
-										<p><strong>Dell Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Seattle, WA, USA</strong></p>
-										<p class="hidden-xs">1168.7 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$36,000</strong></p>
-										<p class="badge internship">Internship</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 6 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Web Designer</h5>
-										<p><strong>Amazon Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>New York City, NY, USA</strong></p>
-										<p class="hidden-xs">126.3 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$128,000</strong></p>
-										<p class="badge full-time">Full time</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 7 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Front End Developer</h5>
-										<p><strong>Ebay Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Chicago, IL, USA</strong></p>
-										<p class="hidden-xs">792.1 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$142,000</strong></p>
-										<p class="badge part-time">Part time</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 8 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Back End Developer</h5>
-										<p><strong>Google</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>San Diego, CA, USA</strong></p>
-										<p class="hidden-xs">875.3 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$220,000</strong></p>
-										<p class="badge freelance">Freelance</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 9 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Project Manager</h5>
-										<p><strong>Dropbox Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Los Angeles, CA, USA</strong></p>
-										<p class="hidden-xs">943.4 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$95,000</strong></p>
-										<p class="badge temporary">Temporary</p>
-									</div>
-								</div>
-							</a>
-							
-							<!-- Job offer 10 -->
-							<a href="#">
-								<div class="row">
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										<h5>Office Assistant</h5>
-										<p><strong>Dell Inc.</strong> Company slogan goes here</p>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p><strong>Seattle, WA, USA</strong></p>
-										<p class="hidden-xs">1168.7 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<p class="job-salary"><strong>$36,000</strong></p>
-										<p class="badge internship">Internship</p>
-									</div>
-								</div>
-							</a>
+							</template>
+
+							<!-- JOB A CLASSES -->
+							<!-- featured applied
+							featured
+							applied or EMPTY -->
 
 						</div>
 
 						<nav>
-							<ul class="pagination">
-								<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-								<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-							</ul>
+						<!-- PAGINATION START -->
+						<ul class="pagination" data-scroll-reveal v-if="paginator">
+							<li v-if="paginator.currentPage > 1"><a :href="`/vagas?pagina=${paginator.currentPage-1}&limite=${paginator.limitRows}`">Anterior &nbsp; <i class="fa fa-angle-left"></i></a></li>
+							<li class="active"><a :href="`/vagas?pagina=${paginator.currentPage}&limite=${paginator.limitRows}`">{{paginator.currentPage}}</a></li>
+							<!--<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>-->
+							<li v-if="paginator.currentPage < paginator.totalPages"><a :href="`/vagas?pagina=${paginator.currentPage+1}&limite=${paginator.limitRows}`">Próxima &nbsp; <i class="fa fa-angle-right"></i></a></li>
+						</ul>
+						<!-- PAGINATION END -->
 						</nav>
 
 					</div>
 					<div class="col-sm-4" id="sidebar">
 
 						<!-- Featured Jobs Start -->
-						<div class="sidebar-widget">
-							<h2>Featured Jobs</h2>
-							<a href="#">
+						<div class="sidebar-widget" v-if="featuredJob">
+							<h2>Vaga Destaque</h2>
+							<a :href="`/detalhes_vaga?id=${featuredJob.id}`">
 								<img :src="`${baseUrl}/resources/placeholder/400x265.jpg`" alt="Featured Job" class="img-responsive" />
 								<div class="featured-job">
 									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle pull-left" />
 									<div class="title">
-										<h5>Web Designer</h5>
-										<p>Amazon</p>
+										<h5>{{featuredJob.title}}</h5>
+										<p>{{featuredJob.company.name}}</p>
 									</div>
 									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>New York City</span>
-										<span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>45,000</span>
+										<span class="city"><i class="fa fa-map-marker"></i>{{featuredJob.company.locale.city}}</span>
+										<span class="type full-time"><i class="fa fa-clock-o"></i>{{featuredJob.jobType}}</span>
+										<span class="sallary"><i class="fa fa-dollar"></i>R$ {{featuredJob.minPayment.toFixed(2)}} - {{featuredJob.maxPayment.toFixed(2)}}</span>
 									</div>
-									<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique euismod lorem, a consequat orci consequat a. Donec ullamcorper tincidunt nunc, ut aliquam est pellentesque porta. In neque erat, malesuada sit amet orci ac, laoreet laoreet mauris.</div>
+									<div class="description">{{featuredJob.description}}</div>
 								</div>
 							</a>
 						</div>
@@ -667,10 +276,40 @@
 
 <script>
 export default {
+	props:{
+		jobs: Array,
+		paginator: Object
+	},
 	data(){
-		return{
-			baseUrl: window.location.origin
+		return {
+			baseUrl: window.location.origin,
+			featuredJob: null
 		}
+	},
+	methods:{
+		getBadge(jobType){
+            switch (jobType) {
+                case "FULLTIME":
+                    return "badge full-time"               
+                case "PARTTIME":
+                    return "badge part-time"
+                case "FREELANCE":
+                    return "badge freelance"
+                case "TEMPORARY":
+                    return "badge temporary"    
+                case "INTERNSHIP":
+                    return "badge internship"        
+                default:
+                    return
+            }
+        },
+		getRandomFeaturedJob() {
+			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/random_featured`)
+		},
+	},
+	async created(){
+		const {data} = await this.getRandomFeaturedJob()
+		this.featuredJob = data
 	}
 }
 </script>

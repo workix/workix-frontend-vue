@@ -8,15 +8,15 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1>Find a Job</h1>
-						<h4>There is no better place to start</h4>
+						<h1>Encontre um emprego</h1>
+						<h4>Não há melhor lugar para começar</h4>
 					</div>
 				</div>
 			</div>
 		</section>
     <!-- ============ TITLE END ============ -->
 
-    <JobsList />
+    <JobsList :jobs="jobs" :paginator="paginator"/>
     <ContactsWrapper />
     <FooterWrapper />
     <LoginPopup />
@@ -45,10 +45,38 @@ export default {
         LoginPopup,
         RegisterPopup
     },
-    created(){
+    data(){
+      return {
+        jobs: [],
+        paginator: null
+      }
+    },
+    methods:{        
+      getJobs(page, limit){
+        if (!page){
+          page = 1
+        }
+        if(!limit){
+          limit = 10
+        }
+        return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/paginated?page=${page}&limit=${limit}`)
+      }
+    },
+    async created(){
       let ckeditor = document.createElement('script');  
       ckeditor.setAttribute('src',"js/settings.js");
       document.head.appendChild(ckeditor);
+
+      let resp;	
+
+      const page = this.$route.query.pagina
+      const limit = this.$route.query.limite
+
+      resp = await this.getJobs(page,limit)
+      this.jobs = resp.data.rows
+      this.paginator = resp.data	
+
+
   }
 }
 </script>
