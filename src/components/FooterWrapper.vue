@@ -65,7 +65,7 @@ export default {
 				},
 		async sendToSubscribers(){
 			if (this.validateEmail(this.email) == null){
-				this.toast.warning("Please enter a valid email!", { timeout: 2000 });
+				this.toast.warning("Por favor digite um email válido!", { timeout: 2000 });
 				return;
 			}
 			const {data} = await this.$http.post("http://localhost:8080/workix/services/v1/subscribers/subscribe", { email: this.email} )
