@@ -5,18 +5,18 @@
       <HeaderBar />
 
     <!-- ============ TITLE START ============ -->
-		<section id="title">
+		<section id="title" v-if="postId != null && postId > 0 && post != null">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
-						<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" alt="" class="img-responsive img-circle" />
+						<img :src="post.author.picture" alt="" class="img-responsive img-circle" />
 					</div>
 					<div class="col-sm-10">
-						<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+						<h1>{{post.title}}</h1>
 						<div class="meta">
-							<span><i class="fa fa-user"></i>John Doe</span>
-							<span><i class="fa fa-calendar"></i>28/09/2015</span>
-							<span><i class="fa fa-comment"></i>24</span>
+							<span><i class="fa fa-user"></i>{{post.author.name}}</span>
+							<span><i class="fa fa-calendar"></i>{{post.date.toLocaleString("pt-BR")}}</span>
+							<span><i class="fa fa-comment"></i>{{post.comments.length}}</span>
 						</div>
 					</div>
 				</div>
@@ -25,9 +25,13 @@
 
 		<!-- ============ TITLE END ============ -->
 
+		<section v-else>
+			<h1> Post Id is not Defined</h1>
+		</section>	
+
 		<!-- ============ CONTENT START ============ -->
 
-		<section id="blog">
+		<section id="blog" v-if="postId != null && postId > 0 && post != null">
 			<div class="container">
 				<div class="row">
 
@@ -36,75 +40,25 @@
 						<!-- POSTS START -->
 
 						<article>
-							<p><img :src="`${baseUrl}/resources/placeholder/800x530.jpg`" alt="" class="img-responsive" /></p>
-							<p>Proin eu erat tincidunt, scelerisque ipsum non, fringilla dolor. Quisque interdum congue tellus. Aliquam vel odio sit amet ex laoreet finibus. Etiam commodo purus tortor, sed interdum justo faucibus vitae. Praesent ac elit a felis luctus facilisis. Aenean et magna elit. Morbi eget nulla volutpat, egestas ex vel, blandit enim. Pellentesque sit amet metus luctus, congue.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum fermentum. Nulla at fringilla dolor. Proin magna nibh, dignissim vitae enim quis, bibendum euismod ipsum. In mattis nulla nulla. Cras suscipit aliquet augue in vulputate. Donec in enim non elit ornare sodales id nec arcu.</p>
-							<h2>Gallery</h2>
+							<p><img :src="post.pictures[0]" alt="" class="img-responsive" /></p>
+							<p>{{post.content}}</p>
+							
+							<h2>Galeria</h2>
 							<ul class="gallery row">
+								<template v-for="(p,i) in post.pictures" :key="i">
 								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
+									<a :href="p" class="fancybox" data-fancybox-group="gallery" :title="getTitle(p)">
+										<img :src="p" class="img-responsive" alt="" />
 									</a>
 								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
-								<li class="col-xs-4 col-sm-3 col-lg-2">
-									<a :href="`${baseUrl}/resources/placeholder/800x530.jpg`" class="fancybox" data-fancybox-group="gallery" title="Sample title">
-										<img :src="`${baseUrl}/resources/placeholder/200x200.jpg`" class="img-responsive" alt="" />
-									</a>
-								</li>
+								</template>
+								
 							</ul>
+							<!--
 							<p>Proin eu erat tincidunt, scelerisque ipsum non, fringilla dolor. Quisque interdum congue tellus. Aliquam vel odio sit amet ex laoreet finibus. Etiam commodo purus tortor, sed interdum justo faucibus vitae. Praesent ac elit a felis luctus facilisis. Aenean et magna elit. Morbi eget nulla volutpat, egestas ex vel, blandit enim. Pellentesque sit amet metus luctus, congue.</p>
 							<blockquote>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum.</blockquote>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis, ornare in urna commodo, volutpat gravida sem. Integer vitae lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui dictum fermentum. Nulla at fringilla dolor. Proin magna nibh, dignissim vitae enim quis, bibendum euismod ipsum. In mattis nulla nulla. Cras suscipit aliquet augue in vulputate. Donec in enim non elit ornare sodales id nec arcu.</p>
+							-->
 						</article>
 
 						<!-- POSTS END -->
@@ -112,7 +66,7 @@
 						<!-- SHARING START -->
 
 						<ul class="share">
-							<li><h5>Share it</h5></li>
+							<li><h5>Compartilhe</h5></li>
 							<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-2x fa-facebook-square"></i></a></li>
 							<li><a href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-2x fa-twitter-square"></i></a></li>
 							<li><a href="https://plus.google.com/share?url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-2x fa-google-plus-square"></i></a></li>
@@ -125,12 +79,7 @@
 
 						<ul class="tags">
 							<li><i class="fa fa-tag"></i></li>
-							<li><a href="#">job</a></li>
-							<li><a href="#">work</a></li>
-							<li><a href="#">company</a></li>
-							<li><a href="#">resume</a></li>
-							<li><a href="#">market</a></li>
-							<li><a href="#">business</a></li>
+							<li v-for="(t,i) in post.tags" :key="i"><a :href="`/blog?etiqueta=${t.name}`">{{t.name}}</a></li>							
 						</ul>
 
 						<!-- TAGS END -->
@@ -139,16 +88,14 @@
 
 						<div id="author" class="row">
 							<div class="col-sm-2">
-								<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" alt="" class="img-responsive img-circle" />
+								<img :src="post.author.picture" alt="" class="img-responsive img-circle" />
 							</div>
 							<div class="col-sm-10">
-								<h5>About The Author</h5>
-								<p>Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien.</p>
+								<h5>Sobre o autor</h5>
+								<p>{{post.author.aboutText}}</p>
 								<ul class="social">
-									<li><a href="https://www.facebook.com/"><i class="fa fa-2x fa-facebook-square"></i></a></li>
-									<li><a href="https://twitter.com/"><i class="fa fa-2x fa-twitter-square"></i></a></li>
-									<li><a href="https://instagram.com/"><i class="fa fa-2x fa-instagram"></i></a></li>
-									<li><a href="https://www.linkedin.com/"><i class="fa fa-2x fa-linkedin-square"></i></a></li>
+									<li v-for="(md,i) in post.author.medias" :key="i"><a :href="md.url"><i :class="getClass(md.media)"></i></a></li>
+									
 								</ul>
 							</div>
 						</div>
@@ -158,8 +105,9 @@
 						<!-- PAGING START -->
 
 						<ul id="paging">
-							<li class="pull-left"><a href="#" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Prev</a></li>
-							<li class="pull-right"><a href="#" class="btn btn-primary">Next <i class="fa fa-arrow-right"></i></a></li>
+							<!-- TODO Verify if has next -->
+							<li class="pull-left" v-if="postId > 1"><a :href="`/postagem?id=${postId-1}`" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Anterior</a></li>
+							<li class="pull-right"><a :href="`/postagem?id=${+postId+1}`" class="btn btn-primary">Próxima <i class="fa fa-arrow-right"></i></a></li>
 						</ul>
 
 						<!-- PAGING END -->
@@ -168,62 +116,20 @@
 
 						<!-- COMMENTS START -->
 
-						<div class="row">
+						<div class="row" id="comentarios">
 							<div class="col-sm-12">
-								<h2>6 Comments</h2>
+								<h2>{{post.comments.length}} Comentários</h2>
 								<ul class="media-list">
-
+									<template v-for="(c,i) in post.comments" :key="i">
 									<li class="media">
-										<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
+										<a class="pull-left media-photo" href="#comentarios"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
 										<div class="media-body">
-											<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
-											
-											<div class="media" data-scroll-reveal>
-												<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
-												<div class="media-body">
-													<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
-
-													<div class="media" data-scroll-reveal>
-														<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
-														<div class="media-body">
-															<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
-														</div>
-													</div>
-
-												</div>
-											</div>
-
+											<p class="media-heading"><a href="#comentarios">{{c.name}}, {{c.createdAt.toLocaleString("pt-BR").replace("T", " as ")}}:</a><a v-if="false" href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Responder</a></p>
+											<p>{{c.text}}</p>																						
 										</div>
 									</li>
-
-									<li class="media" data-scroll-reveal>
-										<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
-										<div class="media-body">
-											<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
-
-											<div class="media" data-scroll-reveal>
-												<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
-												<div class="media-body">
-													<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
-
-													<div class="media" data-scroll-reveal>
-														<a class="pull-left media-photo" href="#"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
-														<div class="media-body">
-															<p class="media-heading"><a href="#">John Doe, 28/08/2015 at 9:37 pm:</a><a href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Reply</a></p>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit id nisi non varius. Aliquam erat volutpat. Pellentesque in dolor vel tortor placerat rutrum. Aenean suscipit lacus nec adipiscing tristique. Mauris semper aliquam purus eu tempor. Etiam gravida, lorem vel imperdiet ullamcorper, est mauris lacinia elit, ut sollicitudin tellus erat et felis. Vestibulum id rhoncus sapien. Mauris scelerisque imperdiet mollis. Nullam eu volutpat urna, quis facilisis metus.</p>
-														</div>
-													</div>
-
-												</div>
-											</div>
-
-										</div>
-									</li>
+									</template>
+								
 								</ul>
 							</div>
 						</div>
@@ -234,24 +140,24 @@
 
 						<!-- COMMENT FORM START -->
 
-						<h2>Write a Comment</h2>
-						<form role="form">
+						<h2>Escreva um Comentário</h2>
+						<form role="form" @submit.prevent="sendAComment">
 							<div class="row" data-scroll-reveal>
 								<div class="form-group col-sm-6">
-									<input type="text" class="form-control" id="input-comment-name" placeholder="Name">
+									<input type="text" v-model="name" class="form-control" id="input-comment-name" placeholder="Nome" required>
 								</div>
 								<div class="form-group col-sm-6">
-									<input type="email" class="form-control" id="input-comment-email" placeholder="Email">
+									<input type="email" v-model="email" class="form-control" id="input-comment-email" placeholder="Email" required>
 								</div>
 							</div>
 							<div class="row" data-scroll-reveal>
 								<div class="form-group col-sm-12">
-									<textarea class="form-control" rows="5"></textarea>
+									<textarea class="form-control" v-model="message" rows="5" placeholder="Mensagem" required></textarea>
 								</div>
 							</div>
 							<div class="row" data-scroll-reveal>
 								<div class="form-group col-sm-12">
-									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="submit" class="btn btn-primary">Enviar</button>
 								</div>
 							</div>
 						</form>
@@ -260,77 +166,7 @@
 						
 					</div>
 
-					<!-- SIDEBAR START -->
-
-					<div class="col-sm-4" id="sidebar">
-
-						<div class="sidebar-links" id="categories">
-							<h5>
-								<span class="fa-stack fa-lg">
-									<i class="fa fa-circle fa-stack-2x"></i>
-									<i class="fa fa-folder fa-stack-1x fa-inverse"></i>
-								</span>
-								Categories
-							</h5>
-							<ul>
-								<li><a href="#">Companies</a></li>
-								<li><a href="#">Jobs</a></li>
-								<li><a href="#">Resumes</a></li>
-								<li><a href="#">Market</a></li>
-							</ul>
-						</div>
-
-						<div class="sidebar-links" id="archives">
-							<h5>
-								<span class="fa-stack fa-lg">
-									<i class="fa fa-circle fa-stack-2x"></i>
-									<i class="fa fa-archive fa-stack-1x fa-inverse"></i>
-								</span>
-								Archives
-							</h5>
-							<ul>
-								<li><a href="#">April 2015</a></li>
-								<li><a href="#">March 2015</a></li>
-								<li><a href="#">February 2015</a></li>
-								<li><a href="#">January 2015</a></li>
-							</ul>
-						</div>
-
-						<div class="sidebar-links" id="recent-posts">
-							<h5>
-								<span class="fa-stack fa-lg">
-									<i class="fa fa-circle fa-stack-2x"></i>
-									<i class="fa fa-flag fa-stack-1x fa-inverse"></i>
-								</span>
-								Recent Posts
-							</h5>
-							<ul>
-								<li><a href="#"><span class="meta">28/04/2015 by Susie Johnson</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-								<li><a href="#"><span class="meta">26/04/2015 by Matt Berry</span>Proin eu erat tincidunt, scelerisque ipsum non, fringilla dolor.</a></li>
-								<li><a href="#"><span class="meta">24/04/2015 by Spencer Conner</span>Quisque interdum congue tellus. Aliquam vel odio sit amet ex laoreet finibus.</a></li>
-								<li><a href="#"><span class="meta">22/04/2015 by Nadine Carlson</span>Etiam commodo purus tortor, sed interdum justo faucibus vitae.</a></li>
-							</ul>
-						</div>
-
-						<div class="sidebar-links" id="recent-comments">
-							<h5>
-								<span class="fa-stack fa-lg">
-									<i class="fa fa-circle fa-stack-2x"></i>
-									<i class="fa fa-flag fa-stack-1x fa-inverse"></i>
-								</span>
-								Recent Comments
-							</h5>
-							<ul>
-								<li><a href="#"><span class="meta">Susie Johnson on</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-								<li><a href="#"><span class="meta">Matt Berry on</span>Proin eu erat tincidunt, scelerisque ipsum non, fringilla dolor.</a></li>
-								<li><a href="#"><span class="meta">Spencer Conner on</span>Quisque interdum congue tellus. Aliquam vel odio sit amet ex laoreet finibus.</a></li>
-								<li><a href="#"><span class="meta">Nadine Carlson on</span>Etiam commodo purus tortor, sed interdum justo faucibus vitae.</a></li>
-							</ul>
-						</div>
-
-					</div>
-
-					<!-- SIDEBAR END -->
+					<BlogSideBar />
 
 				</div>
 			</div>
@@ -346,9 +182,11 @@
 </template>
 
 <script>
+import { useToast } from "vue-toastification";
 import PageLoader from '@/components/PageLoader.vue'
 import NavBar from '@/components/NavBar.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
+import BlogSideBar from '@/components/blogs/BlogSideBar.vue'
 import ContactsWrapper from '@/components/ContactsWrapper.vue'
 import FooterWrapper from '@/components/FooterWrapper.vue'
 import LoginPopup from '@/components/LoginPopup.vue'
@@ -358,20 +196,82 @@ export default {
         PageLoader,
         NavBar,
         HeaderBar,
+		BlogSideBar,
         ContactsWrapper,        
         FooterWrapper,
         LoginPopup,
         RegisterPopup
     },
+	setup(){
+		// Get toast interface
+		const toast = useToast();
+
+		return {toast}
+	},
 	data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: window.location.origin,
+			postId: 0,
+			post: null,
+			name: "",
+			email: "",
+			message: ""
 		}
 	},
-	created(){
+	methods:{
+		validateEmail: email => {
+			const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			return String(email).toLowerCase().match(regex)
+				},
+		getClass(media){
+			switch (media) {
+				case "Facebook":					
+					return "fa fa-facebook-square fa-2x"
+				case "Twitter":
+					return "fa fa-twitter-square fa-2x"		
+				case "Linkedin":
+					return "fa fa-linkedin-square fa-2x"
+				case "instagram":
+					return "fa fa-instagram fa-2x"	
+				case "GitHub":
+					return "fa fa-github fa-2x"
+				default:
+					break;
+			}
+		},
+		getTitle(link){
+			// TODO, save title of image on backend
+			const arr = link.split('/')
+			return arr[arr.length -1]
+
+		},
+		getPost(id){
+			return this.$http.get(`http://localhost:8080/workix/services/v1/blogs/${id}`)
+		},
+		async sendAComment(){
+			if (this.validateEmail(this.email) == null){
+				this.toast.warning("Por favor digite um email válido!", { timeout: 2000 });
+				return;
+			}
+
+			await this.$http.post("http://localhost:8080/workix/services/v1/comments/blog", {name: this.name, email: this.email, message: this.message, postId: this.postId})
+
+			let resp = await this.getPost(this.postId)
+			this.post = resp.data 
+
+			this.toast.success("Enviado com Sucesso!", { timeout: 2000 })
+
+		}
+	},
+	async created(){
 	let ckeditor = document.createElement('script');  
     ckeditor.setAttribute('src',"js/settings.js");
     document.head.appendChild(ckeditor);
+
+	this.postId = this.$route.query.id
+	let resp;
+	resp = await this.getPost(this.postId)
+	this.post = resp.data
   }
 }
 </script>
