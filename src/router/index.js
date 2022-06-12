@@ -131,8 +131,8 @@ router.beforeEach(async (to, from, next) => {
       next();
     } else {
       //Logic HERE
-      
-      next('/');
+      window.location.href = "/"
+      //next('/');
       
     }
 
