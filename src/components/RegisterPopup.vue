@@ -91,7 +91,7 @@ export default {
 		async registerWithGoogle(){
 			const provider = new GoogleAuthProvider()
 			try {
-				const loginData = signInWithPopup(getAuth(), provider)
+				const loginData = await signInWithPopup(getAuth(), provider)
 				this.logingData = loginData
 				this.disposeModal()
 			} catch (error) {
