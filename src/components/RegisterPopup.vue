@@ -4,13 +4,13 @@
 			<div class="popup-form">
 				<div class="popup-header">
 					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
-					<h2>Register</h2>
+					<h2>{{!isLoggedIn ? "Registrar" : ""}}</h2>					
 				</div>
-				<form @submit.prevent="registerWithEmailPassword">
+				<form @submit.prevent="registerWithEmailPassword" v-if="!isLoggedIn">
 					<ul class="social-login">
-						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Register with Facebook</a></li>
-						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Register with Google</a></li>
-						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Register with LinkedIn</a></li>
+						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Registrar com Facebook</a></li>
+						<li><a class="btn btn-google" @click="registerWithGoogle"><i class="fa fa-google-plus"></i>Registrar com Google</a></li>
+						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Registrar com LinkedIn</a></li>
 					</ul>
 					<hr>
 					<div class="form-group">
@@ -40,6 +40,9 @@
 					</div>
 					<button type="submit" class="btn btn-primary" >Registrar</button>
 				</form>
+				<form v-else>
+					<button  class="btn btn-primary" v-if="isLoggedIn" @click="handleSignOut">Logout</button>
+				</form>
 			</div>
 		</div>
 		<!-- ============ REGISTER END ============ -->
@@ -47,7 +50,7 @@
 
 <script>
 import { useToast } from "vue-toastification";
-import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth'
+import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 const $ = require( "jquery" );
 export default {
 	setup(){
@@ -61,15 +64,44 @@ export default {
 			email: "",
 			password: "",
 			repeatPassword: "",
-			logingData: null
+			logingData: null,
+			isLoggedIn: null
 		}
+	},
+	created(){
+		onAuthStateChanged(getAuth(), user => {
+			if (user){
+				this.isLoggedIn = true
+			} else {
+				this.isLoggedIn = false
+			}
+		})
 	},
 	methods: {
 		disposeModal(){
 			$("#register").fadeOut(300);
 			$("body").removeClass("no-scroll");			
 		},
-		registerWithGoogle(){
+		handleSignOut(){
+			signOut(getAuth(), () => {
+				console.log("SIGN OUT")
+				this.disposeModal()
+			})
+		},
+		async registerWithGoogle(){
+			const provider = new GoogleAuthProvider()
+			try {
+				const loginData = signInWithPopup(getAuth(), provider)
+				this.logingData = loginData
+				this.disposeModal()
+			} catch (error) {
+
+				console.error(error)				
+				this.disposeModal()
+				this.toast.error("Ocorreu Algum problema ao criar a conta!" , { timeout: 2000 })
+				this.toast.error(error.message , { timeout: 4000 })
+			
+			}
 
 		},
 		async registerWithEmailPassword(){
