@@ -16,6 +16,7 @@ import PostView from '../views/PostView.vue'
 import TestimonialsView from '../views/TestimonialsView.vue'
 import OptionsView from '../views/OptionsView.vue'
 import SearchView from '../views/SearchView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 const routes = [
   {
@@ -98,6 +99,11 @@ const routes = [
     name: 'localizar',
     component: SearchView
   },
+  {
+    path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
+    name: '404',
+    component: NotFoundView
+  }
 ]
 
 const router = createRouter({
