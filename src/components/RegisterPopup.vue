@@ -6,30 +6,46 @@
 					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
 					<h2>{{!isLoggedIn ? "Registrar" : ""}}</h2>					
 				</div>
-				<form @submit.prevent="registerWithEmailPassword" v-if="!isLoggedIn">
-					<ul class="social-login">
+				<form v-if="!isLoggedIn">
+					<div class="form-group">
+						<label for="accountType">Perfil</label>
+						<select id="accountType" class="form-control" aria-label="Default select example" v-model="accountType" required>
+							<option value="" selected>Escolha o tipo de perfil</option>
+							<option value="Candidate">Candidato</option>
+							<option value="Company">Recrutador</option>						
+						</select>
+					</div>
+					<div class="form-group" v-if="accountType == 'Candidate'">
+						<label for="register-cpf">CPF</label>
+						<input type="text" v-model="cpf" class="form-control" id="register-cpf">
+					</div>
+					<div class="form-group" v-if="accountType == 'Company'">
+						<label for="register-cnpj">CNPJ</label>
+						<input type="text" v-model="cnpj" class="form-control" id="register-cnpj">
+					</div>
+					<div class="form-group" v-if="accountType == 'Candidate'">						
+						<label for="register-birthdate">Nascimento</label>
+						<Datepicker locale="pt-BR" autoApply placeholder="Selecione uma Data" noToday required :enableTimePicker="false" v-model="birthDate" id="birthdate" class="form-control"/>
+					</div>
+				</form>
+				
+				<form @submit.prevent="registerWithEmailPassword" v-if="!isLoggedIn && (accountType != '')">					
+					<ul class="social-login" v-if="accountType == 'Candidate'">
 						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Registrar com Facebook</a></li>
 						<li><a class="btn btn-google" @click="registerWithGoogle"><i class="fa fa-google-plus"></i>Registrar com Google</a></li>
 						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Registrar com LinkedIn</a></li>
 					</ul>
 					<hr>
+					<h3 v-if="accountType== 'Candidate'"> OU SEM REDES SOCIAIS </h3>
 					<div class="form-group">
 						<label for="register-name">Nome</label>
 						<input type="text" v-model="name" class="form-control" id="register-name" required>
-					</div>
-					<!--<div class="form-group">
-						<label for="register-surname">Surname</label>
-						<input type="text" class="form-control" id="register-surname">
-					</div>-->
+					</div>					
 					<div class="form-group">
 						<label for="register-email">Email</label>
 						<input type="email" v-model="email" class="form-control" id="register-email" required>
 					</div>
-					<hr>
-					<!--<div class="form-group">
-						<label for="register-username">Username</label>
-						<input type="text" class="form-control" id="register-username">
-					</div>-->
+					<hr>										
 					<div class="form-group">
 						<label for="register-password1">Senha</label>
 						<input type="password" v-model="password" class="form-control" id="register-password1" required>
@@ -49,10 +65,13 @@
 </template>
 
 <script>
+import Datepicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
 import { useToast } from "vue-toastification";
 import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 const $ = require( "jquery" );
 export default {
+	components: { Datepicker },
 	setup(){
 	// Get toast interface
     const toast = useToast();
@@ -60,9 +79,13 @@ export default {
 	},
 	data(){
 		return {
+			accountType:"",
+			cpf: "",
+			cnpj: "",
 			name: "",
 			email: "",
 			password: "",
+			birthDate: null,
 			repeatPassword: "",
 			logingData: null,
 			isLoggedIn: null
@@ -88,12 +111,23 @@ export default {
 				this.disposeModal()
 			})
 		},
-		async registerWithGoogle(){
+		async registerWithGoogle(){		
+
+			if(this.cpf.length < 11 && this.birthDate == null){
+				return;
+			}
+
 			const provider = new GoogleAuthProvider()
 			try {
 				const loginData = await signInWithPopup(getAuth(), provider)
 				this.logingData = loginData
+				
+				await this.createAccountInWorkix("Candidate", this.logingData.user.uid, this.logingData.user.email, this.logingData.user.displayName)
+				
 				this.disposeModal()
+
+				this.toast.success(`Bem vindo ${this.logingData.user.displayName} sua conta foi criada com sucesso!`, { timeout: 2000 })
+				
 			} catch (error) {
 
 				console.error(error)				
@@ -107,11 +141,19 @@ export default {
 		async registerWithEmailPassword(){
 			if (this.password != this.repeatPassword){
 				return;
+			}		
+
+			if(this.accountType == 'Candidate'){
+				if(this.cpf.length < 11 && this.birthDate == null){
+				return;
+				}
 			}
 
 			try {
 			const logingData = await createUserWithEmailAndPassword(getAuth(), this.email, this.password)	
 			this.logingData = logingData;
+
+			this.createAccountInWorkix(this.accountType, this.logingData.user.uid, this.email, this.name)
 
 			this.disposeModal()
 
@@ -136,6 +178,37 @@ export default {
 
 			}
 			
+		},
+		async createAccountInWorkix(accountType, firebaseUUID, email, name){
+			if (accountType == 'Candidate'){
+				const payload = {
+					name: name,
+					cpf: this.cpf,
+					birthDate: this.birthDate,
+					firebaseUUID: firebaseUUID,
+					email: email
+
+				}
+				
+				try {
+					const {data} = await this.$http.post("http://localhost:8080/workix/services/v1/vue/create_candidate", payload)
+
+					localStorage.owner = JSON.stringify(data.candidate)
+					localStorage.jwt = data.jwt.token
+					localStorage.accountType = "Candidate"
+					
+				} catch (error) {
+					console.error(error)
+					this.toast.error("Falha ao criar a conta no Workix", {timeout: 2000})
+				}
+				
+
+			} else if (accountType == 'Company'){
+				this.$http.post("http://localhost:8080/workix/services/v1/vue/create_company")
+
+			} else{
+				throw new Error("Incorrect Account Type")
+			}
 		}
 
 	}
