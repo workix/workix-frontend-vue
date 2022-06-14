@@ -50,15 +50,34 @@ export default {
 		}
 	},
 	created(){
-		onAuthStateChanged(getAuth(), user => {
+		onAuthStateChanged(getAuth(), async user => {
 			if (user){
 				this.isLoggedIn = true
+				let resp;
+				resp = await this.logginInWorkix(user.email, user.uid)
+				const token = resp.data.token
+				
+				resp = await this.aboutMe(token)
+
+				localStorage.owner = JSON.stringify(resp.data.owner)
+				localStorage.jwt = token
+				localStorage.accountType = resp.data.type
+				
 			} else {
 				this.isLoggedIn = false
+				localStorage.clear()
 			}
 		})
 	},
 	methods: {
+		async logginInWorkix(email, firebaseUUID){			
+			return this.$http.post("http://localhost:8080/workix/services/v1/auth/login", {email, firebaseUUID})
+		},
+		async aboutMe(token){
+			let config = { headers: { "Authorization": `Bearer ${token}` }
+}
+			return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
+		},
 		disposeModal(){
 			$("#login").fadeOut(300);
 			$("body").removeClass("no-scroll");			
