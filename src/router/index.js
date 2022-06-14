@@ -18,6 +18,7 @@ import TestimonialsView from '../views/TestimonialsView.vue'
 import OptionsView from '../views/OptionsView.vue'
 import SearchView from '../views/SearchView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
+import ProfileView from '../views/ProfileView.vue'
 
 const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
@@ -105,13 +106,21 @@ const routes = [
     name: 'opcoes',
     component: OptionsView,
     meta:{
-      requiresAuth: true
+      // requiresAuth: true
     }
   },
   {
     path: '/localizar',
     name: 'localizar',
     component: SearchView
+  },
+  {
+    path: "/perfil",
+    name: 'perfil',
+    component: ProfileView,
+    meta:{
+      // requiresAuth: true
+    }
   },
   {
     path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
@@ -127,8 +136,9 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (await getCurrentUser()) {      
-      next();
+    if (await getCurrentUser()) {  
+       next()              
+      // window.location.href= to.path
     } else {
       //Logic HERE
       window.location.href = "/"
