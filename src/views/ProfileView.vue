@@ -18,64 +18,132 @@
 
 				<form @submit.prevent="null">
 					<div class="row">
-						<div class="col-sm-12">
-							<h2>Detalhes da conta</h2>
-							<div class="form-group" id="job-email-group">
-                            <label for="job-email">Email</label>
-                            <input type="email" class="form-control" id="job-email" placeholder="you@yourdomain.com">
+						<div class="col-12">
+							<h2>Detalhes do Usuário</h2>
+                            <div class="row">
+                                
+                                    <div class="form-group" id="uuid-user-group">
+                                        <label for="uuid-user">UUID do Usuário</label>
+                                        <input type="text" class="form-control" id="uuid-user" readonly>
+                                    </div>			
+
+                                    
+                                    <div class="form-group" id="id-group">
+                                        <label for="id">ID</label>
+                                        <input type="text" class="form-control" id="id" readonly>
+                                    </div>					                                
+                                
+                                    <div class="form-group" id="active-group">
+                                        <label for="active">Ativo</label>
+                                        <input type="checkbox" class="form-control" id="active" readonly>
+                                    </div>		
+
+                                    <div class="form-group" id="email-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" id="email" placeholder="Insira seu Email" required>
+                                    </div>				
+
+                                    <div class="form-group" id="firebase-uuid-group">
+                                        <label for="firebase-uuid">UUID Firebase</label>
+                                        <input type="text" class="form-control" id="firebase-uuid" readonly>
+                                    </div>		
+
+                                    <div class="form-group" id="firebase-message-token-group">
+                                        <label for="firebase-message-token">Message Token Firebase</label>
+                                        <input type="text" class="form-control" id="firebase-message-token" placeholder="Insira o Message Token do Firebase">
+                                    </div>		
+
+                                    
+                                
+                            </div>
+                            
                         </div>
-                        <div class="form-group" id="job-title-group">
-                            <label for="job-title">Title</label>
-                            <input type="text" class="form-control" id="job-title" placeholder="e.g. Web Designer">
+
+                        <div class="col-sm-12">
+							<h2>Detalhes do Candidato</h2>	
+                            <div class="row">
+                                <div class="form-group" id="uuid-candidate-group">
+                                        <label for="uuid-candidate">UUID do Candidato</label>
+                                        <input type="text" class="form-control" id="uuid-candidate" readonly>
+                                </div>	
+
+                                 <div class="form-group" id="id-candidate-group">
+                                        <label for="id-candidate">ID do Candidato</label>
+                                        <input type="text" class="form-control" id="id-candidate" readonly>
+                                    </div>	
+
+                                <div class="form-group" id="name-candidate-group">
+                                        <label for="name-candidate">Nome do Candidato</label>
+                                        <input type="text" class="form-control" id="name-candidate" placeholder="Digite o seu Nome" required>
+                                </div>	
+
+                                <div class="form-group" id="birthdate-candidate-group">
+                                        <label for="birthdate-candidate">Data de Nascimento</label>
+                                        <input type="text" class="form-control" id="birthdate-candidate" placeholder="Digite a data do seu Nascimento" required>
+                                </div>	
+
+
+                                <div class="form-group" id="cpf-candidate-group">
+                                        <label for="cpf-candidate">CPF do Candidato</label>
+                                        <input type="text" class="form-control" id="cpf-candidate" placeholder="Digite o seu CPF" required>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="form-group" id="job-location-group">
-                            <label for="job-location">Location (Optional)</label>
-                            <input type="text" class="form-control" id="job-location" placeholder="e.g. New York">
+
+                         <div class="col-sm-12">
+							<h2>Dados de Contato</h2>	
+                            <div class="row">
+                                <div class="form-group" id="mobile-candidate-group">
+                                    <label for="mobile-candidate">Celular</label>
+                                    <input type="text" class="form-control" id="mobile-candidate" placeholder="Digite o Número do Celular" required>
+                                </div>	
+
+                            </div>
                         </div>
-                        <div class="form-group" id="job-region-group">
-                            <label for="job-region">Region</label>
-                            <select  class="form-control" id="job-region">
-                                <option>Choose a region</option>
-                                <option>New York</option>
-                                <option>Los Angeles</option>
-                                <option>Chicago</option>
-                                <option>Boston</option>
-                                <option>San Francisco</option>
-                            </select>
+                        
+                         <div class="col-sm-12">
+							<h2>Dados de Localização</h2>	
+                            <div class="row">
+                                 <div class="form-group" id="zip-candidate-group">
+                                    <label for="zip-candidate">CEP</label>
+                                    <input type="text" class="form-control" id="zip-candidate" placeholder="Digite o Número do CEP" required>
+                                </div>	
+
+                                 <div class="form-group" id="city-candidate-group">
+                                    <label for="city-candidate">Cidade</label>
+                                    <input type="text" class="form-control" id="city-candidate" placeholder="Digite a sua Cidade" required>
+                                </div>	
+
+                                <div class="form-group" id="estate-candidate-group">
+                                    <label for="estate-candidate">Estado</label>
+                                    <input type="text" class="form-control" id="estate-candidate" placeholder="Digite o seu Estado" required>
+                                </div>
+
+                                <div class="form-group" id="neighborhood-candidate-group">
+                                    <label for="neighborhood-candidate">Bairro</label>
+                                    <input type="text" class="form-control" id="neighborhood-candidate" placeholder="Digite o seu Bairro" required>
+                                </div>
+
+                                 <div class="form-group" id="street-candidate-group">
+                                    <label for="street-candidate">Rua</label>
+                                    <input type="text" class="form-control" id="street-candidate" placeholder="Digite a sua Rua" required>
+                                </div>
+
+                                <div class="form-group" id="number-candidate-group">
+                                    <label for="number-candidate">Número</label>
+                                    <input type="text" class="form-control" id="number-candidate" placeholder="Digite o Número da Residencia" required>
+                                </div>
+                            </div>						
                         </div>
-                        <div class="form-group" id="job-type-group">
-                            <label for="job-type">Job Type</label>
-                            <select  class="form-control" id="job-type">
-                                <option>Choose a job type</option>
-                                <option>Freelance</option>
-                                <option>Part Time</option>
-                                <option>Full Time</option>
-                                <option>Internship</option>
-                                <option>Volunteer</option>
-                            </select>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-block btn-primary" type="submit">Salvar</button>
                         </div>
-                        <div class="form-group" id="job-category-group">
-                            <label for="job-category">Job Category</label>
-                            <select  class="form-control" id="job-category">
-                                <option>Choose a job category</option>
-                                <option>Internet Services</option>
-                                <option>Banking</option>
-                                <option>Financial</option>
-                                <option>Marketing</option>
-                                <option>Management</option>
-                            </select>
-                        </div>
-                        <div class="form-group" id="job-description-group">
-                            <label for="job-description">Description</label>
-                            <div class="textarea form-control" id="job-description"></div>
-                        </div>
-                        <div class="form-group" id="job-url-group">
-                            <label for="job-url">Application Email/URL</label>
-                            <input type="text" class="form-control" id="job-url" placeholder="Email or Website URL">
-                        </div>
-						</div>
+                    </div>
 						
-					</div>					
+										
 				</form>
 
 			</div>
