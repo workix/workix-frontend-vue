@@ -77,9 +77,10 @@ export default {
     },
     created(){
       
-        let ckeditor = document.createElement('script');  
-        ckeditor.setAttribute('src',"js/settings.js");
-        document.head.appendChild(ckeditor);
+        let jsSettingsTag = document.createElement('script');  
+        jsSettingsTag.setAttribute('src',"js/settings.js");
+        document.body.appendChild(jsSettingsTag);
+        
       
     }    
 }
