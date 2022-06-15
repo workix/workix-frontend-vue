@@ -53,8 +53,9 @@
 export default {
 	methods: {
 		navigate(link){
-			this.$router.go({path: link, force: true });
-
+			// this.$router.go({path: link, force: true });
+			// this.$router.push(link)
+			console.log(link)
 		}
 	}
 }
