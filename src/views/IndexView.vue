@@ -4,6 +4,7 @@
       <NavBar />
       <HeaderBar />
       <SliderWrapper />
+      <IndexModal />
       <JobsWrapper /> 
       <CompaniesWrapper />
       <StatsWrapper />
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+import IndexModal from '@/components/IndexModal.vue'
 import { useToast } from "vue-toastification";
 import PageLoader from '@/components/PageLoader.vue'
 import NavBar from '@/components/NavBar.vue'
@@ -45,6 +47,7 @@ export default {
         NavBar,
         HeaderBar,
         SliderWrapper,
+        IndexModal,
         JobsWrapper,
         CompaniesWrapper,
         StatsWrapper,
@@ -77,9 +80,10 @@ export default {
     },
     created(){
       
-        let ckeditor = document.createElement('script');  
-        ckeditor.setAttribute('src',"js/settings.js");
-        document.head.appendChild(ckeditor);
+        let jsSettingsTag = document.createElement('script');  
+        jsSettingsTag.setAttribute('src',"js/settings.js");
+        document.body.appendChild(jsSettingsTag);
+        
       
     }    
 }

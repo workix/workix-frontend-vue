@@ -93,7 +93,10 @@
 								<li><i class="fa fa-birthday-cake"></i>{{resume.candidate.birthDate.toLocaleString("pt-BR")}}</li>
 								<li><i class="fa fa-map-marker"></i>{{resume.candidate.locale.city}}</li>
 								<li><i class="fa fa-phone"></i>{{resume.candidate.contact.mobilePhone}}</li>
-								<li><i class="fa fa-envelope"></i><a :href="`mailto:${resume.candidate.user.email}`">Enviar Email</a></li>
+								<!-- Trigger the modal with a button -->
+								<li><i class="fa fa-envelope"></i><a href="#" data-toggle="modal" data-target="#message-modal-mail">Enviar Email</a></li>
+								<!-- Trigger the modal with a button -->
+								<li><i class="fa fa-mobile fa-2x"></i><a href="#" data-toggle="modal" data-target="#message-modal-push">Enviar Mensagem Celular</a></li>
 							</ul>
 						</div>
 						<hr>
@@ -120,10 +123,14 @@
     <FooterWrapper />
     <LoginPopup />
     <RegisterPopup />
+	<MessageModalPush :user="resume.candidate.user" v-if="resume != null"/>
+	<MessageModalMail :user="resume.candidate.user" v-if="resume != null" />
   </div>
 </template>
 
 <script>
+import MessageModalPush from '@/components/MessageModalPush.vue'
+import MessageModalMail from "@/components/MessageModalMail.vue"
 import PageLoader from '@/components/PageLoader.vue'
 import NavBar from '@/components/NavBar.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
@@ -133,6 +140,8 @@ import LoginPopup from '@/components/LoginPopup.vue'
 import RegisterPopup from "@/components/RegisterPopup.vue"
 export default {
     components:{
+		MessageModalPush,
+		MessageModalMail,
         PageLoader,
         NavBar,
         HeaderBar,
@@ -145,7 +154,7 @@ export default {
 		return{
 			baseUrl: window.location.origin,
 			resumeId: 0,
-			resume: null,
+			resume: null,			
 		}
 	},
 	async created(){

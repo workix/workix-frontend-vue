@@ -35,15 +35,11 @@
 					
 					<li><a href="#">Páginas</a>
 						<ul>
-							<li><a href="/detalhes_vaga" @click="navigate('/detalhes_vaga')">Detalhes da Vaga</a></li>
-							
-							
-							
-							<li><a href="/postagem" @click="navigate('/postagem')">Postagem</a></li>
-							
-							
+							<li><a href="/detalhes_vaga" @click="navigate('/detalhes_vaga')">Detalhes da Vaga</a></li>						
+							<li><a href="/postagem" @click="navigate('/postagem')">Postagem</a></li>							
 						</ul>
 					</li>
+					<li><a href="/perfil" @click="navigate('/perfil')">Perfil</a></li>
 					
 				</ul>		
 			</div>
@@ -57,8 +53,9 @@
 export default {
 	methods: {
 		navigate(link){
-			this.$router.go({path: link, force: true });
-
+			// this.$router.go({path: link, force: true });
+			// this.$router.push(link)
+			console.log(link)
 		}
 	}
 }

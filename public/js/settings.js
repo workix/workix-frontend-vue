@@ -3,9 +3,11 @@
 
 	$(window).load(function() {
 		$("#loader").fadeOut("slow");
-	});
+	});	
 
 	$(document).ready(function() {
+
+		$('#index-modal').modal('show');  
 
 		// ====================================================================
 
