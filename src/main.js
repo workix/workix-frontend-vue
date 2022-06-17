@@ -7,6 +7,9 @@ import Toast, { POSITION } from "vue-toastification";
 // Import the CSS or use your own!
 import "vue-toastification/dist/index.css";
 
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -38,6 +41,7 @@ const fbApp = initializeApp(firebaseConfig);
     position: POSITION.BOTTOM_RIGHT
 };
 
+app.component('QuillEditor', QuillEditor);
 
 
 app.use(router).use(Toast, toast_options).use(store).mount('#app')
