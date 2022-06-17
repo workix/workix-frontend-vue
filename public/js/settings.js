@@ -1,11 +1,13 @@
 (function($) {
-	"use strict";
+	"use strict";	
 
 	$(window).load(function() {
 		$("#loader").fadeOut("slow");
 	});	
 
 	$(document).ready(function() {
+
+		$('[data-toggle="tooltip"]').tooltip();
 
 		$('#index-modal').modal('show');  
 
