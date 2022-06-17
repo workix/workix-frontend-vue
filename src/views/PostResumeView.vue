@@ -16,7 +16,7 @@
 					</div>
 				</div>
 
-				<form v-if="candidate" @submit.prevent="createOrUpdateResume">
+				<form v-if="candidate" @submit.stop.prevent="createOrUpdateResume">
 
 					<!-- Resume Details Start -->
 					<div class="row">
@@ -78,7 +78,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-location-group">
-								<label for="resume-location">Location</label>
+								<label for="resume-location">Localização</label>
 								<input type="text" v-model="location" class="form-control" id="resume-location" placeholder="Seu Endereço" readonly data-toggle="tooltip" data-placement="top" title="Para Alterar informações de Endereço acesse a guia Perfil">
 							</div>
 						</div>
@@ -114,8 +114,8 @@
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
 							<h2>Habilidades</h2>
-							<button style="margin-right:10px;" class="btn btn-primary" @click="addSkill">Adicionar Habilidade</button>
-							<button style="margin-right:10px;" class="btn btn-secondary" @click="clearSkills">Apagar Habilidades</button>
+							<button type="button" style="margin-right:10px;" class="btn btn-primary" @click="addSkill">Adicionar Habilidade</button>
+							<button type="button" style="margin-right:10px;" class="btn btn-secondary" @click="clearSkills">Apagar Habilidades</button>
 							<br />
 							<br />
 							<br />
@@ -155,8 +155,8 @@
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
 							<h2>Experiência Profissional</h2>
-							<button style="margin-right:10px;" class="btn btn-primary" @click="addExperience">Adicionar Exp. Profissional</button>
-							<button style="margin-right:10px;" class="btn btn-secondary" @click="clearExperiences">Apagar Exp. Profissionals</button>
+							<button type="button" style="margin-right:10px;" class="btn btn-primary" @click="addExperience">Adicionar Exp. Profissional</button>
+							<button type="button" style="margin-right:10px;" class="btn btn-secondary" @click="clearExperiences">Apagar Exp. Profissionals</button>
 							<br />
 							<br />
 							<br />
@@ -168,19 +168,21 @@
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-employer-group">
 								<label for="resume-employer">Empregador</label>
-								<input type="text" v-model="e.employer" class="form-control" id="resume-employer" placeholder="Nome do Empregador">
+								<input type="text" v-model="e.employerName" class="form-control" id="resume-employer" placeholder="Nome do Empregador">
 							</div>
 						</div>
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-experience-dates-group">
 								<label for="resume-experience-dateStart">Data de Início</label>
-								<input type="text" v-model="e.startDate" class="form-control" id="resume-experience-dateStart" placeholder="Selecione uma Data">
+								<!--<input type="text" v-model="e.startDate" class="form-control" id="resume-experience-dateStart" placeholder="Selecione uma Data">-->
+								<Datepicker locale="pt-BR" autoApply placeholder="Selecione uma Data" required :enableTimePicker="false" v-model="e.startDate" class="form-control"/>
 							</div>
 						</div>
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-experience-dates-group">
 								<label for="resume-experience-dateEnd">Data de Saída</label>
-								<input type="text" v-model="e.endDate" class="form-control" id="resume-experience-dateEnd" placeholder="Selecione uma Data">
+								<!--<input type="text" v-model="e.endDate" class="form-control" id="resume-experience-dateEnd" placeholder="Selecione uma Data">-->
+								<Datepicker locale="pt-BR" autoApply placeholder="Selecione uma Data" required :enableTimePicker="false" v-model="e.endDate" class="form-control"/>
 							</div>
 						</div>
 					</div>
@@ -226,8 +228,8 @@
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
 							<h2>Formação Acadêmica</h2>
-							<button style="margin-right:10px;" class="btn btn-primary" @click="addEducation">Adicionar Formação Acadêmica</button>
-							<button style="margin-right:10px;" class="btn btn-secondary" @click="clearEducations">Apagar Formação Acadêmica</button>
+							<button type="button" style="margin-right:10px;" class="btn btn-primary" @click="addEducation">Adicionar Formação Acadêmica</button>
+							<button type="button" style="margin-right:10px;" class="btn btn-secondary" @click="clearEducations">Apagar Formação Acadêmica</button>
 							<br />
 							<br />
 							<br />
@@ -244,13 +246,15 @@
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-education-dates-group-date-start">
 								<label for="resume-education-date-start">Data de Início</label>
-								<input type="text" v-model="edu.startDate" class="form-control" id="resume-education-date-start" placeholder="Selecione uma Data">
+								<!--<input type="text" v-model="edu.startDate" class="form-control" id="resume-education-date-start" placeholder="Selecione uma Data">-->
+								<Datepicker locale="pt-BR" autoApply placeholder="Selecione uma Data" required :enableTimePicker="false" v-model="edu.startDate" class="form-control"/>
 							</div>
 						</div>
 						<div class="col-sm-3">
 							<div class="form-group" id="resume-education-dates-group-date-end">
 								<label for="resume-education-date-end">Data de Término</label>
-								<input type="text" v-model="edu.endDate" class="form-control" id="resume-education-date-end" placeholder="Selecione uma Data">
+								<!--<input type="text" v-model="edu.endDate" class="form-control" id="resume-education-date-end" placeholder="Selecione uma Data">-->
+								<Datepicker locale="pt-BR" autoApply placeholder="Selecione uma Data" required :enableTimePicker="false" v-model="edu.endDate" class="form-control"/>
 							</div>
 						</div>
 					</div>
@@ -258,7 +262,7 @@
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-qualification-group">
 								<label for="resume-qualification">Qualificação</label>
-								<input type="text" class="form-control" id="resume-qualification" placeholder="exemplo Engenharia">
+								<input type="text" v-model="edu.qualification" class="form-control" id="resume-qualification" placeholder="exemplo Engenharia">
 							</div>
 						</div>
 						<div class="col-sm-6">
@@ -328,6 +332,8 @@
 </template>
 
 <script>
+import { useToast } from "vue-toastification";
+import Datepicker from '@vuepic/vue-datepicker';
 import PageLoader from '@/components/PageLoader.vue'
 import NavBar from '@/components/NavBar.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
@@ -337,7 +343,12 @@ import FooterWrapper from '@/components/FooterWrapper.vue'
 import LoginPopup from '@/components/LoginPopup.vue'
 import RegisterPopup from '@/components/RegisterPopup.vue'
 export default {
+	setup(){
+		const toast = useToast();
+		return {toast}
+	},
     components:{
+		Datepicker,
         PageLoader,
         NavBar,
         HeaderBar,
@@ -346,6 +357,7 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
+		
     },
 	data(){
 		return{
@@ -452,7 +464,16 @@ export default {
 		}
 		const token = localStorage.getItem("jwt")
 		let config = { headers: { "Authorization": `Bearer ${token}` } }
-		return this.$http.post("http://localhost:8080/workix/services/v1/vue/create_or_update_resume_by_token", payload, config)
+		
+		try {
+			await this.$http.post("http://localhost:8080/workix/services/v1/vue/create_or_update_resume_by_token", payload, config)	
+			this.toast.success("Dados atualizados com Sucesso!", {timeout: 2000})
+			this.$router.go({path: this.$router.currentRoute, force: true})
+		} catch (error) {
+			console.error(error)
+			this.toast.error("Ocorreu um erro ao atualizar os dados", {timeout: 2000})
+		}
+		
 
 	}
   }
