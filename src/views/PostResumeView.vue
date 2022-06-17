@@ -114,7 +114,8 @@
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
 							<h2>Habilidades</h2>
-							<button @click="addSkill">Adicionar Habilidade</button>
+							<button style="margin-right:10px;" class="btn btn-primary" @click="addSkill">Adicionar Habilidade</button>
+							<button style="margin-right:10px;" class="btn btn-secondary" @click="clearSkills">Apagar Habilidades</button>
 							<br />
 							<br />
 							<br />
@@ -125,12 +126,13 @@
 					<div class="row social-network">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-skill-group">
-								<label for="resume-skill">Habilidade {{i + 1}}</label>
-								<input type="text" v-model="s.skillName" class="form-control" id="resume-skill" placeholder="Digite a Habilidade">
+								<label for="resume-skill-name">Habilidade {{i + 1}}</label>
+								<input type="text" v-model="s.skillName" class="form-control" id="resume-skill-name" placeholder="Digite a Habilidade">
 							</div>
 						</div>
 						<div class="col-sm-6">
-							
+							<label for="resume-skill-months">Meses de Experiência (Opcional)</label>
+							<input type="number" v-model="s.months" class="form-control" id="resume-skill-months" placeholder="Digite a Quantidade de Meses de Experiência">
 						</div>
 					</div>
 					<div class="row">
@@ -140,8 +142,8 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a @click="addSkill">+ Adicionar Habilidade</a></p>
-							<p><a @click="removeSkill(i)">+ Remover Habilidade {{i + 1}}</a></p>
+							<p v-if="skills.length == i+1"><a @click="addSkill">+ Adicionar Habilidade</a></p>
+							<p><a @click="removeSkill(i)">+ Remover Habilidade {{i + 1}} - {{s.skillName}}</a></p>
 							<hr>
 						</div>
 					</div>
@@ -152,36 +154,59 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
-							<h2>Experience</h2>
+							<h2>Experiência Profissional</h2>
+							<button style="margin-right:10px;" class="btn btn-primary" @click="addExperience">Adicionar Exp. Profissional</button>
+							<button style="margin-right:10px;" class="btn btn-secondary" @click="clearExperiences">Apagar Exp. Profissionals</button>
+							<br />
+							<br />
+							<br />
 						</div>
 					</div>
+
+				<template v-for="(e,i) in experiences" :key="i">
 					<div class="row experience">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-employer-group">
-								<label for="resume-employer">Employer</label>
-								<input type="text" class="form-control" id="resume-employer" placeholder="Company name">
+								<label for="resume-employer">Empregador</label>
+								<input type="text" v-model="e.employer" class="form-control" id="resume-employer" placeholder="Nome do Empregador">
 							</div>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-3">
 							<div class="form-group" id="resume-experience-dates-group">
-								<label for="resume-experience-dates">Start/End Date</label>
-								<input type="text" class="form-control" id="resume-experience-dates" placeholder="e.g. April 2010 - June 2013">
+								<label for="resume-experience-dateStart">Data de Início</label>
+								<input type="text" v-model="e.startDate" class="form-control" id="resume-experience-dateStart" placeholder="Selecione uma Data">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group" id="resume-experience-dates-group">
+								<label for="resume-experience-dateEnd">Data de Saída</label>
+								<input type="text" v-model="e.endDate" class="form-control" id="resume-experience-dateEnd" placeholder="Selecione uma Data">
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-job-title-group">
-								<label for="resume-job-title">Job Title</label>
-								<input type="text" class="form-control" id="resume-job-title" placeholder="e.g. Web Designer">
+								<label for="resume-job-title">Título</label>
+								<input type="text" v-model="e.jobTitle" class="form-control" id="resume-job-title" placeholder="exemplo: Web Designer">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-responsibilities-group">
-								<label for="resume-responsibilities">Responsibilities (Optional)</label>
-								<input type="text" class="form-control" id="resume-responsibilities" placeholder="e.g. Developing new websites">
+								<label for="resume-responsibilities">Responsabilidades (Opcional)</label>
+								<input type="text" v-model="e.responsibilities" class="form-control" id="resume-responsibilities" placeholder="exemplo Desenvolvimento de novos Sites">
 							</div>
 						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group" id="resume-exp-description-group">
+								<label for="resume-exp-description">Descrição</label>
+								<textarea id="resume-exp-description" class="form-control" rows="3">
+
+								</textarea>
+							</div>
+						</div>	
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
@@ -190,10 +215,12 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a id="add-experience">+ Add Experience</a></p>
+							<p v-if="experiences.length == i+1"><a @click="addExperience">+ Adicionar Experiência</a></p>
+							<p><a @click="removeExperience(i)">+ Remover Experiência {{i + 1}} - {{e.employer}}</a></p>
 							<hr>
 						</div>
 					</div>
+				</template>
 					<!-- Experience Start -->
 
 					<!-- Education Start -->
@@ -309,7 +336,8 @@ export default {
 			content: "",
 			carrerLevel: 0,
 			presence:0,
-			skills: []
+			skills: [],
+			experiences: []
 		}
 	},
 	async created(){
@@ -324,10 +352,22 @@ export default {
   },
   methods:{
 	addSkill()  {
-		this.skills.push({skillName: ""})
+		this.skills.push({skillName: "", months: 0})
+	},
+	addExperience(){
+		this.experiences.push({employerName: "", jobTitle: "", startDate: "", endDate: "", responsibilities: "", description: ""})
 	},
 	removeSkill(index){
 		this.skills.splice(index, 1)
+	},
+	removeExperience(index){
+		this.experiences.splice(index, 1)
+	},
+	clearSkills(){
+		this.skills = []
+	},
+	clearExperiences(){
+		this.experiences = []
 	},
 	async aboutMe(token){
 		let config = { headers: { "Authorization": `Bearer ${token}` } }
