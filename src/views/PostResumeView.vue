@@ -16,22 +16,22 @@
 					</div>
 				</div>
 
-				<form>
+				<form v-if="candidate">
 
 					<!-- Resume Details Start -->
 					<div class="row">
 						<div class="col-sm-6">
-							<h2>Resume details</h2>
+							<h2>Detalhes do Currículo</h2>
 						</div>
 						<div class="col-sm-6 text-right">
-							<a class="btn btn-primary"><i class="fa fa-linkedin-square"></i> LinkedIn Import</a>
+							<a class="btn btn-primary"><i class="fa fa-linkedin-square"></i> Importar dados do Linkedin</a>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-name-group">
-								<label for="resume-name">Name</label>
-								<input type="text" class="form-control" id="resume-name" placeholder="e.g. John Doe">
+								<label for="resume-name">Nome</label>
+								<input type="text" v-model="candidate.name" class="form-control" id="resume-name" placeholder="Seu Nome" readonly data-toggle="tooltip" data-placement="top" title="Para Alterar o Nome acesse a guia Perfil">
 							</div>
 						</div>
 						<div class="col-sm-6">
@@ -44,8 +44,8 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-title-group">
-								<label for="resume-title">Title</label>
-								<input type="text" class="form-control" id="resume-title" placeholder="e.g. Web Designer">
+								<label for="resume-title">Objetivo ou Cargo</label>
+								<input type="text" v-model="objective" class="form-control" id="resume-title" placeholder="por exemplo Web Designer">
 							</div>
 						</div>
 						<div class="col-sm-6">
@@ -59,19 +59,18 @@
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-email-group">
 								<label for="resume-email">Email</label>
-								<input type="email" class="form-control" id="resume-email" placeholder="you@yourdomain.com">
+								<input type="email" v-model="candidate.user.email" class="form-control" id="resume-email" placeholder="Seu Email" readonly data-toggle="tooltip" data-placement="top" title="Para Alterar o Email acesse a guia Perfil">
 							</div>
 						</div>
 						<div class="col-sm-6">
-							<div class="form-group" id="resume-category-group">
-								<label for="resume-category">Job Category</label>
-								<select  class="form-control" id="resume-category">
-									<option>Choose a category</option>
-									<option>Internet Services</option>
-									<option>Banking</option>
-									<option>Financial</option>
-									<option>Marketing</option>
-									<option>Management</option>
+							<div class="form-group" id="resume-carrerlevel-group">
+								<label for="resume-carrerlevel">Nivel de Experiência</label>
+								<select v-model="carrerLevel" class="form-control" id="resume-carrerlevel">
+									<option>Escolha um nível</option>
+									<option>Junior</option>
+									<option>Middle</option>
+									<option>Senior</option>
+									<option>Expert</option>									
 								</select>
 							</div>
 						</div>
@@ -80,21 +79,28 @@
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-location-group">
 								<label for="resume-location">Location</label>
-								<input type="text" class="form-control" id="resume-location" placeholder="e.g. New York City">
+								<input type="text" v-model="location" class="form-control" id="resume-location" placeholder="Seu Endereço" readonly data-toggle="tooltip" data-placement="top" title="Para Alterar informações de Endereço acesse a guia Perfil">
 							</div>
 						</div>
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-skills-group">
-								<label for="resume-skills">Skills</label>
-								<input type="text" class="form-control" id="resume-skills" placeholder="e.g. Photoshop, HTML, CSS">
+						<div class="col-sm-6">							 
+							<div class="form-group" id="resume-presence-group">
+								<label for="resume-presence">Forma de Trabalho</label>
+								<select v-model="presence" class="form-control" id="resume-presence">
+									<option>Escolha uma forma</option>
+									<option>REMOTE</option>
+									<option>OFFICE</option>
+									<option>RELOCATION</option>
+									<option>TRAVEL_A_LOT</option>									
+								</select>
 							</div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-12">		
+												
 							<div class="form-group" id="resume-content-group">
-								<label for="resume-content">Resume Content</label>
-								<div class="textarea form-control" id="resume-content"></div>
+								<label for="resume-content">Conteúdo</label>								
+								<QuillEditor toolbar="full" theme="snow" v-model="content" id="resume-content" />
 							</div>
 						</div>
 					</div>
@@ -304,10 +310,31 @@ export default {
         LoginPopup,
         RegisterPopup
     },
-	created(){
+	data(){
+		return{
+			candidate: null,
+			objective: "",
+			location: "",
+			content: "",
+			carrerLevel: 0,
+			presence:0
+		}
+	},
+	async created(){
 	let ckeditor = document.createElement('script');  
     ckeditor.setAttribute('src',"js/settings.js");
     document.head.appendChild(ckeditor);
+
+	const token = localStorage.getItem("jwt")
+	const {data} = await this.aboutMe(token)
+	this.candidate = data.owner
+	this.location = `${this.candidate.locale.city} - ${this.candidate.locale.estate} - ${this.candidate.locale.neighborhood} - ${this.candidate.locale.street} - ${this.candidate.locale.number} - ${this.candidate.locale.zipCode}` 
+  },
+  methods:{
+	async aboutMe(token){
+		let config = { headers: { "Authorization": `Bearer ${token}` } }
+		return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
+	},
   }
 }
 </script>
