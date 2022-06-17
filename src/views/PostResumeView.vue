@@ -16,7 +16,7 @@
 					</div>
 				</div>
 
-				<form v-if="candidate">
+				<form v-if="candidate" @submit.prevent="null">
 
 					<!-- Resume Details Start -->
 					<div class="row">
@@ -109,39 +109,28 @@
 							<hr class="dashed">
 						</div>
 					</div>
+
+					<div class="row">
+						<div class="col-sm-12">
+							<p>&nbsp;</p>
+							<h2>Habilidades</h2>
+							<button @click="addSkill">Adicionar Habilidade</button>
+							<br />
+							<br />
+							<br />
+						</div>
+					</div>					
+
+				<template v-for="(s,i) in skills" :key="i">
 					<div class="row social-network">
 						<div class="col-sm-6">
-							<div class="form-group" id="resume-social-network-group">
-								<label for="resume-social-network">Choose Social Network</label>
-								<select  class="form-control" id="resume-social-network">
-									<option>Choose social network</option>
-									<option>Facebook</option>
-									<option>Twitter</option>
-									<option>Google+</option>
-									<option>LinkedIn</option>
-									<option>YouTube</option>
-									<option>Vimeo</option>
-									<option>Github</option>
-									<option>Flickr</option>
-									<option>YouTube</option>
-									<option>DeviantArt</option>
-									<option>ThemeForest</option>
-									<option>CodeCanyon</option>
-									<option>VideoHive</option>
-									<option>AudioJungle</option>
-									<option>GraphicRiver</option>
-									<option>PhotoDune</option>
-									<option>3dOcean</option>
-									<option>ActiveDen</option>
-									<option>Other</option>
-								</select>
+							<div class="form-group" id="resume-skill-group">
+								<label for="resume-skill">Habilidade {{i + 1}}</label>
+								<input type="text" v-model="s.skillName" class="form-control" id="resume-skill" placeholder="Digite a Habilidade">
 							</div>
 						</div>
 						<div class="col-sm-6">
-							<div class="form-group" id="resume-social-network-url-group">
-								<label for="resume-social-network-url">URL</label>
-								<input type="text" class="form-control" id="resume-social-network-url" placeholder="http://">
-							</div>
+							
 						</div>
 					</div>
 					<div class="row">
@@ -151,10 +140,12 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a id="add-social-network">+ Add Social Network</a></p>
+							<p><a @click="addSkill">+ Adicionar Habilidade</a></p>
+							<p><a @click="removeSkill(i)">+ Remover Habilidade {{i + 1}}</a></p>
 							<hr>
 						</div>
 					</div>
+				</template>
 					<!-- Resume Details End -->
 
 					<!-- Experience Start -->
@@ -317,7 +308,8 @@ export default {
 			location: "",
 			content: "",
 			carrerLevel: 0,
-			presence:0
+			presence:0,
+			skills: []
 		}
 	},
 	async created(){
@@ -331,6 +323,12 @@ export default {
 	this.location = `${this.candidate.locale.city} - ${this.candidate.locale.estate} - ${this.candidate.locale.neighborhood} - ${this.candidate.locale.street} - ${this.candidate.locale.number} - ${this.candidate.locale.zipCode}` 
   },
   methods:{
+	addSkill()  {
+		this.skills.push({skillName: ""})
+	},
+	removeSkill(index){
+		this.skills.splice(index, 1)
+	},
 	async aboutMe(token){
 		let config = { headers: { "Authorization": `Bearer ${token}` } }
 		return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
