@@ -202,9 +202,7 @@
 						<div class="col">
 							<div class="form-group" id="resume-exp-description-group">
 								<label for="resume-exp-description">Descrição</label>
-								<textarea id="resume-exp-description" class="form-control" rows="3">
-
-								</textarea>
+								<textarea id="resume-exp-description" v-model="e.description" class="form-control" rows="3"></textarea>
 							</div>
 						</div>	
 					</div>
@@ -227,34 +225,51 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
-							<h2>Education</h2>
+							<h2>Formação Acadêmica</h2>
+							<button style="margin-right:10px;" class="btn btn-primary" @click="addEducation">Adicionar Formação Acadêmica</button>
+							<button style="margin-right:10px;" class="btn btn-secondary" @click="clearEducations">Apagar Formação Acadêmica</button>
+							<br />
+							<br />
+							<br />
 						</div>
 					</div>
+				<template v-for="(edu,i) in educations" :key="i">
 					<div class="row education">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-school-group">
-								<label for="resume-school">School Name</label>
-								<input type="text" class="form-control" id="resume-school" placeholder="School name, city and country">
+								<label for="resume-school">Nome Instituição</label>
+								<input type="text" v-model="edu.schoolName" class="form-control" id="resume-school" placeholder="Digite o nome da Instituição">
 							</div>
 						</div>
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-education-dates-group">
-								<label for="resume-education-dates">Start/End Date</label>
-								<input type="text" class="form-control" id="resume-education-dates" placeholder="e.g. April 2010 - June 2013">
+						<div class="col-sm-3">
+							<div class="form-group" id="resume-education-dates-group-date-start">
+								<label for="resume-education-date-start">Data de Início</label>
+								<input type="text" v-model="edu.startDate" class="form-control" id="resume-education-date-start" placeholder="Selecione uma Data">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group" id="resume-education-dates-group-date-end">
+								<label for="resume-education-date-end">Data de Término</label>
+								<input type="text" v-model="edu.endDate" class="form-control" id="resume-education-date-end" placeholder="Selecione uma Data">
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
-							<div class="form-group" id="resume-qualifications-group">
-								<label for="resume-qualifications">Qualifications</label>
-								<input type="text" class="form-control" id="resume-qualifications" placeholder="e.g. Master Engineer">
+							<div class="form-group" id="resume-qualification-group">
+								<label for="resume-qualification">Qualificação</label>
+								<input type="text" class="form-control" id="resume-qualification" placeholder="exemplo Engenharia">
 							</div>
 						</div>
 						<div class="col-sm-6">
-							<div class="form-group" id="resume-notes-group">
-								<label for="resume-notes">Notes (Optional)</label>
-								<input type="text" class="form-control" id="resume-notes" placeholder="Any achievements">
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group" id="resume-description-group">
+								<label for="resume-edu-description">Descrição</label>
+								<textarea id="resume-edu-description" v-model="edu.description" class="form-control" rows="3" placeholder="Descrição do Curso"></textarea>
 							</div>
 						</div>
 					</div>
@@ -265,12 +280,15 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a id="add-education">+ Add Education</a></p>
+							<p v-if="educations.length == i+1"><a @click="addEducation">+ Adicionar Formação Acadêmica</a></p>
+							<p><a @click="removeEducation(i)">+ Remover Formação Acadêmica {{i + 1}} - {{edu.schoolName}}</a></p>
 							<hr>
 						</div>
 					</div>
+				</template>	
 					<!-- Education Start -->
 
+				<template v-if="false">
 					<!-- Resume File Start -->
 					<div class="row">
 						<div class="col-sm-12">
@@ -288,11 +306,12 @@
 						</div>
 					</div>
 					<!-- Resume File Start -->
+				</template>	
 
 					<div class="row text-center">
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
-							<a href="#" class="btn btn-primary btn-lg">Preview <i class="fa fa-arrow-right"></i></a>
+							<a href="#" class="btn btn-primary btn-lg btn-block">Salvar <i class="fa fa-arrow-right"></i></a>
 						</div>
 					</div>
 
@@ -337,7 +356,8 @@ export default {
 			carrerLevel: 0,
 			presence:0,
 			skills: [],
-			experiences: []
+			experiences: [],
+			educations: []
 		}
 	},
 	async created(){
@@ -357,17 +377,26 @@ export default {
 	addExperience(){
 		this.experiences.push({employerName: "", jobTitle: "", startDate: "", endDate: "", responsibilities: "", description: ""})
 	},
+	addEducation(){
+		this.educations.push({description: "", qualification: "", schoolName: "", startDate: "", endDate: ""})
+	},
 	removeSkill(index){
 		this.skills.splice(index, 1)
 	},
 	removeExperience(index){
 		this.experiences.splice(index, 1)
 	},
+	removeEducation(index){
+		this.educations.splice(index, 1)
+	},
 	clearSkills(){
 		this.skills = []
 	},
 	clearExperiences(){
 		this.experiences = []
+	},
+	clearEducations(){
+		this.educations = []
 	},
 	async aboutMe(token){
 		let config = { headers: { "Authorization": `Bearer ${token}` } }
