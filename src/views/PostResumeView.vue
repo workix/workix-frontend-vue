@@ -8,15 +8,15 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-sm-12">
-						<h1>Post a Resume</h1>
-						<h4>Find your perfect job</h4>
+						<h1>Publique seu Currículo</h1>
+						<h4>Encontre o Trabalho Perfeito</h4>
 													
 						<HaveAnAccount />
 						
 					</div>
 				</div>
 
-				<form v-if="candidate" @submit.prevent="null">
+				<form v-if="candidate" @submit.prevent="createOrUpdateResume">
 
 					<!-- Resume Details Start -->
 					<div class="row">
@@ -67,10 +67,10 @@
 								<label for="resume-carrerlevel">Nivel de Experiência</label>
 								<select v-model="carrerLevel" class="form-control" id="resume-carrerlevel">
 									<option>Escolha um nível</option>
-									<option>Junior</option>
-									<option>Middle</option>
-									<option>Senior</option>
-									<option>Expert</option>									
+									<option value="0">Junior</option>
+									<option value="1">Middle</option>
+									<option value="2">Senior</option>
+									<option value="3">Expert</option>									
 								</select>
 							</div>
 						</div>
@@ -86,11 +86,11 @@
 							<div class="form-group" id="resume-presence-group">
 								<label for="resume-presence">Forma de Trabalho</label>
 								<select v-model="presence" class="form-control" id="resume-presence">
-									<option>Escolha uma forma</option>
-									<option>REMOTE</option>
-									<option>OFFICE</option>
-									<option>RELOCATION</option>
-									<option>TRAVEL_A_LOT</option>									
+									<option>Escolha uma forma de trabalho</option>
+									<option value="0">REMOTE</option>
+									<option value="1">OFFICE</option>
+									<option value="2">RELOCATION</option>
+									<option value="3">TRAVEL_A_LOT</option>									
 								</select>
 							</div>
 						</div>
@@ -100,7 +100,7 @@
 												
 							<div class="form-group" id="resume-content-group">
 								<label for="resume-content">Conteúdo</label>								
-								<QuillEditor toolbar="full" theme="snow" v-model="content" id="resume-content" />
+								<QuillEditor  :content="content" :contentType="'html'" v-model:content="content"  toolbar="full" theme="snow" v-model="content" id="resume-content" />
 							</div>
 						</div>
 					</div>
@@ -310,8 +310,8 @@
 
 					<div class="row text-center">
 						<div class="col-sm-12">
-							<p>&nbsp;</p>
-							<a href="#" class="btn btn-primary btn-lg btn-block">Salvar <i class="fa fa-arrow-right"></i></a>
+							<p>&nbsp;</p>							
+							<button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
 						</div>
 					</div>
 
@@ -350,6 +350,7 @@ export default {
 	data(){
 		return{
 			candidate: null,
+			resume: null,
 			objective: "",
 			location: "",
 			content: "",
@@ -368,7 +369,14 @@ export default {
 	const token = localStorage.getItem("jwt")
 	const {data} = await this.aboutMe(token)
 	this.candidate = data.owner
-	this.location = `${this.candidate.locale.city} - ${this.candidate.locale.estate} - ${this.candidate.locale.neighborhood} - ${this.candidate.locale.street} - ${this.candidate.locale.number} - ${this.candidate.locale.zipCode}` 
+	this.resume = data.resume
+
+	if(this.resume){
+		this.populateResume(this.resume)
+	}else {
+		this.location = `${this.candidate.locale.city} - ${this.candidate.locale.estate} - ${this.candidate.locale.neighborhood} - ${this.candidate.locale.street} - ${this.candidate.locale.number} - ${this.candidate.locale.zipCode}` 
+	}
+	
   },
   methods:{
 	addSkill()  {
@@ -398,10 +406,55 @@ export default {
 	clearEducations(){
 		this.educations = []
 	},
+	populateResume(resume){
+
+		const carrerLevels = {
+			JUNIOR: 0,
+			MIDDLE: 1,
+			SENIOR: 2,
+			EXPERT: 3
+		}
+
+		const presence = {
+			REMOTE: 0,
+			OFFICE: 1,
+			RELOCATION: 2,
+			TRAVEL_A_LOT: 3
+		}
+
+		this.resume = resume
+		this.objective = resume.objective;
+		this.location = `${resume.candidate.locale.city} - ${resume.candidate.locale.estate} - ${resume.candidate.locale.neighborhood} - ${resume.candidate.locale.street} - ${resume.candidate.locale.number} - ${resume.candidate.locale.zipCode}` 
+		this.content = resume.content
+		this.carrerLevel = carrerLevels[resume.carrerLevel] 
+		this.presence = presence[resume.presence]
+		this.skills = resume.skills
+		this.experiences = resume.experiences
+		this.educations = resume.educations			
+	},
 	async aboutMe(token){
 		let config = { headers: { "Authorization": `Bearer ${token}` } }
 		return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
 	},
+	async createOrUpdateResume(){
+		let payload = {
+			carrerLevel: this.carrerLevel,
+			presence: this.presence,
+			candidate: this.resume.candidate,
+			educations: this.educations,
+			experiences: this.experiences,
+			skills: this.skills,
+			objective: this.objective,
+			content: this.content
+		}
+		if (this.resume.id){
+			payload.id = this.resume.id
+		}
+		const token = localStorage.getItem("jwt")
+		let config = { headers: { "Authorization": `Bearer ${token}` } }
+		return this.$http.post("http://localhost:8080/workix/services/v1/vue/create_or_update_resume_by_token", payload, config)
+
+	}
   }
 }
 </script>
