@@ -6,7 +6,7 @@
 					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
 					<h2>{{!isLoggedIn ? "Registrar" : ""}}</h2>					
 				</div>
-				<form v-if="!isLoggedIn">
+				<form v-if="!isLoggedIn" @submit.stop.prevent="null">
 					<div class="form-group">
 						<label for="accountType">Perfil</label>
 						<select id="accountType" class="form-control" aria-label="Default select example" v-model="accountType" required>
@@ -56,8 +56,9 @@
 					</div>
 					<button type="submit" class="btn btn-primary" >Registrar</button>
 				</form>
-				<form v-else>
-					<button  class="btn btn-primary" v-if="isLoggedIn" @click="handleSignOut">Logout</button>
+				
+				<form v-else @submit.stop.prevent="null">
+					<button type="button" class="btn btn-primary" v-if="isLoggedIn" @click="handleSignOut">Logout</button>
 				</form>
 			</div>
 		</div>
@@ -204,7 +205,27 @@ export default {
 				
 
 			} else if (accountType == 'Company'){
-				this.$http.post("http://localhost:8080/workix/services/v1/vue/create_company")
+				const payload = {
+					name: name,
+					cnpj: this.cnpj,					
+					firebaseUUID: firebaseUUID,
+					email: email
+				}
+
+				try {
+					const {data} = await this.$http.post("http://localhost:8080/workix/services/v1/vue/create_company", payload)
+
+					localStorage.owner = JSON.stringify(data.company)
+					localStorage.jwt = data.jwt.token
+					localStorage.accountType = "Company"
+					
+				} catch (error) {
+					console.error(error)
+					this.toast.error("Falha ao criar a conta no Workix", {timeout: 2000})
+					
+				}
+
+			
 
 			} else{
 				throw new Error("Incorrect Account Type")
