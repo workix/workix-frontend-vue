@@ -20,6 +20,7 @@
 					</li>
 					<li><a href="#">Recrutadores</a>
 						<ul>
+							<li><a href="/minhas_vagas" @click="navigate('/minhas_vagas')">Minhas Vagas</a></li>
 							<li><a href="/empresa" @click="navigate('/empresa')">Empresa</a></li>
 							<li><a href="/cadastrar_vaga" @click="navigate('/cadastrar_vaga')">Cadastrar Vaga</a></li>
 							<li><a href="/candidatos" @click="navigate('/candidatos')">Candidatos</a></li>

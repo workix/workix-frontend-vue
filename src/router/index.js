@@ -19,6 +19,7 @@ import OptionsView from '../views/OptionsView.vue'
 import SearchView from '../views/SearchView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import ProfileView from '../views/ProfileView.vue'
+import MyJobsView from '../views/MyJobsView.vue'
 
 const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
@@ -121,6 +122,11 @@ const routes = [
     meta:{
       // requiresAuth: true
     }
+  },
+  {
+    path: "/minhas_vagas",
+    name: "minhas_vagas",
+    component: MyJobsView
   },
   {
     path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
