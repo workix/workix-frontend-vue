@@ -143,7 +143,7 @@
                     </div>									
 				</form>
 
-                <form v-else>
+                <form @submit.prevent="send"  v-else>
                     <div class="row">
 						<div class="col-12">
 							<h2>Detalhes do Usuário</h2>
@@ -186,32 +186,41 @@
                         </div>
 
                         <div class="col-sm-12">
-							<h2>Detalhes do Candidato</h2>	
+							<h2>Detalhes da Empresa</h2>	
                             <div class="row">
-                                <div class="form-group" id="uuid-candidate-group">
-                                        <label for="uuid-candidate">UUID do Candidato</label>
-                                        <input type="text" v-model="uuidCandidate" class="form-control" id="uuid-candidate" readonly>
+                                <div class="form-group" id="uuid-company-group">
+                                        <label for="uuid-company">UUID da Empresa</label>
+                                        <input type="text" v-model="uuidCompany" class="form-control" id="uuid-company" readonly>
                                 </div>	
 
-                                 <div class="form-group" id="id-candidate-group">
-                                        <label for="id-candidate">ID do Candidato</label>
-                                        <input type="text" v-model="idCandidate" class="form-control" id="id-candidate" readonly>
-                                    </div>	
-
-                                <div class="form-group" id="name-candidate-group">
-                                        <label for="name-candidate">Nome do Candidato</label>
-                                        <input type="text" v-model="nameCandidate" class="form-control" id="name-candidate" placeholder="Digite o seu Nome" required>
+                                 <div class="form-group" id="id-company-group">
+                                        <label for="id-company">ID da Empresa</label>
+                                        <input type="text" v-model="idCompany" class="form-control" id="id-company" readonly>
                                 </div>	
 
-                                <div class="form-group" id="birthdate-candidate-group">
-                                        <label for="birthdate-candidate">Data de Nascimento</label>
-                                        <input type="text" v-model="birthDateCandidate" class="form-control" id="birthdate-candidate" placeholder="Digite a data do seu Nascimento" required>
+                                <div class="form-group" id="id-company-group">
+                                        <label for="logo-company">Logo da Empresa</label>
+                                        <input type="text" v-model="logoCompany" class="form-control" id="logo-company" required>
+                                </div>
+
+                                <div class="form-group" id="name-company-group">
+                                        <label for="name-company">Nome da Empresa</label>
+                                        <input type="text" v-model="nameCompany" class="form-control" id="name-company" placeholder="Digite o nome da Empresa" required>
                                 </div>	
 
+                                <div class="form-group" id="segment-company-group">
+                                        <label for="segment-company">Segmento da Empresa</label>
+                                        <input type="text" v-model="segmentCompany" class="form-control" id="segment-company" placeholder="Digite o segmento da Empresa" required>
+                                </div>	
 
-                                <div class="form-group" id="cpf-candidate-group">
-                                        <label for="cpf-candidate">CPF do Candidato</label>
-                                        <input type="text" v-model="cpfCandidate" class="form-control" id="cpf-candidate" placeholder="Digite o seu CPF" required>
+                                <div class="form-group" id="description-company-group">
+                                        <label for="description-company">Descrição da Empresa</label>
+                                        <input type="text" v-model="descriptionCompany" class="form-control" id="description-company" placeholder="Digite a Descrição da Empresa" required>
+                                </div>	
+
+                                <div class="form-group" id="cnpj-company-group">
+                                        <label for="cnpj-company">CNPJ da Empresa</label>
+                                        <input type="text" v-model="cnpjCompany" class="form-control" id="cnpj-company" placeholder="Digite o CNPJ da Empresa" required>
                                 </div>
 
                             </div>
@@ -222,7 +231,7 @@
                             <div class="row">
                                 <div class="form-group" id="mobile-candidate-group">
                                     <label for="mobile-candidate">Celular</label>
-                                    <input type="text" v-model="mobileCandidate" class="form-control" id="mobile-candidate" placeholder="Digite o Número do Celular" required>
+                                    <input type="text" v-model="contactCompany" class="form-control" id="mobile-candidate" placeholder="Digite o Número do Celular" required>
                                 </div>	
 
                             </div>
@@ -311,6 +320,7 @@ export default {
         return {
             type: "",
             candidate: null,
+            company: null,
             uuidUser: "",
             idUser: 0,
             activeUser: null,
@@ -318,10 +328,19 @@ export default {
             uuidFirebaseUser: "",
             messageTokenFirebaseUser: "",
             uuidCandidate: "",
+            uuidCompany: "",
             idCandidate: 0,
+            idCompany: 0,
             nameCandidate: "",
+            nameCompany: "",
             birthDateCandidate: null,
             cpfCandidate: "",
+            cnpjCompany: "",
+            contactCompany: "",
+            logoCompany: "",
+            mediasCompany: [],
+            descriptionCompany: "",
+            segmentCompany: "",
             mobileCandidate: "",
             zipLocale: "",
             cityLocale: "",
@@ -337,12 +356,18 @@ export default {
     document.head.appendChild(ckeditor);   
 
     const token = localStorage.getItem("jwt")
-    const {data} = await this.aboutMe(token)
-    this.candidate = data.owner
+    const {data} = await this.aboutMe(token)    
+
     this.type = data.type
 
     if (this.type == 'Candidate'){
+        this.candidate = data.owner
         this.copyCandidate()
+    } else if (this.type == 'Company'){
+        this.company = data.owner
+        this.copyCompany()
+    } else{
+        throw new Error("Incorrect Type")
     }
         
   },
@@ -378,12 +403,47 @@ export default {
 
 
       },
+      copyCompany(){           
+
+          // USER object
+          this.uuidUser = this.company.user.uuid
+          this.idUser = this.company.user.id
+          this.activeUser = this.company.user.active
+          this.emailUser = this.company.user.email
+          this.uuidFirebaseUser = this.company.user.firebaseUUID
+          this.messageTokenFirebaseUser = this.company.user.firebaseMessageToken
+
+          // Company object
+          this.uuidCompany = this.company.uuid
+          this.idCompany = this.company.id
+          this.nameCompany = this.company.name          
+          this.cnpjCompany = this.company.cnpj
+          this.logoCompany = this.company.logo
+          this.descriptionCompany = this.company.description
+          this.segmentCompany = this.company.segment
+          this.mediasCompany = this.company.medias
+
+          if(this.company.contact){
+              this.contactCompany = this.company.contact.mobilePhone
+          }
+
+          if(this.company.locale){
+              this.zipLocale = this.company.locale.zipCode
+              this.cityLocale = this.company.locale.city
+              this.estateLocale = this.company.locale.estate
+              this.neighLocale = this.company.locale.neighborhood
+              this.streetLocale = this.company.locale.street
+              this.numberLocale = this.company.locale.number
+          }
+
+
+      },
         async aboutMe(token){
             let config = { headers: { "Authorization": `Bearer ${token}` } }
             return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
         },
         async update(token){
-            const payload = {
+            const payloadCandidate = {
                 candidate: {
                     user: {
                         uuid: this.uuidUser,
@@ -412,10 +472,40 @@ export default {
                 }
             }
 
-            console.log("Payload", payload)
+            const payloadCompany = {
+                company: {
+                    user: {
+                        uuid: this.uuidUser,
+                        active: this.activeUser,
+                        email: this.emailUser,
+                        firebaseUUID: this.uuidFirebaseUser,
+                        firebaseMessageToken: this.messageTokenFirebaseUser,
+                        id: this.idUser
+                    },
+                    contact:{
+                        mobilePhone: parseInt(this.contactCompany)
+                    },
+                    locale: {
+                        city: this.cityLocale,
+                        estate: this.estateLocale,
+                        neighborhood: this.neighLocale,
+                        number: this.numberLocale,
+                        street: this.streetLocale,
+                        zipCode: parseInt(this.zipLocale)
+                    },
+                    uuid: this.uuidCompany,
+                    name: this.nameCompany,                    
+                    id: parseInt(this.idCompany),
+                    cnpj: parseInt(this.cnpjCompany),
+                    description: this.descriptionCompany,
+                    segment: this.segmentCompany,
+                    logo: this.logoCompany,
+                    medias: this.mediasCompany
+                }
+            }            
 
             let config = { headers: { "Authorization": `Bearer ${token}` } }
-            return this.$http.put("http://localhost:8080/workix/services/v1/vue/update_by_token", payload, config )
+            return this.$http.put("http://localhost:8080/workix/services/v1/vue/update_by_token", this.type == 'Candidate' ? payloadCandidate : payloadCompany, config )
         },
         async getAddressFromZip(target){            
       
