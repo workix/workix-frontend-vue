@@ -143,7 +143,7 @@
                     </div>									
 				</form>
 
-                <form @submit.prevent="send"  v-else>
+                <form @submit.prevent="send" v-else>
                     <div class="row">
 						<div class="col-12">
 							<h2>Detalhes do Usuário</h2>
@@ -215,7 +215,8 @@
 
                                 <div class="form-group" id="description-company-group">
                                         <label for="description-company">Descrição da Empresa</label>
-                                        <input type="text" v-model="descriptionCompany" class="form-control" id="description-company" placeholder="Digite a Descrição da Empresa" required>
+                                        <!--<input type="text" v-model="descriptionCompany" class="form-control" id="description-company" placeholder="Digite a Descrição da Empresa" required>-->
+                                        <textarea id="description-company" v-model="descriptionCompany" class="form-control" rows="3" required></textarea>
                                 </div>	
 
                                 <div class="form-group" id="cnpj-company-group">
@@ -272,6 +273,46 @@
                             </div>						
                         </div>
                     </div>
+
+                    <div class="row">
+						<div class="col-sm-12">
+							<p>&nbsp;</p>
+							<h2>Mídias Sociais</h2>
+							<button type="button" style="margin-right:10px;" class="btn btn-primary" @click="addMedia">Adicionar Mídia Social</button>
+							<button type="button" style="margin-right:10px;" class="btn btn-secondary" @click="clearMedias">Apagar Mídias</button>
+							<br />
+							<br />
+							<br />
+						</div>
+					</div>	
+
+                    <template v-for="(m,i) in mediasCompany" :key="i">
+					<div class="row social-network">
+						<div class="col-sm-6">
+							<div class="form-group" id="company-medias-group">
+								<label for="company-medias-name">Mídia {{i + 1}}</label>
+								<input type="text" v-model="m.media" class="form-control" id="company-medias-name" placeholder="Digite o nome da Mídia">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<label for="company-medias-url">Url</label>
+							<input type="text" v-model="m.url" class="form-control" id="company-medias-url" placeholder="Digite a url da mídia">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<hr class="dashed">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<p v-if="mediasCompany.length == i+1"><a @click="addMedia">+ Adicionar Mídia</a></p>
+							<p><a @click="removeMedia(i)">+ Remover Mídia {{i + 1}} - {{m.media}}</a></p>
+							<hr>
+						</div>
+					</div>
+				</template>
+
                     <div class="row">
                         <div class="col">
                             <button class="btn btn-block btn-primary" type="submit">Salvar</button>
@@ -372,6 +413,17 @@ export default {
         
   },
   methods:{
+    addMedia()  {
+        console.log("ADD MEDIAS")
+		this.mediasCompany.push({media: "", url: ""})
+        console.log(this.mediasCompany)
+	},
+    removeMedia(index){
+		this.mediasCompany.splice(index, 1)
+	},
+    clearMedias(){
+        this.mediasCompany = []
+    },
       copyCandidate(){
           // USER object
           this.uuidUser = this.candidate.user.uuid
