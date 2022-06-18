@@ -29,7 +29,7 @@
 						<article>
 							<h2>Detalhes</h2>
 							<img :src="`${baseUrl}/resources/placeholder/220x273.jpg`" alt="" class="pull-left" />
-							<p>{{resume.content}}</p>
+							<div v-html="resume.content"> </div>
 							
 							<h3>Habilidades</h3>
 							<ul>
