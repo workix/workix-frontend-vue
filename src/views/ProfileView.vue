@@ -16,7 +16,7 @@
 					</div>
 				</div>
 
-				<form @submit.prevent="send" v-if="type == 'Candidate'">
+				<form @submit.prevent="send" v-if="type == 'Candidate' && isLoggedIn">
 					<div class="row">
 						<div class="col-12">
 							<h2>Detalhes do Usuário</h2>
@@ -143,7 +143,7 @@
                     </div>									
 				</form>
 
-                <form @submit.prevent="send" v-else>
+                <form @submit.prevent="send" v-if="type == 'Company' && isLoggedIn">
                     <div class="row">
 						<div class="col-12">
 							<h2>Detalhes do Usuário</h2>
@@ -359,6 +359,7 @@ export default {
     },
     data(){
         return {
+            isLoggedIn: null,
             type: "",
             candidate: null,
             company: null,
@@ -400,6 +401,7 @@ export default {
     const {data} = await this.aboutMe(token)    
 
     this.type = data.type
+    this.isLoggedIn = !(data == null) 
 
     if (this.type == 'Candidate'){
         this.candidate = data.owner
