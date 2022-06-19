@@ -8,6 +8,9 @@
 					<div class="col-sm-12 text-center">
 						<h1 v-if="jobs.length > 0">Vagas de {{jobs[0].company.name}}</h1>
 						<h4>Todas as vagas criadas pela sua empresa</h4>
+						<br/>
+						<a href="/cadastrar_vaga" class="btn btn-primary btn-lg">Cadastrar uma nova Vaga</a>
+						<br/>	
 					</div>
 				</div>
 			</div>
