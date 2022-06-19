@@ -87,10 +87,7 @@ export default {
 			paginator: null
 		}
 	},
-	async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
+	async created(){	
 
 	let resp;	
 

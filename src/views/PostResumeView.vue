@@ -323,9 +323,7 @@
 		</section>
 		<!-- ============ RESUME END ============ -->
         <ContactsWrapper />
-        <FooterWrapper />
-        <LoginPopup />
-        <RegisterPopup />
+       
   </div>
 </template>
 
@@ -358,10 +356,7 @@ export default {
 			educations: []
 		}
 	},
-	async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
+	async created(){	
 
 	const token = localStorage.getItem("jwt")
 	const {data} = await this.aboutMe(token)

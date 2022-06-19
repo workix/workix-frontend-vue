@@ -28,10 +28,7 @@ export default {
         CandidatesList,
         ContactsWrapper        
     },
-    async created(){
-      let ckeditor = document.createElement('script');  
-      ckeditor.setAttribute('src',"js/settings.js");
-      document.head.appendChild(ckeditor);
+    async created(){     
 
       let resp;	
 

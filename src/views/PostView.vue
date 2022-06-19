@@ -247,10 +247,7 @@ export default {
 
 		}
 	},
-	async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
+	async created(){	
 
 	this.postId = this.$route.query.id
 	let resp;

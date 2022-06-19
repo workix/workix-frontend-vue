@@ -74,10 +74,7 @@
 
 		<!-- ============ JOBS END ============ -->
 
-      <ContactsWrapper />      
-      <FooterWrapper />
-      <LoginPopup />
-      <RegisterPopup />
+      <ContactsWrapper />           
   </div>
 </template>
 
@@ -95,9 +92,6 @@ export default {
 		}
 	},
 	async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
 
 	const token = localStorage.getItem("jwt");
 

@@ -555,12 +555,7 @@ import ContactsWrapper from '@/components/ContactsWrapper.vue'
 export default {
     components:{        
         ContactsWrapper        
-    },
-	created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
-  }
+    }
 }
 </script>
 

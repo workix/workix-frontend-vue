@@ -141,10 +141,7 @@ export default {
 			resume: null,			
 		}
 	},
-	async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
+	async created(){	
 
 	this.resumeId = this.$route.query.id
 

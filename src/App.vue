@@ -27,6 +27,11 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
+  },
+  created(){
+    let jsSettingsTag = document.createElement('script');  
+    jsSettingsTag.setAttribute('src',"js/settings.js");
+    document.body.appendChild(jsSettingsTag);
   }
 }
 </script>

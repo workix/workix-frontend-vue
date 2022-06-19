@@ -61,15 +61,8 @@ export default {
 
       // Make it available inside methods
       return { toast }
-    },
-    created(){
-      
-        let jsSettingsTag = document.createElement('script');  
-        jsSettingsTag.setAttribute('src',"js/settings.js");
-        document.body.appendChild(jsSettingsTag);
-        
-      
-    }    
+    }
+     
 }
 </script>
 

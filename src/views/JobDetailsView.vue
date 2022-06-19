@@ -94,9 +94,7 @@
 		</section>
 		<!-- ============ CONTENT END ============ -->
       <ContactsWrapper />      
-      <FooterWrapper />
-      <LoginPopup />
-      <RegisterPopup />
+      
   </div>
 </template>
 
@@ -123,10 +121,7 @@ export default {
 			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/company/${this.job.company.id}`)
 		}
 	},
-	async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
+	async created(){	
 	
 	this.jobId = this.$route.query.id
 	const {data} = await this.getJob()

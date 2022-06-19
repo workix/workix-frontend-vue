@@ -222,10 +222,7 @@ export default {
 			}
 		}
     },
-	async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
+	async created(){	
 
 	this.companyId = this.$route.query.id
 	const {data} = await this.getCompany()

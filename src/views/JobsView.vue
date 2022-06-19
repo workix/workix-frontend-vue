@@ -45,10 +45,7 @@ export default {
       }
     },
     async created(){
-      let ckeditor = document.createElement('script');  
-      ckeditor.setAttribute('src',"js/settings.js");
-      document.head.appendChild(ckeditor);
-
+     
       let resp;	
 
       const page = this.$route.query.pagina

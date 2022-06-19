@@ -373,10 +373,7 @@ export default {
         }        
     },
     async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);   
-
+	
     const token = localStorage.getItem("jwt")
     const {data} = await this.aboutMe(token)    
 
