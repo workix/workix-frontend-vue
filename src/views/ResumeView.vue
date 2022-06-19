@@ -1,8 +1,6 @@
 <template>
   <div id="">
-      <PageLoader />
-      <NavBar />
-      <HeaderBar />
+      
     <!-- ============ TITLE START ============ -->
 		<section id="title" v-if="resumeId != null && resumeId > 0 && resume != null">
 			<div class="container">
@@ -119,10 +117,7 @@
 			</div>
 		</section>
     <!-- ============ CONTENT END ============ -->
-    <ContactsWrapper />
-    <FooterWrapper />
-    <LoginPopup />
-    <RegisterPopup />
+    <ContactsWrapper />    
 	<MessageModalPush :user="resume.candidate.user" v-if="resume != null"/>
 	<MessageModalMail :user="resume.candidate.user" v-if="resume != null" />
   </div>
@@ -131,24 +126,13 @@
 <script>
 import MessageModalPush from '@/components/MessageModalPush.vue'
 import MessageModalMail from "@/components/MessageModalMail.vue"
-import PageLoader from '@/components/PageLoader.vue'
-import NavBar from '@/components/NavBar.vue'
-import HeaderBar from '@/components/HeaderBar.vue'
 import ContactsWrapper from '@/components/ContactsWrapper.vue'
-import FooterWrapper from '@/components/FooterWrapper.vue'
-import LoginPopup from '@/components/LoginPopup.vue'
-import RegisterPopup from "@/components/RegisterPopup.vue"
+
 export default {
     components:{
 		MessageModalPush,
-		MessageModalMail,
-        PageLoader,
-        NavBar,
-        HeaderBar,
-        ContactsWrapper,
-        FooterWrapper,
-        LoginPopup,
-        RegisterPopup
+		MessageModalMail,        
+        ContactsWrapper        
     },
 	data(){
 		return{

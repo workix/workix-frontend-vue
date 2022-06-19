@@ -1,8 +1,5 @@
 <template>
   <div id="home">
-      <PageLoader />
-      <NavBar />
-      <HeaderBar />
       <SliderWrapper />
       <IndexModal />
       <JobsWrapper /> 
@@ -14,19 +11,14 @@
       <TestimonialsWrapper />
       <BlogWrapper />
       <ContactsWrapper />
-      <ClientsWrapper />
-      <FooterWrapper />
-      <LoginPopup />
-      <RegisterPopup />
+      <ClientsWrapper />      
   </div>
 </template>
 
 <script>
 import IndexModal from '@/components/IndexModal.vue'
 import { useToast } from "vue-toastification";
-import PageLoader from '@/components/PageLoader.vue'
-import NavBar from '@/components/NavBar.vue'
-import HeaderBar from '@/components/HeaderBar.vue'
+
 import SliderWrapper from '@/components/SliderWrapper.vue'
 import JobsWrapper from "@/components/JobsWrapper.vue"
 import CompaniesWrapper from "@/components/CompaniesWrapper.vue"
@@ -38,14 +30,9 @@ import TestimonialsWrapper from '@/components/TestimonialsWrapper.vue'
 import BlogWrapper from '@/components/BlogWrapper.vue'
 import ContactsWrapper from '@/components/ContactsWrapper.vue'
 import ClientsWrapper from '@/components/ClientsWrapper.vue'
-import FooterWrapper from '@/components/FooterWrapper.vue'
-import LoginPopup from '@/components/LoginPopup.vue'
-import RegisterPopup from "@/components/RegisterPopup.vue"
+
 export default {
     components: {
-        PageLoader,
-        NavBar,
-        HeaderBar,
         SliderWrapper,
         IndexModal,
         JobsWrapper,
@@ -57,10 +44,7 @@ export default {
         TestimonialsWrapper,
         BlogWrapper,
         ContactsWrapper,
-        ClientsWrapper,
-        FooterWrapper,
-        LoginPopup,
-        RegisterPopup
+        ClientsWrapper
     },
     setup(){
         // Get toast interface

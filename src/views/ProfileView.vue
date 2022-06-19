@@ -1,11 +1,6 @@
 <template>
   <div id="">
-      <PageLoader />
-      <NavBar />
-      <HeaderBar />
-
       
-
         <section id="jobs">
 			<div class="container">
 				<div class="row text-center">
@@ -322,24 +317,15 @@
 			</div>
 		</section>
 
-        
-
         <ContactsWrapper />      
-        <FooterWrapper />
-        <LoginPopup />
-        <RegisterPopup />
+      
     </div>
 </template>
 
 <script>
 import HaveAnAccount from '@/components/HaveAnAccount.vue'
-import PageLoader from '@/components/PageLoader.vue'
-import NavBar from '@/components/NavBar.vue'
-import HeaderBar from '@/components/HeaderBar.vue'
 import ContactsWrapper from '@/components/ContactsWrapper.vue'
-import FooterWrapper from '@/components/FooterWrapper.vue'
-import LoginPopup from '@/components/LoginPopup.vue'
-import RegisterPopup from "@/components/RegisterPopup.vue"
+
 import { useToast } from "vue-toastification";
 export default {    
     setup(){
@@ -349,13 +335,7 @@ export default {
 	},
     components: {
         HaveAnAccount,
-        PageLoader,
-        NavBar,
-        HeaderBar,
-        ContactsWrapper,        
-        FooterWrapper,
-        LoginPopup,
-        RegisterPopup
+        ContactsWrapper
     },
     data(){
         return {

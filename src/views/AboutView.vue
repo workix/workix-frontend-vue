@@ -1,8 +1,5 @@
 <template>
-  <div id="about">
-      <PageLoader />
-      <NavBar />
-      <HeaderBar />
+  <div id="about">     
 
   <!-- ============ TITLE START ============ -->
 		<section id="title">
@@ -168,35 +165,20 @@
 
     <TestimonialsWrapper />
     <TeamWrapper />
-    <ContactsWrapper />
-    <FooterWrapper />
-    <LoginPopup />
-    <RegisterPopup />
+    <ContactsWrapper />    
   
   </div>
 </template>
 
 <script>
-import PageLoader from '@/components/PageLoader.vue'
-import NavBar from '@/components/NavBar.vue'
-import HeaderBar from '@/components/HeaderBar.vue'
 import TestimonialsWrapper from '@/components/TestimonialsWrapper.vue'
 import TeamWrapper from '@/components/TeamWrapper.vue'
 import ContactsWrapper from '@/components/ContactsWrapper.vue'
-import FooterWrapper from '@/components/FooterWrapper.vue'
-import LoginPopup from '@/components/LoginPopup.vue'
-import RegisterPopup from "@/components/RegisterPopup.vue"
 export default {
-  components: {
-    PageLoader,
-    NavBar,
-    HeaderBar,
+  components: {   
     TestimonialsWrapper,
     TeamWrapper,
-    ContactsWrapper,
-    FooterWrapper,
-    LoginPopup,
-    RegisterPopup
+    ContactsWrapper   
   },
   created(){
 	let ckeditor = document.createElement('script');  

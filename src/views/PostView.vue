@@ -1,9 +1,6 @@
 <template>
   <div id="">
-      <PageLoader />
-      <NavBar />
-      <HeaderBar />
-
+   
     <!-- ============ TITLE START ============ -->
 		<section id="title" v-if="postId != null && postId > 0 && post != null">
 			<div class="container">
@@ -174,33 +171,20 @@
 
 		<!-- ============ CONTENT END ============ -->
 
-      <ContactsWrapper />      
-      <FooterWrapper />
-      <LoginPopup />
-      <RegisterPopup />
+      <ContactsWrapper />           
   </div>
 </template>
 
 <script>
 import { useToast } from "vue-toastification";
-import PageLoader from '@/components/PageLoader.vue'
-import NavBar from '@/components/NavBar.vue'
-import HeaderBar from '@/components/HeaderBar.vue'
+
 import BlogSideBar from '@/components/blogs/BlogSideBar.vue'
 import ContactsWrapper from '@/components/ContactsWrapper.vue'
-import FooterWrapper from '@/components/FooterWrapper.vue'
-import LoginPopup from '@/components/LoginPopup.vue'
-import RegisterPopup from "@/components/RegisterPopup.vue"
+
 export default {
-    components:{
-        PageLoader,
-        NavBar,
-        HeaderBar,
+    components:{        
 		BlogSideBar,
-        ContactsWrapper,        
-        FooterWrapper,
-        LoginPopup,
-        RegisterPopup
+        ContactsWrapper        
     },
 	setup(){
 		// Get toast interface
