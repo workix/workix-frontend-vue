@@ -13,6 +13,9 @@
 </style>
 
 <script>
+import { useToast } from "vue-toastification";
+import {getAuth, onAuthStateChanged} from 'firebase/auth'
+import {useStore} from 'vuex'
 import PageLoader from '@/components/PageLoader.vue'
 import NavBar from '@/components/NavBar.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
@@ -28,10 +31,24 @@ export default {
         LoginPopup,
         RegisterPopup
   },
+  setup(){
+    // Get toast interface
+    const toast = useToast();
+    const store = useStore();
+    return {toast, store}
+	},
   created(){
     let jsSettingsTag = document.createElement('script');  
     jsSettingsTag.setAttribute('src',"js/settings.js");
     document.body.appendChild(jsSettingsTag);
+
+    onAuthStateChanged(getAuth(), user => {
+			if (user){
+        this.store.state.isLoggedIn = true				
+			} else {
+				this.store.state.isLoggedIn = false
+			}
+		})
   }
 }
 </script>
