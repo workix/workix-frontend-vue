@@ -1,62 +1,89 @@
 <template>
-    <div class="form-group" id="job-email-group">
-        <label for="job-email">Email</label>
-        <input type="email" class="form-control" id="job-email" placeholder="you@yourdomain.com">
+    <div class="form-group" id="job-id-group" v-if="job.id">
+        <label for="job-id">ID</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <input type="text" v-model="job.id" class="form-control" id="job-id" readonly>
+    </div>
+
+    <div class="form-group" id="job-uuid-group">
+        <label for="job-uuid">UUID</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <input type="text" v-model="job.uuid" class="form-control" id="job-uuid" readonly>
+    </div>
+    
+    <div class="form-group" id="job-active-group">
+        <label for="job-active">Ativo</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <input type="checkbox" v-model="job.active" class="form-control" id="job-active" required>
+    </div>
+    <div class="form-group" id="job-feature-group">
+        <label for="job-feature">Destaque</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <input type="checkbox" v-model="job.feature" class="form-control" id="job-feature" required>
     </div>
     <div class="form-group" id="job-title-group">
-        <label for="job-title">Title</label>
-        <input type="text" class="form-control" id="job-title" placeholder="e.g. Web Designer">
-    </div>
-    <div class="form-group" id="job-location-group">
-        <label for="job-location">Location (Optional)</label>
-        <input type="text" class="form-control" id="job-location" placeholder="e.g. New York">
-    </div>
-    <div class="form-group" id="job-region-group">
-        <label for="job-region">Region</label>
-        <select  class="form-control" id="job-region">
-            <option>Choose a region</option>
-            <option>New York</option>
-            <option>Los Angeles</option>
-            <option>Chicago</option>
-            <option>Boston</option>
-            <option>San Francisco</option>
-        </select>
-    </div>
-    <div class="form-group" id="job-type-group">
-        <label for="job-type">Job Type</label>
-        <select  class="form-control" id="job-type">
-            <option>Choose a job type</option>
-            <option>Freelance</option>
-            <option>Part Time</option>
-            <option>Full Time</option>
-            <option>Internship</option>
-            <option>Volunteer</option>
-        </select>
-    </div>
-    <div class="form-group" id="job-category-group">
-        <label for="job-category">Job Category</label>
-        <select  class="form-control" id="job-category">
-            <option>Choose a job category</option>
-            <option>Internet Services</option>
-            <option>Banking</option>
-            <option>Financial</option>
-            <option>Marketing</option>
-            <option>Management</option>
-        </select>
+        <label for="job-title">Título</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <input type="text" v-model="job.title" class="form-control" id="job-title" placeholder="exemplo Web Designer" required>
     </div>
     <div class="form-group" id="job-description-group">
-        <label for="job-description">Description</label>
-        <div class="textarea form-control" id="job-description"></div>
+        <label for="job-description">Descrição</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->        
+        <textarea  v-model="job.description" class="form-control" rows="3" id="job-description" placeholder="Descrição da Vaga" required></textarea>
     </div>
-    <div class="form-group" id="job-url-group">
-        <label for="job-url">Application Email/URL</label>
-        <input type="text" class="form-control" id="job-url" placeholder="Email or Website URL">
+    <div class="form-group" id="job-requirement-group">
+        <label for="job-requirement">Requerimentos</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <textarea  v-model="job.requirement" class="form-control" rows="3" id="job-requirement" placeholder="Requerimentos da Vaga" required></textarea>        
+    </div>
+    <div class="form-group" id="job-title-group">
+        <label for="job-benefits">Benefícios</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->        
+        <textarea  v-model="job.benefits" class="form-control" rows="3" id="job-benefits" placeholder="Benefícios da Vaga" required></textarea>        
+    </div>
+
+    <div class="form-group" id="job-min-payment-group">
+        <label for="job-min-payment">Pagamento Mínimo</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <input type="text" v-model="job.minPayment" class="form-control" id="job-min-payment" placeholder="Valor Mínimo de Pagamento" required>
+    </div>
+
+    <div class="form-group" id="job-max-payment-group">
+        <label for="job-max-payment">Pagamento Máximo</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <input type="text" v-model="job.maxPayment" class="form-control" id="job-max-payment" placeholder="Valor Máximo de Pagamento" required>
+    </div>
+
+    <div class="form-group" id="job-type-group">
+        <label for="job-type">Forma de Trabalho</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <select v-model="job.jobType" class="form-control" id="job-type">
+            <option>Escolha a forma de trabalho</option>
+            <option value="FREELANCE">Freelance</option>
+            <option value="PARTTIME">Part Time</option>
+            <option value="FULLTIME">Full Time</option>
+            <option value="INTERNSHIP">Internship</option>
+            <option value="VOLUNTEER">Volunteer</option>
+            <option value="TEMPORARY">Temporary</option>            
+        </select>
+    </div>
+
+    <div class="form-group" id="job-category-group">
+        <label for="job-category">Categoria do Trabalho</label>
+        <!-- eslint-disable-next-line vue/no-mutating-props -->
+        <select v-model="job.jobCategory" class="form-control" id="job-category">
+            <option>Escolha uma Categoria</option>
+            <option value="MANAGEMENT">Management</option>
+            <option value="OPERATOR">Operator</option>            
+        </select>
     </div>
 </template>
 
 <script>
 export default {
-
+    props:{
+        job: Object
+    }
 }
 </script>
 

@@ -1,49 +1,48 @@
 <template>
   <div class="form-group" id="company-name-group">
-    <label for="company-name">Company Name</label>
-    <input type="text" class="form-control" id="company-name" placeholder="Enter company name">
+    <label for="company-name">Nome da Empresa</label>
+      <!-- eslint-disable-next-line vue/no-mutating-props -->
+    <input type="text" v-model="company.name" class="form-control" id="company-name" placeholder="Nome da Empresa" readonly>
 </div>
-<div class="form-group" id="company-tagline-group">
-    <label for="company-tagline">Tagline (Optional)</label>
-    <input type="text" class="form-control" id="company-tagline" placeholder="Brief description">
+
+<div class="form-group" id="company-cnpj-group">
+    <label for="company-cnpj">CNPJ</label>
+    <!-- eslint-disable-next-line vue/no-mutating-props -->
+    <input type="text" v-model="company.cnpj" class="form-control" id="company-cnpj" placeholder="CNPJ da Empresa" readonly>
 </div>
+
 <div class="form-group" id="company-description-group">
-    <label for="company-description">Description (Optional)</label>
-    <div class="textarea form-control" id="company-description"></div>
+    <label for="company-description">Descrição</label>
+    <!-- eslint-disable-next-line vue/no-mutating-props -->
+    <textarea  v-model="company.description" class="form-control" rows="6" id="company-description" placeholder="Descrição da Empresa" readonly></textarea>    
 </div>
-<div class="form-group" id="company-video-group">
-    <label for="company-video">Video (Optional)</label>
-    <input type="text" class="form-control" id="company-video" placeholder="Video URL">
+<div class="form-group" id="company-segment-group">
+    <label for="company-segment">Segmento</label>
+    <!-- eslint-disable-next-line vue/no-mutating-props -->
+    <input type="text" v-model="company.segment" class="form-control" id="company-segment" placeholder="Segmento da Empresa" readonly>
 </div>
-<div class="form-group" id="company-website-group">
-    <label for="company-website">Website (Optional)</label>
-    <input type="text" class="form-control" id="company-website" placeholder="http://">
+
+<div class="form-group" id="company-locale-group">
+    <label for="company-locale">Endereço</label>    
+    <input type="text" v-model="location" class="form-control" id="company-locale" placeholder="Localização da Empresa" readonly>
 </div>
-<div class="form-group" id="company-google-group">
-    <label for="company-google">Google+ Username (Optional)</label>
-    <input type="text" class="form-control" id="company-google" placeholder="yourcompany">
-</div>
-<div class="form-group" id="company-facebook-group">
-    <label for="company-facebook">Facebook Username (Optional)</label>
-    <input type="text" class="form-control" id="company-facebook" placeholder="yourcompany">
-</div>
-<div class="form-group" id="company-linkedin-group">
-    <label for="company-linkedin">LinkedIn Username (Optional)</label>
-    <input type="text" class="form-control" id="company-linkedin" placeholder="yourcompany">
-</div>
-<div class="form-group" id="company-twitter-group">
-    <label for="company-twitter">Twitter Username (Optional)</label>
-    <input type="text" class="form-control" id="company-twitter" placeholder="@yourcompany">
-</div>
-<div class="form-group" id="company-logo-group">
-    <label for="company-logo">Logo (Optional)</label>
-    <input type="file" id="company-logo">
-</div>
+
 </template>
 
 <script>
-export default {
 
+export default {
+    props:{        
+        company: Object
+    },
+    data(){
+        return {
+            location: ""
+        }
+    },
+    created(){
+        this.location = `${this.company.locale.city} - ${this.company.locale.estate} - ${this.company.locale.neighborhood} - ${this.company.locale.street} - ${this.company.locale.number} - ${this.company.locale.zipCode}` 
+    }
 }
 </script>
 

@@ -26,7 +26,7 @@
 							
 							<template v-for="(j,i) in jobs" :key="i">
 								<!-- Job offer 1 -->
-							<a href="#" class="">
+							<a :href="`/cadastrar_vaga?id=${j.id}`" class="">
 								<div class="row">
 									<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
 										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
