@@ -375,6 +375,8 @@ export default {
     async created(){
 	
     const token = localStorage.getItem("jwt")
+
+    if(token){
     const {data} = await this.aboutMe(token)    
 
     this.type = data.type
@@ -389,6 +391,8 @@ export default {
     } else{
         throw new Error("Incorrect Type")
     }
+    }
+    
         
   },
   methods:{
