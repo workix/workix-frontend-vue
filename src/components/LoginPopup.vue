@@ -33,26 +33,32 @@
 
 <script>
 import { useToast } from "vue-toastification";
+import {useStore} from 'vuex'
+import {computed} from 'vue'
 import {signOut, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from 'firebase/auth'
 const $ = require( "jquery" );
 export default {
 	setup(){
 	// Get toast interface
     const toast = useToast();
-	return {toast}
+
+	const store = useStore()
+
+	const isLoggedIn = computed(() => store.state.isLoggedIn)
+
+	return {toast, store, isLoggedIn}
 	},
 	data(){
 		return {			
 			email: "",
 			password: "",			
-			logingData: null,
-			isLoggedIn: null
+			logingData: null			
 		}
 	},
 	created(){
 		onAuthStateChanged(getAuth(), async user => {
 			if (user){
-				this.isLoggedIn = true
+				
 				let resp;
 				resp = await this.logginInWorkix(user.email, user.uid)
 				const token = resp.data.token
@@ -62,14 +68,18 @@ export default {
 				localStorage.owner = JSON.stringify(resp.data.owner)
 				localStorage.jwt = token
 				localStorage.accountType = resp.data.type
+
+				this.store.state.accountType = resp.data.type				
 				
-			} else {
-				this.isLoggedIn = false
+			} else {				
 				localStorage.clear()
 			}
 		})
 	},
 	methods: {
+		timeout(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		},
 		async logginInWorkix(email, firebaseUUID){			
 			return this.$http.post("http://localhost:8080/workix/services/v1/auth/login", {email, firebaseUUID})
 		},
@@ -94,7 +104,11 @@ export default {
 				const loginData = await signInWithPopup(getAuth(), provider)
 				this.logingData = loginData
 				this.disposeModal()				
-				this.toast.success(`Bem vindo ${this.logingData.user.displayName}`, { timeout: 2000 })
+				this.toast.success(`Bem vindo ${this.logingData.user.displayName}`, { timeout: 2000 })			
+
+				await this.timeout(2000)
+
+				this.$router.go({path: this.$router.currentRoute, force: true})
 			} catch (error) {
 
 				console.error(error)				
@@ -121,6 +135,10 @@ export default {
 			
 			this.email = ""
 			this.password = ""		
+
+			await this.timeout(2000)
+
+			this.$router.go({path: this.$router.currentRoute, force: true})
 			
 			} catch (error) {
 				console.error(error)				

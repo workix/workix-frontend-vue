@@ -1,5 +1,7 @@
 <template>
-  <h1>Route Not Found</h1>
+  <div id="404">
+    <h1>Route Not Found</h1>
+  </div>  
 </template>
 
 <script>

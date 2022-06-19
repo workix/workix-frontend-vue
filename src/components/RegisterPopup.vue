@@ -4,7 +4,7 @@
 			<div class="popup-form">
 				<div class="popup-header">
 					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
-					<h2>{{!isLoggedIn ? "Registrar" : ""}}</h2>					
+					<h2>Registrar</h2>					
 				</div>
 				<form v-if="!isLoggedIn" @submit.stop.prevent="null">
 					<div class="form-group">
@@ -57,8 +57,8 @@
 					<button type="submit" class="btn btn-primary" >Registrar</button>
 				</form>
 				
-				<form v-else @submit.stop.prevent="null">
-					<button type="button" class="btn btn-primary" v-if="isLoggedIn" @click="handleSignOut">Logout</button>
+				<form v-else>
+					<button class="btn btn-primary" v-if="isLoggedIn" @click="handleSignOut">Logout</button>
 				</form>
 			</div>
 		</div>
@@ -69,14 +69,22 @@
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 import { useToast } from "vue-toastification";
-import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+import {getAuth, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+import {computed} from 'vue'
+import { useStore } from 'vuex';
 const $ = require( "jquery" );
 export default {
 	components: { Datepicker },
 	setup(){
 	// Get toast interface
     const toast = useToast();
-	return {toast}
+	
+	const store = useStore()
+	
+	const isLoggedIn = computed(() => store.state.isLoggedIn)
+	const fireBaseUser = computed(() => store.state.fireBaseUser)
+	
+	return {toast, store, isLoggedIn, fireBaseUser}
 	},
 	data(){
 		return {
@@ -88,28 +96,24 @@ export default {
 			password: "",
 			birthDate: null,
 			repeatPassword: "",
-			logingData: null,
-			isLoggedIn: null
+			loginData: null						
 		}
 	},
-	created(){
-		onAuthStateChanged(getAuth(), user => {
-			if (user){
-				this.isLoggedIn = true
-			} else {
-				this.isLoggedIn = false
-			}
-		})
-	},
 	methods: {
+		timeout(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		},
 		disposeModal(){
 			$("#register").fadeOut(300);
 			$("body").removeClass("no-scroll");			
 		},
 		handleSignOut(){
-			signOut(getAuth(), () => {
+			signOut(getAuth(), async () => {
 				console.log("SIGN OUT")
 				this.disposeModal()
+				
+				await this.timeout(1000)
+				this.$router.go({path: this.$router.currentRoute, force: true})
 			})
 		},
 		async registerWithGoogle(){		
@@ -128,6 +132,10 @@ export default {
 				this.disposeModal()
 
 				this.toast.success(`Bem vindo ${this.logingData.user.displayName} sua conta foi criada com sucesso!`, { timeout: 2000 })
+
+				await this.timeout(2000)
+
+				this.$router.go({path: this.$router.currentRoute, force: true})
 				
 			} catch (error) {
 
@@ -177,6 +185,9 @@ export default {
 				this.password = ""
 				this.repeatPassword = ""
 
+			} finally {
+				await this.timeout(2000)
+				this.$router.go({path: this.$router.currentRoute, force: true})
 			}
 			
 		},
@@ -197,8 +208,12 @@ export default {
 					localStorage.owner = JSON.stringify(data.candidate)
 					localStorage.jwt = data.jwt.token
 					localStorage.accountType = "Candidate"
+
+					this.store.state.accountType = "Candidate"
 					
 				} catch (error) {
+					// eslint-disable-next-line
+					debugger
 					console.error(error)
 					this.toast.error("Falha ao criar a conta no Workix", {timeout: 2000})
 				}
@@ -218,6 +233,8 @@ export default {
 					localStorage.owner = JSON.stringify(data.company)
 					localStorage.jwt = data.jwt.token
 					localStorage.accountType = "Company"
+
+					this.store.state.accountType = "Company"
 					
 				} catch (error) {
 					console.error(error)

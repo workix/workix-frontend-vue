@@ -1,8 +1,6 @@
 <template>
   <div id="">
-      <PageLoader />
-      <NavBar />
-      <HeaderBar />
+      
     <!-- ============ RESUME START ============ -->
 		<section id="resume">
 			<div class="container">
@@ -325,39 +323,24 @@
 		</section>
 		<!-- ============ RESUME END ============ -->
         <ContactsWrapper />
-        <FooterWrapper />
-        <LoginPopup />
-        <RegisterPopup />
+       
   </div>
 </template>
 
 <script>
 import { useToast } from "vue-toastification";
 import Datepicker from '@vuepic/vue-datepicker';
-import PageLoader from '@/components/PageLoader.vue'
-import NavBar from '@/components/NavBar.vue'
-import HeaderBar from '@/components/HeaderBar.vue'
 import HaveAnAccount from '@/components/HaveAnAccount.vue'
 import ContactsWrapper from '@/components/ContactsWrapper.vue'
-import FooterWrapper from '@/components/FooterWrapper.vue'
-import LoginPopup from '@/components/LoginPopup.vue'
-import RegisterPopup from '@/components/RegisterPopup.vue'
 export default {
 	setup(){
 		const toast = useToast();
 		return {toast}
 	},
     components:{
-		Datepicker,
-        PageLoader,
-        NavBar,
-        HeaderBar,
+		Datepicker,        
         HaveAnAccount,
-        ContactsWrapper,
-        FooterWrapper,
-        LoginPopup,
-        RegisterPopup
-		
+        ContactsWrapper	
     },
 	data(){
 		return{
@@ -373,10 +356,7 @@ export default {
 			educations: []
 		}
 	},
-	async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
+	async created(){	
 
 	const token = localStorage.getItem("jwt")
 	const {data} = await this.aboutMe(token)

@@ -1,8 +1,5 @@
 <template>
-  <div id="">
-    <PageLoader />
-    <NavBar />
-    <HeaderBar />
+  <div id="">    
 
     <!-- ============ TITLE START ============ -->
 		<section id="title" v-if="jobId != null && jobId > 0 && job != null">
@@ -97,29 +94,16 @@
 		</section>
 		<!-- ============ CONTENT END ============ -->
       <ContactsWrapper />      
-      <FooterWrapper />
-      <LoginPopup />
-      <RegisterPopup />
+      
   </div>
 </template>
 
 <script>
-import PageLoader from '@/components/PageLoader.vue'
-import NavBar from '@/components/NavBar.vue'
-import HeaderBar from '@/components/HeaderBar.vue'
 import ContactsWrapper from "@/components/ContactsWrapper.vue"
-import FooterWrapper from "@/components/FooterWrapper.vue"
-import LoginPopup from "@/components/LoginPopup.vue"
-import RegisterPopup from "@/components/RegisterPopup.vue"
+
 export default {
-    components: {
-        PageLoader,
-        NavBar,
-        HeaderBar,
-        ContactsWrapper,
-        FooterWrapper,
-        LoginPopup,
-        RegisterPopup
+    components: {        
+        ContactsWrapper        
     },
 	data(){
 		return{
@@ -137,10 +121,7 @@ export default {
 			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/company/${this.job.company.id}`)
 		}
 	},
-	async created(){
-	let ckeditor = document.createElement('script');  
-    ckeditor.setAttribute('src',"js/settings.js");
-    document.head.appendChild(ckeditor);
+	async created(){	
 	
 	this.jobId = this.$route.query.id
 	const {data} = await this.getJob()
