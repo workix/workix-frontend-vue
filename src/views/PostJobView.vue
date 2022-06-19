@@ -39,34 +39,74 @@
 </template>
 
 <script>
-
+const _ = require('lodash');
+import { useToast } from "vue-toastification";
 import HaveAnAccount from '@/components/HaveAnAccount.vue'
 import JobDetailsForm from '@/components/post_jobs/JobDetailsForm.vue'
 import CompanyDetailsForm from '@/components/post_jobs/CompanyDetailsForm.vue'
 export default {
+	setup(){
+		const toast = useToast();
+		return {toast}
+	},
     components: {        
         HaveAnAccount,
         JobDetailsForm,
         CompanyDetailsForm,
     },
 	methods:{
-		getJob(id){
-			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/${id}`)
-		},
-		send(){
-			console.log("JOB", this.job)
+	timeout(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	},
+	async aboutMe(token){
+		let config = { headers: { "Authorization": `Bearer ${token}` } }
+		return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
+	},
+	async getJob(id){
+		return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/${id}`)
+	},
+	async createOrUpdateJob(token, job){
+		let config = { headers: { "Authorization": `Bearer ${token}` } }
+		return this.$http.post("http://localhost:8080/workix/services/v1/vue/create_or_update_job_by_token", job, config)
+	},
+	async send(){
+		
+		const payload = _.clone(this.job)
+		delete payload.createdAt;
+		delete payload.updatedAt
+		console.log("JOB", payload)
+
+		try {
+			const token = localStorage.getItem("jwt")
+			const {data} = await this.createOrUpdateJob(token, payload)
+			this.toast.success("Vaga criada/atualizada com sucesso!", {timeout: 2000})
+			await this.timeout(1000)
+			this.$router.go({path: `${this.$router.currentRoute}?id=${data.id}`, force: true})
+		} catch (error) {
+			console.error(error)
+			this.toast.error("Ocorreu um erro ao atualizar os dados", {timeout: 2000})
 		}
+	}
 	},
 	data(){
 		return {job: null, company: null}
 	},
 	async created(){
+
+		const token = localStorage.getItem("jwt")
+
+		if (token){
+			const {data} = await this.aboutMe(token)
+			this.company = data.owner
+		} else{
+			throw new Error("FORBBIDEN ACCESS")
+		}
+
 		const id = this.$route.query.id
 
 		if(id){
 			const {data} = await this.getJob(id)
-			this.job = data
-			this.company = data.company
+			this.job = data			
 		}
 	}
 }
