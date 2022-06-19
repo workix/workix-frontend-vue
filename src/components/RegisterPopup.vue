@@ -57,8 +57,8 @@
 					<button type="submit" class="btn btn-primary" >Registrar</button>
 				</form>
 				
-				<form v-else @submit.stop.prevent="null">
-					<button type="button" class="btn btn-primary" v-if="isLoggedIn" @click="handleSignOut">Logout</button>
+				<form v-else>
+					<button class="btn btn-primary" v-if="isLoggedIn" @click="handleSignOut">Logout</button>
 				</form>
 			</div>
 		</div>
@@ -84,7 +84,7 @@ export default {
 	const isLoggedIn = computed(() => store.state.isLoggedIn)
 	const fireBaseUser = computed(() => store.state.fireBaseUser)
 	
-	return {toast,isLoggedIn,fireBaseUser}
+	return {toast, store, isLoggedIn, fireBaseUser}
 	},
 	data(){
 		return {
@@ -100,14 +100,20 @@ export default {
 		}
 	},
 	methods: {
+		timeout(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		},
 		disposeModal(){
 			$("#register").fadeOut(300);
 			$("body").removeClass("no-scroll");			
 		},
 		handleSignOut(){
-			signOut(getAuth(), () => {
+			signOut(getAuth(), async () => {
 				console.log("SIGN OUT")
 				this.disposeModal()
+				
+				await this.timeout(1000)
+				this.$router.go({path: this.$router.currentRoute, force: true})
 			})
 		},
 		async registerWithGoogle(){		
@@ -126,6 +132,10 @@ export default {
 				this.disposeModal()
 
 				this.toast.success(`Bem vindo ${this.logingData.user.displayName} sua conta foi criada com sucesso!`, { timeout: 2000 })
+
+				await this.timeout(2000)
+
+				this.$router.go({path: this.$router.currentRoute, force: true})
 				
 			} catch (error) {
 
@@ -175,6 +185,9 @@ export default {
 				this.password = ""
 				this.repeatPassword = ""
 
+			} finally {
+				await this.timeout(2000)
+				this.$router.go({path: this.$router.currentRoute, force: true})
 			}
 			
 		},
@@ -195,8 +208,12 @@ export default {
 					localStorage.owner = JSON.stringify(data.candidate)
 					localStorage.jwt = data.jwt.token
 					localStorage.accountType = "Candidate"
+
+					this.store.state.accountType = "Candidate"
 					
 				} catch (error) {
+					// eslint-disable-next-line
+					debugger
 					console.error(error)
 					this.toast.error("Falha ao criar a conta no Workix", {timeout: 2000})
 				}
@@ -216,6 +233,8 @@ export default {
 					localStorage.owner = JSON.stringify(data.company)
 					localStorage.jwt = data.jwt.token
 					localStorage.accountType = "Company"
+
+					this.store.state.accountType = "Company"
 					
 				} catch (error) {
 					console.error(error)

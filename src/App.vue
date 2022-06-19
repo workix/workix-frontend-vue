@@ -48,7 +48,7 @@ export default {
         this.store.state.fireBaseUser = user				
 			} else {
 				this.store.state.isLoggedIn = false
-        this.store.state.fireBaseUser = {}
+        this.store.state.fireBaseUser = null
 			}
 		})
   }
