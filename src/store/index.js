@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    isLoggedIn: null
+    isLoggedIn: null,
+    fireBaseUser: null
   },
   getters: {
     

@@ -44,9 +44,11 @@ export default {
 
     onAuthStateChanged(getAuth(), user => {
 			if (user){
-        this.store.state.isLoggedIn = true				
+        this.store.state.isLoggedIn = true
+        this.store.state.fireBaseUser = user				
 			} else {
 				this.store.state.isLoggedIn = false
+        this.store.state.fireBaseUser = {}
 			}
 		})
   }

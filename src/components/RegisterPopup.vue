@@ -82,8 +82,9 @@ export default {
 	const store = useStore()
 	
 	const isLoggedIn = computed(() => store.state.isLoggedIn)
+	const fireBaseUser = computed(() => store.state.fireBaseUser)
 	
-	return {toast,isLoggedIn}
+	return {toast,isLoggedIn,fireBaseUser}
 	},
 	data(){
 		return {
@@ -95,7 +96,7 @@ export default {
 			password: "",
 			birthDate: null,
 			repeatPassword: "",
-			logingData: null			
+			loginData: null						
 		}
 	},
 	methods: {
