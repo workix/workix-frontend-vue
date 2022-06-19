@@ -304,7 +304,7 @@ export default {
             }
         },
 		getRandomFeaturedJob() {
-			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/random_featured`)
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/random_featured`)
 		},
 	},
 	async created(){

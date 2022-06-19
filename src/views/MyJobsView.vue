@@ -107,7 +107,7 @@ export default {
   methods: {
 	getMyJobs(token){
 		let config = { headers: { "Authorization": `Bearer ${token}` }}
-		return this.$http.get("http://localhost:8080/workix/services/v1/jobs/my_jobs", config)
+		return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/my_jobs`, config)
 	}
   }
 }

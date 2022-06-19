@@ -203,7 +203,7 @@ export default {
 				}
 				
 				try {
-					const {data} = await this.$http.post("http://localhost:8080/workix/services/v1/vue/create_candidate", payload)
+					const {data} = await this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/vue/create_candidate`, payload)
 
 					localStorage.owner = JSON.stringify(data.candidate)
 					localStorage.jwt = data.jwt.token
@@ -228,7 +228,7 @@ export default {
 				}
 
 				try {
-					const {data} = await this.$http.post("http://localhost:8080/workix/services/v1/vue/create_company", payload)
+					const {data} = await this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/vue/create_company`, payload)
 
 					localStorage.owner = JSON.stringify(data.company)
 					localStorage.jwt = data.jwt.token

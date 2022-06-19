@@ -426,7 +426,7 @@ export default {
 	},
 	async aboutMe(token){
 		let config = { headers: { "Authorization": `Bearer ${token}` } }
-		return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
+		return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/auth/me`, config )
 	},
 	async createOrUpdateResume(){
 		let payload = {
@@ -446,7 +446,7 @@ export default {
 		let config = { headers: { "Authorization": `Bearer ${token}` } }
 		
 		try {
-			await this.$http.post("http://localhost:8080/workix/services/v1/vue/create_or_update_resume_by_token", payload, config)	
+			await this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/vue/create_or_update_resume_by_token`, payload, config)	
 			this.toast.success("Dados atualizados com Sucesso!", {timeout: 2000})
 			this.$router.go({path: this.$router.currentRoute, force: true})
 		} catch (error) {

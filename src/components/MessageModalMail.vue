@@ -56,7 +56,7 @@ export default {
 			delete this.user.updatedAt;
 			const payload = {user: this.user , type: "mail", title: this.title, message: this.message}
 			try {
-				const resp = await this.$http.post("http://localhost:8080/workix/services/v1/candidates/notify", payload)
+				const resp = await this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/candidates/notify`, payload)
 				if (resp.status == 200){					
 					$("#close").click();
 					this.toast.success("Email foi Enviado com Sucesso", {timeout: 2000})

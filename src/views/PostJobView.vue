@@ -60,14 +60,14 @@ export default {
 	},
 	async aboutMe(token){
 		let config = { headers: { "Authorization": `Bearer ${token}` } }
-		return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
+		return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/auth/me`, config )
 	},
 	async getJob(id){
-		return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/${id}`)
+		return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/${id}`)
 	},
 	async createOrUpdateJob(token, job){
 		let config = { headers: { "Authorization": `Bearer ${token}` } }
-		return this.$http.post("http://localhost:8080/workix/services/v1/vue/create_or_update_job_by_token", job, config)
+		return this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/vue/create_or_update_job_by_token`, job, config)
 	},
 	async send(){
 		

@@ -43,7 +43,7 @@ export default {
 	},
 	methods:{
 		getBlogPosts(start, max){
-			return this.$http.get(`http://localhost:8080/workix/services/v1/blogs?start=${start}&max=${max}`)
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/blogs?start=${start}&max=${max}`)
 		}
 	},
 	async created(){

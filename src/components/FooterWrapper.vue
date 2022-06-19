@@ -68,7 +68,7 @@ export default {
 				this.toast.warning("Por favor digite um email válido!", { timeout: 2000 });
 				return;
 			}
-			const {data} = await this.$http.post("http://localhost:8080/workix/services/v1/subscribers/subscribe", { email: this.email} )
+			const {data} = await this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/subscribers/subscribe`, { email: this.email} )
 
 			if (data.subscribed){
 				this.toast.success(data.message, { timeout: 2000 });

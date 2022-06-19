@@ -54,7 +54,7 @@ export default {
 	},
 	methods: {
 		async getStatistics(){
-			const {data} = await this.$http.get("http://localhost:8080/workix/services/v1/statistics")
+			const {data} = await this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/statistics`)
 			
 			this.members = data.members
 			this.jobs = data.jobs

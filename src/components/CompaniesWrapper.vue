@@ -32,7 +32,7 @@ export default {
 	},
 	methods:{
 		getRandomLogos(start, max){
-			return this.$http.get(`http://localhost:8080/workix/services/v1/companies/logos?start=${start}&max=${max}`)
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/companies/logos?start=${start}&max=${max}`)
 		}
 	},
 	async created(){

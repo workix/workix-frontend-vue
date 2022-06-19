@@ -475,7 +475,7 @@ export default {
       },
         async aboutMe(token){
             let config = { headers: { "Authorization": `Bearer ${token}` } }
-            return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
+            return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/auth/me`, config )
         },
         async update(token){
             const payloadCandidate = {
@@ -540,7 +540,7 @@ export default {
             }            
 
             let config = { headers: { "Authorization": `Bearer ${token}` } }
-            return this.$http.put("http://localhost:8080/workix/services/v1/vue/update_by_token", this.type == 'Candidate' ? payloadCandidate : payloadCompany, config )
+            return this.$http.put(`${process.env.VUE_APP_BACKEND_SERVER}/vue/update_by_token`, this.type == 'Candidate' ? payloadCandidate : payloadCompany, config )
         },
         async getAddressFromZip(target){            
       

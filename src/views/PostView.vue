@@ -230,7 +230,7 @@ export default {
 
 		},
 		getPost(id){
-			return this.$http.get(`http://localhost:8080/workix/services/v1/blogs/${id}`)
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/blogs/${id}`)
 		},
 		async sendAComment(){
 			if (this.validateEmail(this.email) == null){
@@ -238,7 +238,7 @@ export default {
 				return;
 			}
 
-			await this.$http.post("http://localhost:8080/workix/services/v1/comments/blog", {name: this.name, email: this.email, message: this.message, postId: this.postId})
+			await this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/comments/blog`, {name: this.name, email: this.email, message: this.message, postId: this.postId})
 
 			let resp = await this.getPost(this.postId)
 			this.post = resp.data 

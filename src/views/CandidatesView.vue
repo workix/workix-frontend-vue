@@ -55,7 +55,7 @@ export default {
         if(!limit){
           limit = 10
         }
-      return this.$http.get(`http://localhost:8080/workix/services/v1/resumes/list_with_candidates_short_paginated?page=${page}&limit=${limit}`)
+      return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/resumes/list_with_candidates_short_paginated?page=${page}&limit=${limit}`)
     }
   }
 }

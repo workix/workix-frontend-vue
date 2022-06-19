@@ -88,7 +88,7 @@ export default {
 				this.toast.warning("Please enter a valid email!", { timeout: 2000 });
 				return;
 			}
-			const resp = await this.$http.post("http://localhost:8080/workix/services/v1/forms", { email: this.email, name: this.name, subject: this.subject, message: this.message} )
+			const resp = await this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/forms`, { email: this.email, name: this.name, subject: this.subject, message: this.message} )
 				if(resp.status == 201){
 					this.toast.success("Dados Enviados com Sucesso", { timeout: 2000 });
 					this.email = ""

@@ -200,10 +200,10 @@ export default {
 		google.maps.event.addDomListener(window, 'load', this.initialize);
     },
 		getCompany() {
-			return this.$http.get(`http://localhost:8080/workix/services/v1/companies/${this.companyId}`)
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/companies/${this.companyId}`)
 		},
 		getJobsFromCompany(){
-			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/company/${this.companyId}`)
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/company/${this.companyId}`)
 		},
 		getClass(media){
 			switch (media) {

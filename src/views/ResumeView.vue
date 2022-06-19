@@ -150,7 +150,7 @@ export default {
   },
   methods: {
 	getResume(){
-		return this.$http.get(`http://localhost:8080/workix/services/v1/resumes/${this.resumeId}`)
+		return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/resumes/${this.resumeId}`)
 	}
   }
 }

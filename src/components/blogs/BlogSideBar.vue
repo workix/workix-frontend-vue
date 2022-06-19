@@ -124,16 +124,16 @@ export default {
 		}
 	},
     getCategories(){
-		return this.$http.get("http://localhost:8080/workix/services/v1/blogs/categories")
+		return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/blogs/categories`)
 	},
     getTimePeriods(){
-		return this.$http.get("http://localhost:8080/workix/services/v1/blogs/time_periods")
+		return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/blogs/time_periods`)
 	},
 	getRecentPosts(start, max){
-		return this.$http.get(`http://localhost:8080/workix/services/v1/blogs/recents?start=${start}&max=${max}`)
+		return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/blogs/recents?start=${start}&max=${max}`)
 	},
 	getRecentComments(start , max){
-		return this.$http.get(`http://localhost:8080/workix/services/v1/comments/recents?start=${start}&max=${max}`)
+		return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/comments/recents?start=${start}&max=${max}`)
 	},
     }
 }

@@ -81,12 +81,11 @@ export default {
 			return new Promise(resolve => setTimeout(resolve, ms));
 		},
 		async logginInWorkix(email, firebaseUUID){			
-			return this.$http.post("http://localhost:8080/workix/services/v1/auth/login", {email, firebaseUUID})
+			return this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/auth/login`, {email, firebaseUUID})
 		},
 		async aboutMe(token){
-			let config = { headers: { "Authorization": `Bearer ${token}` }
-}
-			return this.$http.get("http://localhost:8080/workix/services/v1/auth/me", config )
+			let config = { headers: { "Authorization": `Bearer ${token}` }}
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/auth/me`, config )
 		},
 		disposeModal(){
 			$("#login").fadeOut(300);

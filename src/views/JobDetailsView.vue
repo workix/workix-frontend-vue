@@ -115,10 +115,10 @@ export default {
 	},
 	methods: {
 		getJob(){
-			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/${this.jobId}`)
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/${this.jobId}`)
 		},
 		getJobsFromCompany(){
-			return this.$http.get(`http://localhost:8080/workix/services/v1/jobs/company/${this.job.company.id}`)
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/company/${this.job.company.id}`)
 		}
 	},
 	async created(){	

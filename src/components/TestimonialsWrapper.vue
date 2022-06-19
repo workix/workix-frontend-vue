@@ -38,7 +38,7 @@ export default {
 	},
 	methods: {
 		async getTestimonials(start, max){
-			const { data } = await this.$http.get(`http://localhost:8080/workix/services/v1/testimonials?start=${start}&max=${max}`)
+			const { data } = await this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/testimonials?start=${start}&max=${max}`)
 			this.testimonials = data			
 		}
 	},
