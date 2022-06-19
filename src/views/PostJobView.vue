@@ -81,7 +81,10 @@ export default {
 			const {data} = await this.createOrUpdateJob(token, payload)
 			this.toast.success("Vaga criada/atualizada com sucesso!", {timeout: 2000})
 			await this.timeout(1000)
-			this.$router.go({path: `${this.$router.currentRoute}?id=${data.id}`, force: true})
+			const path = `/cadastrar_vaga?id=${data.id}`			
+			
+			// this.$router.go({path, force: true})
+			window.location.href = `${path}`;
 		} catch (error) {
 			console.error(error)
 			this.toast.error("Ocorreu um erro ao atualizar os dados", {timeout: 2000})
@@ -107,6 +110,20 @@ export default {
 		if(id){
 			const {data} = await this.getJob(id)
 			this.job = data			
+		}else {
+			this.job = {    
+				active: false,
+				feature: false,
+				company: this.company,    
+				jobCategory: "",
+				jobType: "",
+				minPayment: 0,
+				maxPayment: 0,
+				title: "",
+				description: "",
+				requirement: "",
+				benefits: ""
+			}
 		}
 	}
 }

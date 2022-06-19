@@ -5,7 +5,7 @@
         <input type="text" v-model="job.id" class="form-control" id="job-id" readonly>
     </div>
 
-    <div class="form-group" id="job-uuid-group">
+    <div class="form-group" id="job-uuid-group" v-if="job.uuid">
         <label for="job-uuid">UUID</label>
         <!-- eslint-disable-next-line vue/no-mutating-props -->
         <input type="text" v-model="job.uuid" class="form-control" id="job-uuid" readonly>
