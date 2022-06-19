@@ -4,7 +4,7 @@
 			<div class="popup-form">
 				<div class="popup-header">
 					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
-					<h2>{{!isLoggedIn ? "Registrar" : ""}}</h2>					
+					<h2>Registrar</h2>					
 				</div>
 				<form v-if="!isLoggedIn" @submit.stop.prevent="null">
 					<div class="form-group">
@@ -69,14 +69,21 @@
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 import { useToast } from "vue-toastification";
-import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+import {getAuth, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+import {computed} from 'vue'
+import { useStore } from 'vuex';
 const $ = require( "jquery" );
 export default {
 	components: { Datepicker },
 	setup(){
 	// Get toast interface
     const toast = useToast();
-	return {toast}
+	
+	const store = useStore()
+	
+	const isLoggedIn = computed(() => store.state.isLoggedIn)
+	
+	return {toast,isLoggedIn}
 	},
 	data(){
 		return {
@@ -88,18 +95,8 @@ export default {
 			password: "",
 			birthDate: null,
 			repeatPassword: "",
-			logingData: null,
-			isLoggedIn: null
+			logingData: null			
 		}
-	},
-	created(){
-		onAuthStateChanged(getAuth(), user => {
-			if (user){
-				this.isLoggedIn = true
-			} else {
-				this.isLoggedIn = false
-			}
-		})
 	},
 	methods: {
 		disposeModal(){
