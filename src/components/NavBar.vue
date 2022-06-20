@@ -10,7 +10,7 @@
 				<ul class="nav">
 					<li class="active"><a href="/" @click="navigate('/')">Início</a></li>
 					<li><a href="/sobre_nos" @click="navigate('/sobre_nos')">Sobre nós</a></li>
-					<li v-if="isLoggedIn && accountType == 'Candidate'"><a href="#">Candidatos</a>
+					<li v-show="isLoggedIn && accountType == 'Candidate'"><a href="#">Candidatos</a>
 						<ul>
 							<li><a href="/cadastrar_curriculo" @click="navigate('/cadastrar_curriculo')">Cadastrar Currículo</a></li>
 							<li><a href="/curriculo" @click="navigate('/curriculo')">Visualizar Currículo</a></li>
@@ -18,7 +18,7 @@
 							<li><a href="/vagas2"  @click="navigate('/vagas2')">Vagas (sem filtros)</a></li>
 						</ul>
 					</li>
-					<li v-if="isLoggedIn && accountType == 'Company'"><a href="#">Recrutadores</a>
+					<li v-show="isLoggedIn && accountType == 'Company'"><a href="#">Recrutadores</a>
 						<ul>
 							<li><a href="/minhas_vagas" @click="navigate('/minhas_vagas')">Minhas Vagas</a></li>
 							<li><a href="/empresa" @click="navigate('/empresa')">Empresa</a></li>
@@ -28,19 +28,19 @@
 						</ul>
 					</li>
 					<li><a href="/blog" @click="navigate('/blog')">Blog</a></li>
-					<li v-if="!isLoggedIn"><a class="link-register">Registrar</a></li>
+					<li v-show="!isLoggedIn"><a class="link-register">Registrar</a></li>
 					<li><a class="link-login">{{!isLoggedIn ? "Login": "Logout"}}</a></li>
 					
 					<li><a href="/depoimentos" @click="navigate('/depoimentos')">Depoimentos</a></li>
-					<li v-if="isLoggedIn"><a href="/opcoes" @click="navigate('/opcoes')">Opções</a></li>
+					<li v-show="isLoggedIn"><a href="/opcoes" @click="navigate('/opcoes')">Opções</a></li>
 					
-					<li v-if="isLoggedIn"><a href="#">Páginas</a>
+					<li v-show="isLoggedIn"><a href="#">Páginas</a>
 						<ul>
 							<li><a href="/detalhes_vaga" @click="navigate('/detalhes_vaga')">Detalhes da Vaga</a></li>						
 							<li><a href="/postagem" @click="navigate('/postagem')">Postagem</a></li>							
 						</ul>
 					</li>
-					<li v-if="isLoggedIn"><a href="/perfil" @click="navigate('/perfil')">Perfil</a></li>
+					<li v-show="isLoggedIn"><a href="/perfil" @click="navigate('/perfil')">Perfil</a></li>
 					
 				</ul>		
 			</div>
