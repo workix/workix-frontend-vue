@@ -129,7 +129,7 @@ const routes = [
     component: MyJobsView
   },
   {
-    path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
+    path: "/:pathMatch(.*)*", // Unrecognized path automatically matches 404
     name: '404',
     component: NotFoundView
   }
