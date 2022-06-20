@@ -57,9 +57,9 @@
 							<h3>Como se Candidatar</h3>
 							<p>Vivamus pulvinar <a :href="`mailto:${job.company.user.email}`">{{job.company.user.email}}</a> lobortis placerat. Cras non est nibh. In a quam id justo aliquam elementum. In cursus urna ac sem tincidunt aliquet. Vivamus a aliquet purus, luctus tincidunt orci.</p>
 							<p>
-								<a href="#" class="btn btn-primary btn-lg">Candidatar Aqui</a>
+								<a v-if="accountType == 'Candidate'" href="#" class="btn btn-primary btn-lg" @click="subscribe">Candidatar Aqui</a>
 								&nbsp;
-								<a href="#" class="btn btn-default btn-lg">Candidatar via LinkedIn</a>
+								<a v-if="accountType == 'Candidate'" href="#" class="btn btn-default btn-lg">Candidatar via LinkedIn</a>
 							</p>
 						</article>
 					</div>
@@ -100,8 +100,17 @@
 
 <script>
 import ContactsWrapper from "@/components/ContactsWrapper.vue"
-
+import {computed} from 'vue'
+import { useStore } from 'vuex'
+import { useToast } from 'vue-toastification'
 export default {
+	setup(){
+		const store = useStore()
+		const toast = useToast()
+		const accountType = computed(()=> store.state.accountType)
+		const candidateId = computed(() => store.state.owner.id)
+		return {accountType, candidateId, toast}
+	},
     components: {        
         ContactsWrapper        
     },
@@ -119,6 +128,18 @@ export default {
 		},
 		getJobsFromCompany(){
 			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/company/${this.job.company.id}`)
+		},
+		subscribeInJob(candidateId, jobId){
+			return this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/subscribe`, {candidateId, jobId})
+		},
+		async subscribe(){
+			try {
+				await this.subscribeInJob(this.candidateId, this.jobId)
+				this.toast.success("Incrito com sucesso", {timeout: 2000})
+			} catch (error) {
+				console.error(error)
+				this.toast.danger("Ocorreu algum erro na sua inscrição", {timeout: 2000})
+			}
 		}
 	},
 	async created(){	
