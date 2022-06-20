@@ -30,8 +30,8 @@
 					<div class="col-sm-8">
 						<article>
 							<h2>Detalhes da Vaga</h2>
-							<p>{{job.description}}</p>
-							
+							<p>{{job.description}}</p>							
+
 							<h3>Requisitos</h3>
 								<template v-if="job.requirement">{{job.requirement}}</template>
 							<ul v-else>
@@ -76,8 +76,8 @@
 						<hr>
 						<div class="sidebar-widget" id="company">
 							<h2>Sobre essa Empresa</h2>
-							<p><img :src="`${baseUrl}/resources/placeholder/300x109.gif`" alt="" class="img-responsive"></p>
-							<p>{{job.company.description}}</p>
+							<p><img :src="`${baseUrl}/resources/placeholder/300x109.gif`" alt="" class="img-responsive"></p>							
+							<div v-html="job.company.description"></div>
 							<p><a :href="`/empresa?id=${job.company.id}`" class="btn btn-primary">Leia mais</a></p>
 						</div>
 						<hr>
