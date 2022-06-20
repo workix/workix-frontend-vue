@@ -6,7 +6,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1 v-if="jobs.length > 0">Vagas de {{jobs[0].company.name}}</h1>
+						<h1>Vagas de {{companyName}}</h1>
 						<h4>Todas as vagas criadas pela sua empresa</h4>
 						<br/>
 						<a href="/cadastrar_vaga" class="btn btn-primary btn-lg">Cadastrar uma nova Vaga</a>
@@ -84,7 +84,15 @@
 <script>
 
 import ContactsWrapper from '@/components/ContactsWrapper.vue'
+import { useStore } from 'vuex'
+import {computed} from 'vue'
 export default {
+	setup(){
+		const store = useStore()
+		const companyName = computed(()=> store.state.owner.name)
+		
+		return {companyName}
+	},
     components: {        
         ContactsWrapper        
     },
