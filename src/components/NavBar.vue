@@ -21,7 +21,7 @@
 					<li v-show="isLoggedIn && accountType == 'Company'"><a href="#">Recrutadores</a>
 						<ul>
 							<li><a href="/minhas_vagas" @click="navigate('/minhas_vagas')">Minhas Vagas</a></li>
-							<li><a href="/empresa" @click="navigate('/empresa')">Empresa</a></li>
+							<li><a v-if="owner" :href="`/empresa?id=${companyId}`" @click="navigate(`/empresa?id=${companyId}`)">Empresa</a></li>
 							<li><a href="/cadastrar_vaga" @click="navigate('/cadastrar_vaga')">Cadastrar Vaga</a></li>
 							<li><a href="/candidatos" @click="navigate('/candidatos')">Candidatos</a></li>
 							<li><a href="/candidatos2" @click="navigate('/candidatos2')">Candidatos (sem filtros)</a></li>
@@ -58,8 +58,10 @@ export default {
 	const store = useStore()
 	const isLoggedIn = computed(() => store.state.isLoggedIn)
 	const accountType = computed(()=> store.state.accountType)
+	const companyId = computed(() => store.state.owner.id)
+	const owner = computed(() => store.state.owner)
 
-	return {isLoggedIn, accountType}
+	return {isLoggedIn, accountType, companyId, owner}
 	},
 	methods: {
 		navigate(link){

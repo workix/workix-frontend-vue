@@ -4,7 +4,8 @@ export default createStore({
   state: {
     isLoggedIn: null,
     fireBaseUser: null,
-    accountType: null
+    accountType: null,
+    owner: null
   },
   getters: {
     
