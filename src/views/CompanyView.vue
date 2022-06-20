@@ -24,7 +24,7 @@
 					<div class="col-sm-8">
 						<article>
 							<h2>Sobre {{company.name}}</h2>
-							<p>{{company.description}}</p>
+							<div v-html="company.description"> </div>							
 							
 							<hr>
 							<h2>Localização</h2>							
