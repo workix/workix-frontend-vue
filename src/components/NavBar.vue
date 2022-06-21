@@ -12,6 +12,7 @@
 					<li><a href="/sobre_nos" @click="navigate('/sobre_nos')">Sobre nós</a></li>
 					<li v-show="isLoggedIn && accountType == 'Candidate'"><a href="#">Candidatos</a>
 						<ul>
+							<li><a href="/inscricoes_processos_seletivos" @click="navigate('/inscricoes_processos_seletivos')">Minhas Inscriçoes em Processo Seletivo</a></li>
 							<li><a href="/cadastrar_curriculo" @click="navigate('/cadastrar_curriculo')">Cadastrar Currículo</a></li>
 							<li><a href="/curriculo" @click="navigate('/curriculo')">Visualizar Currículo</a></li>
 							<li><a href="/vagas"  @click="navigate('/vagas')">Vagas</a></li>

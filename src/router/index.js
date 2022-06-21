@@ -21,6 +21,7 @@ import NotFoundView from '../views/NotFoundView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import MyJobsView from '../views/MyJobsView.vue'
 import MySelectiveProcesses from '../views/MySelectiveProcesses.vue'
+import MySelectiveProcessesSubscribed from '../views/MySelectiveProcessesSubscribed.vue'
 import PostSelectiveProcess from '../views/PostSelectiveProcess.vue'
 
 const getCurrentUser = () => {
@@ -134,6 +135,11 @@ const routes = [
     path: "/processos_seletivos",
     name: "processos_seletivos",
     component: MySelectiveProcesses
+  },
+  {
+    path: "/inscricoes_processos_seletivos",
+    name: "inscricoes_processos_seletivos",
+    component: MySelectiveProcessesSubscribed
   },
   {
     path: "/cadastrar_processo_seletivo",
