@@ -23,6 +23,7 @@ import MyJobsView from '../views/MyJobsView.vue'
 import MySelectiveProcesses from '../views/MySelectiveProcesses.vue'
 import MySelectiveProcessesSubscribed from '../views/MySelectiveProcessesSubscribed.vue'
 import PostSelectiveProcess from '../views/PostSelectiveProcess.vue'
+import SelectiveProcessView from '../views/SelectiveProcessView.vue'
 
 const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
@@ -132,8 +133,8 @@ const routes = [
     component: MyJobsView
   },
   {
-    path: "/processos_seletivos",
-    name: "processos_seletivos",
+    path: "/meus_processos_seletivos",
+    name: "meus_processos_seletivos",
     component: MySelectiveProcesses
   },
   {
@@ -145,6 +146,11 @@ const routes = [
     path: "/cadastrar_processo_seletivo",
     name: "cadastrar_processo_seletivo",
     component: PostSelectiveProcess
+  },
+  {
+    path: "/processos_seletivos",
+    name: "processos_seletivos",
+    component: SelectiveProcessView
   },
   {
     path: "/:pathMatch(.*)*", // Unrecognized path automatically matches 404

@@ -17,11 +17,12 @@
 							<li><a href="/curriculo" @click="navigate('/curriculo')">Visualizar Currículo</a></li>
 							<li><a href="/vagas"  @click="navigate('/vagas')">Vagas</a></li>
 							<li><a href="/vagas2"  @click="navigate('/vagas2')">Vagas (sem filtros)</a></li>
+							<li><a href="/processos_seletivos" @click="navigate('/processos_seletivos')">Processos Seletivos</a></li>
 						</ul>
 					</li>
 					<li v-show="isLoggedIn && accountType == 'Company'"><a href="#">Recrutadores</a>
 						<ul>
-							<li><a href="/processos_seletivos" @click="navigate('/processos_seletivos')">Meus Processos Seletivos</a></li>
+							<li><a href="/meus_processos_seletivos" @click="navigate('/meus_processos_seletivos')">Meus Processos Seletivos</a></li>
 							<li><a href="/minhas_vagas" @click="navigate('/minhas_vagas')">Minhas Vagas</a></li>
 							<li><a v-if="owner" :href="`/empresa?id=${companyId}`" @click="navigate(`/empresa?id=${companyId}`)">Empresa</a></li>
 							<li><a href="/cadastrar_vaga" @click="navigate('/cadastrar_vaga')">Cadastrar Vaga</a></li>

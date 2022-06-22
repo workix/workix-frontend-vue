@@ -50,8 +50,8 @@
 										<p class="badge full-time">{{sp.job.jobType}}</p>
 									</div>
 									<div class="col-lg-2 job-dates ">
-										<p class="job-posted"><strong>Criada em  {{sp.start.toLocaleString("pt-BR").replace("T", " as ")}}</strong></p>
-										<p class="job-closes">Expira em {{sp.expire}}</p>
+										<p class="job-posted"><strong>Criada em {{sp.start.toLocaleString("pt-BR").replace("T", " as ")}}</strong></p>
+										<p class="job-closes">Expira em {{sp.expire.toLocaleString("pt-BR").replace("T", " as ")}}</p>
 									</div>
 								</div>
 							</a>
