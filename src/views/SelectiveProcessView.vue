@@ -29,6 +29,14 @@
 									<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
 										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
 									</div>
+									
+									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+                                        <p>Ativo <span class="badge badge-pill badge-primary">{{sp.active ? "Sim": "Não"}}</span></p>									
+									</div>
+
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+                                        <p>Qtd Candidatos <span class="badge badge-pill badge-primary">{{sp.candidates.length}} / {{sp.maxCandidates}}</span></p>
+                                    </div> 
 									<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 job-title">
 										<h5>{{sp.job.title}}</h5>
 										<p><strong>{{sp.job.company.name}}</strong> {{sp.job.company.segment}}</p>
