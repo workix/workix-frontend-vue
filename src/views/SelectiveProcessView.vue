@@ -24,7 +24,7 @@
 						<div class="jobs">
 						<template v-for="(sp,i) in sps" :key="i">
 							<!-- Job offer -->
-							<a href="#">
+							<a :href="`/detalhes_processo_seletivo?id=${sp.id}`">
 								<div class="row">
 									<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
 										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />

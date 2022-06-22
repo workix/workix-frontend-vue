@@ -2,11 +2,14 @@
   <div id="">    
 
     <!-- ============ TITLE START ============ -->
-		<section id="title" v-if="jobId != null && jobId > 0 && job != null">
+		<section id="title" v-if="spId != null && spId > 0 && selectiveProcess != null">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
+						<h2>Processo Seletivo {{selectiveProcess.id}}</h2>
 						<h1>{{job.title}}</h1>
+						<h3>Candidatos {{selectiveProcess.candidates.length}}/{{selectiveProcess.maxCandidates}}</h3>
+						<h3>Inicia em {{selectiveProcess.start}} - Termina em {{selectiveProcess.expire}}</h3>
 						<h4>
 							<span><i class="fa fa-map-marker"></i>{{job.company.locale.city}}</span>
 							<span><i class="fa fa-clock-o"></i>{{job.jobType}}</span>
@@ -19,12 +22,12 @@
     <!-- ============ TITLE END ============ -->
 
 		<section v-else>
-			<h1> Job Id is not Defined</h1>
+			<h1> Selective Process Id is not Defined</h1>
 		</section>	
 
 
     <!-- ============ CONTENT START ============ -->
-		<section id="jobs" v-if="jobId != null && jobId > 0 && job != null">
+		<section id="jobs" v-if="spId != null && spId > 0 && selectiveProcess != null">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8">
@@ -117,12 +120,17 @@ export default {
 	data(){
 		return{
 			baseUrl: window.location.origin,
+			spId:0,
 			jobId:0,
+			selectiveProcess: null,
 			job: null,
 			jobs: []
 		}
 	},
 	methods: {
+		getSelectiveProcess(){
+			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/selectiveprocesses/${this.spId}`)
+		},
 		getJob(){
 			return this.$http.get(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/${this.jobId}`)
 		},
@@ -132,9 +140,12 @@ export default {
 		subscribeInJob(candidateId, jobId){
 			return this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/jobs/subscribe`, {candidateId, jobId})
 		},
+		subscribeInSP(candidateId, spId){
+			return this.$http.post(`${process.env.VUE_APP_BACKEND_SERVER}/selectiveprocesses/subscribe`, {candidateId, spId})
+		},
 		async subscribe(){
 			try {
-				await this.subscribeInJob(this.candidateId, this.jobId)
+				await this.subscribeInSP(this.candidateId, this.jobId)
 				this.toast.success("Incrito com sucesso", {timeout: 2000})
 			} catch (error) {
 				console.error(error)
@@ -144,9 +155,11 @@ export default {
 	},
 	async created(){	
 	
-	this.jobId = this.$route.query.id
-	const {data} = await this.getJob()
-	this.job = data
+	this.spId = this.$route.query.id
+	const {data} = await this.getSelectiveProcess()
+	this.selectiveProcess = data
+	this.jobId = data.job.id
+	this.job = data.job
 
 	const resp = await this.getJobsFromCompany()
 	this.jobs = resp.data.filter(i => i.id != this.job.id)

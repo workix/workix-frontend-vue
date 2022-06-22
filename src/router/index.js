@@ -24,6 +24,7 @@ import MySelectiveProcesses from '../views/MySelectiveProcesses.vue'
 import MySelectiveProcessesSubscribed from '../views/MySelectiveProcessesSubscribed.vue'
 import PostSelectiveProcess from '../views/PostSelectiveProcess.vue'
 import SelectiveProcessView from '../views/SelectiveProcessView.vue'
+import SPDetailsView from '../views/SPDetailsView.vue'
 
 const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
@@ -80,6 +81,11 @@ const routes = [
     path: '/detalhes_vaga',
     name: 'detalhes_vaga',
     component: JobDetailsView
+  },
+  {
+    path: '/detalhes_processo_seletivo',
+    name: 'detalhes_processo_seletivo',
+    component: SPDetailsView
   },
   {
     path: '/curriculo',

@@ -25,7 +25,7 @@
 							
 							<template v-for="(sp,i) in sps" :key="i">
 								<!-- Job offer -->
-							<a :href="`/visualizar_processo_seletivo?id=${sp.id}`" class="">
+							<a :href="`/detalhes_processo_seletivo?id=${sp.id}`" class="">
 								<div class="row">									                                   
 									<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 job-title">
 										<h5>{{sp.job.title}}</h5>
