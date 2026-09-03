@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workix - Plataforma de Empregos Totalmente Grátis</title>
+    <script>
+      // O GitHub Pages não conhece as rotas da SPA. Como o app usa hash history,
+      // qualquer caminho "limpo" (ex: /vagas) cai aqui e é reenviado para /#/vagas.
+      (function () {
+        var hash = window.location.hash;
+        var search = window.location.search;
+        if (hash.indexOf('#/') === 0) {
+          // Já veio no formato de hash route: basta voltar para a raiz.
+          window.location.replace('/' + search + hash);
+          return;
+        }
+        var path = window.location.pathname.replace(/^\/+/, '');
+        window.location.replace('/' + (path ? '#/' + path : '') + search);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando…</p>
+  </body>
+</html>

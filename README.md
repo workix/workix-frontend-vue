@@ -41,10 +41,17 @@ O deploy é feito automaticamente pelo workflow
 projeto e publica `dist/` via GitHub Pages.
 
 Pontos importantes para esse tipo de hospedagem estática, sem servidor:
-- `vue.config.js` define `publicPath` como `/workix-frontend-vue/` em
-  produção, pois o GitHub Pages serve repositórios de projeto em um
-  subdiretório com o nome do repositório.
+- O site é servido pelo domínio próprio `www.workix.com.br` / `workix.com.br`,
+  ou seja, a partir da raiz. Por isso `vue.config.js` usa `publicPath: '/'`.
+  Para voltar a publicar na URL padrão do Pages
+  (`https://<usuario>.github.io/workix-frontend-vue/`), builde com
+  `PUBLIC_PATH=/workix-frontend-vue/ npm run build`.
+- Todos os assets estáticos de `public/` são referenciados com `<%= BASE_URL %>`
+  em `public/index.html`, para acompanharem o `publicPath` escolhido.
 - As rotas usam `createWebHashHistory` (URLs com `/#/...`), já que o GitHub
-  Pages não reescreve rotas desconhecidas para `index.html`.
+  Pages não reescreve rotas desconhecidas para `index.html`. O `public/404.html`
+  cobre o caso de alguém acessar um caminho limpo (ex: `/vagas`), redirecionando
+  para `/#/vagas`.
 - Para habilitar o Pages no repositório: Settings → Pages → Source →
-  "GitHub Actions".
+  "GitHub Actions"; e em Settings → Pages → Custom domain, manter
+  `www.workix.com.br` (ou o apex) com "Enforce HTTPS" ligado.

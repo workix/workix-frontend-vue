@@ -3,7 +3,7 @@
 // todas as chamadas que antes iam para "http://localhost:8080/workix/services/v1/*"
 // (ou para APIs de terceiros como a pagar.me) são resolvidas aqui, em memória.
 
-// BASE_URL respeita o publicPath do build (ex: "/workix-frontend-vue/" no GitHub Pages)
+// BASE_URL respeita o publicPath do build ("/" no domínio próprio www.workix.com.br)
 const BASE = process.env.BASE_URL.replace(/\/$/, '')
 const img = (name) => `${BASE}/resources/placeholder/${name}`
 const AVATAR = img('60x60.jpg')
