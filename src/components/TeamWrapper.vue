@@ -3,15 +3,14 @@
 		<section id="team" class="color1">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-12">
+					<div class="col-sm-12 text-center">
 						<h2>Nossa Equipe</h2>
-						<div class="owl-carousel">
-								<!-- Team Member-->
-								
-									<template v-for="(m,i) in members" :key="i" >
-										<TeamMember :member="m" />							
-									</template>
-								
+						<div class="row">
+							<template v-for="(m,i) in members" :key="i" >
+								<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+									<TeamMember :member="m" />
+								</div>
+							</template>
 						</div>
 					</div>
 				</div>

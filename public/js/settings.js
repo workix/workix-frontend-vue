@@ -334,28 +334,6 @@
 				}
 			});
 
-			$("#team .owl-carousel").owlCarousel({
-				items: 4,
-				margin: 30,
-				loop: true,
-				dots: false,
-				nav: true,
-				navText: ['<i class="fa fa-arrow-left fa-2x"></i>','<i class="fa fa-arrow-right fa-2x"></i>'],
-				responsive:{
-					0:{
-						items:1
-					},
-					481:{
-						items:2
-					},
-					767:{
-						items:3
-					},
-					992:{
-						items:4
-					}
-				}
-			});
 
 			// Counterup
 
