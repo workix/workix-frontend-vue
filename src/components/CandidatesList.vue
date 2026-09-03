@@ -20,7 +20,7 @@
 											<h5>{{c.name}}</h5>
 											<p><strong>{{c.objective}}</strong></p>
 										</div>
-										<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
+										<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 candidate-location">
 											<p><strong>{{c.city}}, {{c.estate}}, BRA</strong></p>
 										</div>
 										<div class="col-lg-3">

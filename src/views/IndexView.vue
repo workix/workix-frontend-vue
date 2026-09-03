@@ -23,7 +23,6 @@
 
 <script>
 import IndexModal from '@/components/IndexModal.vue'
-import { useToast } from "vue-toastification";
 import PageLoader from '@/components/PageLoader.vue'
 import NavBar from '@/components/NavBar.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
@@ -61,22 +60,6 @@ export default {
         FooterWrapper,
         LoginPopup,
         RegisterPopup
-    },
-    setup(){
-        // Get toast interface
-      const toast = useToast();
-
-      // Use it!
-      toast("I'm a toast!");
-
-      // or with options
-      toast.success("My toast content", {
-        timeout: 2000
-      });
-      // These options will override the options defined in the "app.use" plugin registration for this specific toast
-
-      // Make it available inside methods
-      return { toast }
     },
     created(){
       

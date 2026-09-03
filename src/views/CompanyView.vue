@@ -38,7 +38,7 @@
 								<template v-for="(j,i) in jobs" :key="i">
 								<a :href="`#/vagas?id=${j.id}`">
 									<div class="featured"></div>
-									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
+									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
 									<div class="title">
 										<h5>{{j.title}}</h5>
 										<p>{{j.company.name}}</p>
@@ -162,11 +162,18 @@ export default {
 
 <style>
  .jobs a {
-    display: inline-flex;
-    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
 }
 .jobs a .title{
     margin: 10px;
+}
+.jobs a .data {
+    display: flex;
+    flex-wrap: wrap;
 }
 .jobs a .data span{
     margin: 10px;

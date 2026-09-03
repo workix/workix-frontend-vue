@@ -10,7 +10,7 @@
 							
 							<!-- Logo -->
 							<div v-for="(c,i) in companies" :key="i">
-								<a :href="`#/empresa?id=${c.id}`"><img :src="c.logo" alt="" /></a>
+								<a :href="`#/empresa?id=${c.id}`"><img :src="c.logo" alt="" class="img-responsive" /></a>
 							</div>
 							
 

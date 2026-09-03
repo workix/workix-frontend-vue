@@ -21,7 +21,7 @@
 									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
 										<p><strong>{{j.company.locale.city}}, {{j.company.locale.estate}}, BR</strong></p>
 									</div>
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+									<div class="col-lg-2 col-md-2 col-xs-12 job-type text-center">
 										<p class="job-salary"><strong>{{$currency(j.maxPayment)}}</strong></p>
 										<p :class="getBadge(j.jobType)">{{j.jobType}}</p>
 									</div>

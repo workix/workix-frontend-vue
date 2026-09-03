@@ -28,7 +28,7 @@
 					<div class="col-sm-8">
 						<article>
 							<h2>Detalhes</h2>
-							<img :src="`${baseUrl}/resources/placeholder/220x273.jpg`" alt="" class="pull-left" />
+							<img :src="`${baseUrl}/resources/placeholder/220x273.jpg`" alt="" class="img-responsive pull-left" />
 							<p>{{resume.content}}</p>
 							
 							<h3>Habilidades</h3>

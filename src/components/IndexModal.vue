@@ -14,7 +14,7 @@
 
 				<div class="modal-body" style="margin: 0 auto; text-align: center">
 
-                    <img src="resources/images/under-construction.png" alt="Workix em construção" />
+                    <img src="resources/images/under-construction.png" alt="Workix em construção" class="img-responsive" style="margin: 0 auto;" />
 
 					<p>Imagine uma plataforma de empregos...</p>
 

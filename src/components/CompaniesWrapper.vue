@@ -9,7 +9,7 @@
 							
 							<li class="col-sm-4 col-md-3" v-for="(o,i) in logos" :key="i">
 								<a :href="`#/empresa?id=${o.id}`">
-									<img :src="`${o.logo}`" alt="" />
+									<img :src="`${o.logo}`" alt="" class="img-responsive" />
 									<span class="badge">{{o.id}}</span>
 								</a>
 							</li>

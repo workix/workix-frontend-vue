@@ -18,7 +18,7 @@
 
 				<form @submit.prevent="send">
 					<div class="row">
-						<div class="col-12">
+						<div class="col-sm-12">
 							<h2>Detalhes do Usuário</h2>
                             <div class="row">
                                 
