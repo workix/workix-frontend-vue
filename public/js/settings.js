@@ -1,13 +1,16 @@
 (function($) {
 	"use strict";
 
-	$(window).load(function() {
-		$("#loader").fadeOut("slow");
-	});	
-
 	$(document).ready(function() {
 
-		$('#index-modal').modal('show');  
+		// Esconde o loader assim que a view atual terminou de montar.
+		// Não usamos $(window).load() porque esse evento nativo só dispara uma
+		// vez por carregamento real de página: como a navegação agora é feita
+		// via rotas com hash (sem reload), ele nunca dispararia de novo nas
+		// trocas de página seguintes, deixando o loader preso na tela.
+		$("#loader").fadeOut("slow");
+
+		$('#index-modal').modal('show');
 
 		// ====================================================================
 
@@ -268,91 +271,106 @@
 
 		// ====================================================================
 
-		// Carousels
+		// Carousels, Counterup e Fancybox
+		//
+		// Esses plugins montam a estrutura (ou leem o valor) a partir do
+		// conteúdo já existente no momento em que são chamados. Como os dados
+		// desses widgets (depoimentos, equipe, posts, estatísticas, galeria)
+		// vêm de chamadas assíncronas do Vue (mock/API), inicializá-los
+		// imediatamente pode rodar antes desse conteúdo ser renderizado,
+		// deixando o carrossel "empilhado" ou o contador zerado. Um pequeno
+		// atraso dá tempo do Vue terminar de renderizar antes do plugin ler o DOM.
+		setTimeout(function() {
 
-		$("#blog .owl-carousel").owlCarousel({
-			margin: 20,
-			loop: true,
-			dots: false,
-			nav: true,
-			navText: ['<i class="fa fa-arrow-left fa-2x"></i>','<i class="fa fa-arrow-right fa-2x"></i>'],
-			responsive:{
-				0:{
-					items:1
-				},
-				767:{
-					items:2
+			$("#blog .owl-carousel").owlCarousel({
+				margin: 20,
+				loop: true,
+				dots: false,
+				nav: true,
+				navText: ['<i class="fa fa-arrow-left fa-2x"></i>','<i class="fa fa-arrow-right fa-2x"></i>'],
+				responsive:{
+					0:{
+						items:1
+					},
+					767:{
+						items:2
+					}
 				}
-			}
-		});
+			});
 
-		$("#testimonials .owl-carousel").owlCarousel({
-			items: 1,
-			loop: true,
-			margin: 50,
-			dots: false,
-			autoplay: true,
-			autoplaySpeed: 1500,
-			nav: false
-		});
+			$("#testimonials .owl-carousel").owlCarousel({
+				items: 1,
+				loop: true,
+				margin: 50,
+				dots: false,
+				autoplay: true,
+				autoplaySpeed: 1500,
+				nav: false
+			});
 
-		$("#clients .owl-carousel").owlCarousel({
-			items: 5,
-			margin: 50,
-			loop: true,
-			dots: false,
-			nav: true,
-			navText: ['<i class="fa fa-arrow-left fa-2x"></i>','<i class="fa fa-arrow-right fa-2x"></i>'],
-			responsive:{
-				0:{
-					items:1
-				},
-				481:{
-					items:2
-				},
-				767:{
-					items:3
-				},
-				992:{
-					items:4
-				},
-				1200:{
-					items:6
+			$("#clients .owl-carousel").owlCarousel({
+				items: 5,
+				margin: 50,
+				loop: true,
+				dots: false,
+				nav: true,
+				navText: ['<i class="fa fa-arrow-left fa-2x"></i>','<i class="fa fa-arrow-right fa-2x"></i>'],
+				responsive:{
+					0:{
+						items:1
+					},
+					481:{
+						items:2
+					},
+					767:{
+						items:3
+					},
+					992:{
+						items:4
+					},
+					1200:{
+						items:6
+					}
 				}
-			}
-		});
+			});
 
-		$("#team .owl-carousel").owlCarousel({
-			items: 4,
-			margin: 30,
-			loop: true,
-			dots: false,
-			nav: true,
-			navText: ['<i class="fa fa-arrow-left fa-2x"></i>','<i class="fa fa-arrow-right fa-2x"></i>'],
-			responsive:{
-				0:{
-					items:1
-				},
-				481:{
-					items:2
-				},
-				767:{
-					items:3
-				},
-				992:{
-					items:4
+			$("#team .owl-carousel").owlCarousel({
+				items: 4,
+				margin: 30,
+				loop: true,
+				dots: false,
+				nav: true,
+				navText: ['<i class="fa fa-arrow-left fa-2x"></i>','<i class="fa fa-arrow-right fa-2x"></i>'],
+				responsive:{
+					0:{
+						items:1
+					},
+					481:{
+						items:2
+					},
+					767:{
+						items:3
+					},
+					992:{
+						items:4
+					}
 				}
-			}
-		});
+			});
 
-		// ====================================================================
+			// Counterup
 
-		// Counterup
+			$('.number').counterUp({
+				delay: 10, // the delay time in ms
+				time: 1000 // the speed time in ms
+			});
 
-		$('.number').counterUp({
-			delay: 10, // the delay time in ms
-			time: 1000 // the speed time in ms
-		});
+			// Fancybox (galeria de imagens da postagem do blog)
+
+			$('.fancybox').fancybox({
+				openEffect: 'none'
+			});
+
+		}, 500);
 
 		// ====================================================================
 
@@ -418,14 +436,6 @@
 			'<li>' +
 				'<a href="{{image_b}}" class="fancybox" rel="gallery"><img src="{{image_s}}" alt="{{title}}" /></a>' +
 			'</li>'
-		});
-
-		// ====================================================================
-
-		// Fancybox
-
-		$('.fancybox').fancybox({
-			openEffect: 'none'
 		});
 
 		// ====================================================================

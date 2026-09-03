@@ -50,24 +50,31 @@ export default {
 		}
 	},
 	created(){
-		onAuthStateChanged(getAuth(), async user => {
-			if (user){
-				this.isLoggedIn = true
-				let resp;
-				resp = await this.logginInWorkix(user.email, user.uid)
-				const token = resp.data.token
-				
-				resp = await this.aboutMe(token)
+		try {
+			onAuthStateChanged(getAuth(), async user => {
+				if (user){
+					this.isLoggedIn = true
+					let resp;
+					resp = await this.logginInWorkix(user.email, user.uid)
+					const token = resp.data.token
 
-				localStorage.owner = JSON.stringify(resp.data.owner)
-				localStorage.jwt = token
-				localStorage.accountType = resp.data.type
-				
-			} else {
-				this.isLoggedIn = false
-				localStorage.clear()
-			}
-		})
+					resp = await this.aboutMe(token)
+
+					localStorage.owner = JSON.stringify(resp.data.owner)
+					localStorage.jwt = token
+					localStorage.accountType = resp.data.type
+
+				} else {
+					this.isLoggedIn = false
+					localStorage.clear()
+				}
+			})
+		} catch (error) {
+			// Sem credenciais válidas do Firebase (ex: site estático sem .env configurado),
+			// segue como deslogado em vez de travar a renderização da página inteira.
+			console.error(error)
+			this.isLoggedIn = false
+		}
 	},
 	methods: {
 		async logginInWorkix(email, firebaseUUID){			

@@ -78,10 +78,10 @@
 						<div class="sidebar-widget" id="share">
 							<h2>Compartilhar currículo</h2>
 							<ul>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://plus.google.com/share?url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html&amp;title=Jobseek%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-linkedin"></i></a></li>
+								<li><a :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+								<li><a :href="`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(resume.candidate.name)}`" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
+								<li><a :href="`https://api.whatsapp.com/send?text=${encodeURIComponent(resume.candidate.name + ' - ' + shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i></a></li>
+								<li><a :href="`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 						<hr>
@@ -152,7 +152,8 @@ export default {
     },
 	data(){
 		return{
-			baseUrl: window.location.origin,
+			baseUrl: process.env.BASE_URL.replace(/\/$/, ''),
+			shareUrl: window.location.href,
 			resumeId: 0,
 			resume: null,			
 		}

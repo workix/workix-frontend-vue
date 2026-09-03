@@ -1,5 +1,5 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 import IndexView from '../views/IndexView.vue'
 import JobsView from '../views/JobsView.vue'
@@ -21,12 +21,17 @@ import NotFoundView from '../views/NotFoundView.vue'
 import ProfileView from '../views/ProfileView.vue'
 
 const getCurrentUser = () => {
-  return new Promise((resolve, reject) => {
-    const removeListener = onAuthStateChanged(getAuth(), user => {
-      removeListener();
-      resolve(user)
-    }, reject)
-
+  return new Promise((resolve) => {
+    try {
+      const removeListener = onAuthStateChanged(getAuth(), user => {
+        removeListener();
+        resolve(user)
+      }, () => resolve(null))
+    } catch (error) {
+      // Sem credenciais válidas do Firebase, trata como usuário deslogado
+      console.error(error)
+      resolve(null)
+    }
   })
 }
 
@@ -130,7 +135,9 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  // GitHub Pages não faz rewrite de rotas para o index.html, então usamos
+  // hash history (/#/vagas) para as rotas funcionarem em qualquer host estático.
+  history: createWebHashHistory(process.env.BASE_URL),
   routes
 })
 
@@ -150,6 +157,20 @@ router.beforeEach(async (to, from, next) => {
     next();
   }
 
+})
+
+router.afterEach(() => {
+  // O Bootstrap trava a rolagem do body ao abrir um modal (classe "modal-open"
+  // + overflow:hidden), e só desfaz isso quando o modal é fechado pela sua
+  // própria API (o botão "x", por exemplo). Como a navegação aqui é feita por
+  // rotas (SPA), o Vue pode remover o modal da tela sem passar por esse
+  // fechamento "oficial" — e a rolagem fica travada para sempre. Por isso,
+  // a cada troca de rota, garantimos que esse travamento seja desfeito.
+  document.body.classList.remove('modal-open')
+  document.body.style.removeProperty('overflow')
+  document.body.style.removeProperty('padding-right')
+  document.body.classList.remove('no-scroll')
+  document.querySelectorAll('.modal-backdrop').forEach(el => el.remove())
 })
 
 export default router

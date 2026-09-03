@@ -67,10 +67,10 @@
 
 						<ul class="share">
 							<li><h5>Compartilhe</h5></li>
-							<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-2x fa-facebook-square"></i></a></li>
-							<li><a href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-2x fa-twitter-square"></i></a></li>
-							<li><a href="https://plus.google.com/share?url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-2x fa-google-plus-square"></i></a></li>
-							<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html&amp;title=Jobseek%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-2x fa-linkedin-square"></i></a></li>
+							<li><a :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-2x fa-facebook-square"></i></a></li>
+							<li><a :href="`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(post.title)}`" target="_blank" rel="noopener"><i class="fa fa-2x fa-twitter-square"></i></a></li>
+							<li><a :href="`https://api.whatsapp.com/send?text=${encodeURIComponent(post.title + ' - ' + shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-2x fa-whatsapp-square"></i></a></li>
+							<li><a :href="`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-2x fa-linkedin-square"></i></a></li>
 						</ul>
 
 						<!-- SHARING END -->
@@ -79,7 +79,7 @@
 
 						<ul class="tags">
 							<li><i class="fa fa-tag"></i></li>
-							<li v-for="(t,i) in post.tags" :key="i"><a :href="`/blog?etiqueta=${t.name}`">{{t.name}}</a></li>							
+							<li v-for="(t,i) in post.tags" :key="i"><a :href="`#/blog?etiqueta=${t.name}`">{{t.name}}</a></li>							
 						</ul>
 
 						<!-- TAGS END -->
@@ -106,8 +106,8 @@
 
 						<ul id="paging">
 							<!-- TODO Verify if has next -->
-							<li class="pull-left" v-if="postId > 1"><a :href="`/postagem?id=${postId-1}`" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Anterior</a></li>
-							<li class="pull-right"><a :href="`/postagem?id=${+postId+1}`" class="btn btn-primary">Próxima <i class="fa fa-arrow-right"></i></a></li>
+							<li class="pull-left" v-if="postId > 1"><a :href="`#/postagem?id=${postId-1}`" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Anterior</a></li>
+							<li class="pull-right"><a :href="`#/postagem?id=${+postId+1}`" class="btn btn-primary">Próxima <i class="fa fa-arrow-right"></i></a></li>
 						</ul>
 
 						<!-- PAGING END -->
@@ -210,7 +210,8 @@ export default {
 	},
 	data(){
 		return{
-			baseUrl: window.location.origin,
+			baseUrl: process.env.BASE_URL.replace(/\/$/, ''),
+			shareUrl: window.location.href,
 			postId: 0,
 			post: null,
 			name: "",

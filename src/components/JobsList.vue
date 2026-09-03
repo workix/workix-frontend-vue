@@ -9,7 +9,7 @@
 							
 							<!-- Job offer -->
 							<template v-for="(j,i) in jobs" :key="i">
-							<a :href="`/detalhes_vaga?id=${j.id}`">
+							<a :href="`#/detalhes_vaga?id=${j.id}`">
 								<div class="row">
 									<div class="col-md-1 hidden-sm hidden-xs">
 										<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
@@ -41,11 +41,11 @@
 						<nav>
 						<!-- PAGINATION START -->
 						<ul class="pagination" data-scroll-reveal v-if="paginator">
-							<li v-if="paginator.currentPage > 1"><a :href="`/vagas?pagina=${paginator.currentPage-1}&limite=${paginator.limitRows}`">Anterior &nbsp; <i class="fa fa-angle-left"></i></a></li>
-							<li class="active"><a :href="`/vagas?pagina=${paginator.currentPage}&limite=${paginator.limitRows}`">{{paginator.currentPage}}</a></li>
+							<li v-if="paginator.currentPage > 1"><a :href="`#/vagas?pagina=${paginator.currentPage-1}&limite=${paginator.limitRows}`">Anterior &nbsp; <i class="fa fa-angle-left"></i></a></li>
+							<li class="active"><a :href="`#/vagas?pagina=${paginator.currentPage}&limite=${paginator.limitRows}`">{{paginator.currentPage}}</a></li>
 							<!--<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>-->
-							<li v-if="paginator.currentPage < paginator.totalPages"><a :href="`/vagas?pagina=${paginator.currentPage+1}&limite=${paginator.limitRows}`">Próxima &nbsp; <i class="fa fa-angle-right"></i></a></li>
+							<li v-if="paginator.currentPage < paginator.totalPages"><a :href="`#/vagas?pagina=${paginator.currentPage+1}&limite=${paginator.limitRows}`">Próxima &nbsp; <i class="fa fa-angle-right"></i></a></li>
 						</ul>
 						<!-- PAGINATION END -->
 						</nav>
@@ -56,7 +56,7 @@
 						<!-- Featured Jobs Start -->
 						<div class="sidebar-widget" v-if="featuredJob">
 							<h2>Vaga Destaque</h2>
-							<a :href="`/detalhes_vaga?id=${featuredJob.id}`">
+							<a :href="`#/detalhes_vaga?id=${featuredJob.id}`">
 								<img :src="`${baseUrl}/resources/placeholder/400x265.jpg`" alt="Featured Job" class="img-responsive" />
 								<div class="featured-job">
 									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle pull-left" />
@@ -282,7 +282,7 @@ export default {
 	},
 	data(){
 		return {
-			baseUrl: window.location.origin,
+			baseUrl: process.env.BASE_URL.replace(/\/$/, ''),
 			featuredJob: null
 		}
 	},

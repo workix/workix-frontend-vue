@@ -10,8 +10,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1>Testimonials</h1>
-						<h4>Kind words from happy members</h4>
+						<h1>Depoimentos</h1>
+						<h4>Histórias reais de quem já contratou ou foi contratado pela Workix</h4>
 					</div>
 				</div>
 			</div>
@@ -30,11 +30,10 @@
 					</div>
 					<div class="col-sm-9 col-md-10">
 						<blockquote>
-							<p>Thanks for the great service. Jobseek has completely surpassed our expectations.
-							Jobseek is the most valuable business resource we have ever purchased.</p>
+							<p>Encontrei minha vaga atual em menos de duas semanas usando a Workix. A busca é direta, sem enrolação, e recebi retorno da empresa em poucos dias.</p>
 							<footer>
-								Anthony Walsh
-								<cite title="Brand Manager in Ebay Inc.">Brand Manager in Ebay Inc.</cite>
+								Ana Beatriz Souza
+								<cite title="Desenvolvedora Full Stack">Desenvolvedora Full Stack</cite>
 							</footer>
 						</blockquote>
 					</div>
@@ -53,12 +52,10 @@
 					</div>
 					<div class="col-sm-9 col-md-10">
 						<blockquote>
-							<p>I didn't even need training. I couldn't have asked for more than this.
-							It really saves me time and effort. Jobseek is exactly what our business has been lacking.
-							I would be lost without Jobseek.</p>
+							<p>Como recrutadora, consigo publicar vagas e encontrar candidatos qualificados muito mais rápido do que em outras plataformas — e sem pagar nada por isso.</p>
 							<footer>
-								Becky Daniels
-								<cite title="HR Manager in Apple Inc.">HR Manager in Apple Inc.</cite>
+								Gabriela Ramos Duarte
+								<cite title="Analista de RH, EduPlus Cursos Online">Analista de RH, EduPlus Cursos Online</cite>
 							</footer>
 						</blockquote>
 					</div>
@@ -77,10 +74,10 @@
 					</div>
 					<div class="col-sm-9 col-md-10">
 						<blockquote>
-							<p>I just can't get enough of Jobseek. I want to get a T-Shirt with Jobseek on it so I can show it off to everyone. This is simply unbelievable!</p>
+							<p>Já contratamos três pessoas pela Workix este ano. A qualidade dos currículos é sempre muito boa e o processo de contato com o candidato é simples.</p>
 							<footer>
-								Erick Olson
-								<cite title="Key Account Manager in Twitter Inc.">Key Account Manager in Twitter Inc.</cite>
+								Marcelo Vieira Costa
+								<cite title="Consultor Jurídico, Construtora Horizonte">Consultor Jurídico, Construtora Horizonte</cite>
 							</footer>
 						</blockquote>
 					</div>
@@ -99,10 +96,54 @@
 					</div>
 					<div class="col-sm-9 col-md-10">
 						<blockquote>
-							<p>Jobseek is worth much more than I paid. I'm good to go. I couldn't have asked for more than this. Keep up the excellent work.</p>
+							<p>Gostei muito da possibilidade de filtrar vagas remotas. Consegui uma posição sem precisar sair da minha cidade.</p>
 							<footer>
-								Nadine Boyd
-								<cite title="CEO in Company Name">CEO in Company Name</cite>
+								Camila Ferreira Rocha
+								<cite title="Designer UX/UI">Designer UX/UI</cite>
+							</footer>
+						</blockquote>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<hr>
+					</div>
+				</div>
+
+				<!-- Testimonial 5 -->
+				<div class="row">
+					<div class="col-sm-3 col-md-2">
+						<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" class="img-circle img-responsive" alt="testimonial" />
+					</div>
+					<div class="col-sm-9 col-md-10">
+						<blockquote>
+							<p>O cadastro do currículo é rápido e o suporte respondeu todas as minhas dúvidas no mesmo dia. Recomendo para quem está começando a carreira.</p>
+							<footer>
+								Diego Martins Alves
+								<cite title="Engenheiro Civil">Engenheiro Civil</cite>
+							</footer>
+						</blockquote>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<hr>
+					</div>
+				</div>
+
+				<!-- Testimonial 6 -->
+				<div class="row">
+					<div class="col-sm-3 col-md-2">
+						<img :src="`${baseUrl}/resources/placeholder/140x140.jpg`" class="img-circle img-responsive" alt="testimonial" />
+					</div>
+					<div class="col-sm-9 col-md-10">
+						<blockquote>
+							<p>Simples, rápido e sem burocracia. A Workix foi exatamente o que eu precisava para me recolocar no mercado depois de um período fora.</p>
+							<footer>
+								Otávio Pereira Nunes
+								<cite title="Analista Financeiro">Analista Financeiro</cite>
 							</footer>
 						</blockquote>
 					</div>
@@ -140,7 +181,7 @@ export default {
     },
 	data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: process.env.BASE_URL.replace(/\/$/, '')
 		}
 	},
 	created(){

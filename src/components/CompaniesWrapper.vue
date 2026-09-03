@@ -8,7 +8,7 @@
 						<ul id="featured-companies" class="row">
 							
 							<li class="col-sm-4 col-md-3" v-for="(o,i) in logos" :key="i">
-								<a :href="`/empresa?id=${o.id}`">
+								<a :href="`#/empresa?id=${o.id}`">
 									<img :src="`${o.logo}`" alt="" />
 									<span class="badge">{{o.id}}</span>
 								</a>
@@ -26,7 +26,7 @@
 export default {
 	data(){
 		return{
-			baseUrl: window.location.origin,
+			baseUrl: process.env.BASE_URL.replace(/\/$/, ''),
 			logos: []
 		}
 	},

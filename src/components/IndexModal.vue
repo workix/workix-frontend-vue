@@ -9,62 +9,62 @@
 				
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">x</button>
-					<h4 class="modal-title">Este Projeto está em Desenvolvimento.</h4>				
+					<h4 class="modal-title">Bem-vindo(a) à Workix</h4>
 				</div>
-				
+
 				<div class="modal-body" style="margin: 0 auto; text-align: center">
-                    
-                    <img src="resources/images/under-construction.png" alt="Em construção"  />
-					
-					<p>...Imagine uma plataforma de Empregos...</p>
-					
-					<p>...Na web e no Celular...</p>
+
+                    <img src="resources/images/under-construction.png" alt="Workix em construção" />
+
+					<p>Imagine uma plataforma de empregos...</p>
+
+					<p>...disponível na web e no celular, sem custo nenhum.</p>
 
 					<ul class="list-group">
-					
-						<li class="list-group-item active">...onde você não paga para
-							publicar seu Currículum <span class="badge">1</span>
+
+						<li class="list-group-item active">Onde você não paga para
+							publicar seu currículo <span class="badge">1</span>
 						</li>
-					
-						<li class="list-group-item">...onde você é avisado quando
-							visualizam seu Currículum <span class="badge">2</span>
+
+						<li class="list-group-item">Onde você é avisado sempre que
+							visualizarem seu currículo <span class="badge">2</span>
 						</li>
-					
-						<li class="list-group-item active">...onde você possa receber
-							mensagens do recrutador diretamento no Celular <span class="badge">3</span>
+
+						<li class="list-group-item active">Onde você pode receber
+							mensagens do recrutador direto no celular <span class="badge">3</span>
 						</li>
-					
-						<li class="list-group-item">...onde você é avisado de toda a
-							etapa do processo seletivo <span class="badge">4</span>
+
+						<li class="list-group-item">Onde você acompanha
+							cada etapa do processo seletivo <span class="badge">4</span>
 						</li>
 
 					</ul>
 					<div class="alert alert-success">
-						<p><strong>...Imagine uma plataforma de Empregos... que irá fazer tudo
-						isso de graça para você.</strong></p>
-					</div>	
-					
+						<p><strong>Essa é a Workix: uma plataforma de empregos completa,
+						gratuita do início ao fim.</strong></p>
+					</div>
+
 					<div class="alert alert-danger">
-						<p><strong>Atenção os Valores aqui representados, Vagas e Empresas São Apenas uma Demonstração</strong></p>
+						<p><strong>Atenção: os valores, vagas e empresas exibidos aqui fazem parte de uma demonstração.</strong></p>
 					</div>
-					
+
 					<div class="alert alert-warning">
-						<p><strong>Ainda em Fase de Testes e Desenvolvimento</strong></p>
+						<p><strong>Projeto em fase de testes e desenvolvimento contínuo.</strong></p>
 					</div>
-					
+
 					<div class="alert alert-info">
-						<p><strong>Não está pronto. ...Falhas ou Bugs podem ocorrer...</strong></p>
+						<p><strong>Ainda não está 100% pronto — eventuais falhas ou bugs podem ocorrer.</strong></p>
 					</div>
-					
-					<a href="/sobre_nos" class="btn btn-primary btn-sm"> Saiba
-						Mais </a> <br /> <br /> <a href="https://frmichetti.github.io/workix/java-docs/index.html" class="btn btn-primary btn-sm" target="_blank"> Ver Documentação </a>
+
+					<a href="#/sobre_nos" class="btn btn-primary btn-sm"> Saiba
+						Mais </a> <br /> <br /> <a href="https://workix.github.io/java-docs/" class="btn btn-primary btn-sm" target="_blank"> Ver Documentação </a>
 
 				</div>
-					
-					
+
+
 				<div class="modal-footer" style="margin: 0 auto; text-align: center">
 					<p>
-						<b>Aguarde ... em desenvolvimento</b>
+						<b>Um projeto em constante evolução — obrigado por conferir</b>
 					</p>
 				</div>
 			</div>

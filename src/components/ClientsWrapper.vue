@@ -10,7 +10,7 @@
 							
 							<!-- Logo -->
 							<div v-for="(c,i) in companies" :key="i">
-								<a :href="`/empresa?id=${c.id}`"><img :src="c.logo" alt="" /></a>
+								<a :href="`#/empresa?id=${c.id}`"><img :src="c.logo" alt="" /></a>
 							</div>
 							
 
@@ -26,14 +26,14 @@
 export default {
 	data(){
 		return{
-			baseUrl: window.location.origin,
+			baseUrl: process.env.BASE_URL.replace(/\/$/, ''),
 			companies: [
-				{id: 1, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
-				{id: 2, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
-				{id: 3, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
-				{id: 4, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
-				{id: 5, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
-				{id: 6, logo: `${window.location.origin}/resources/placeholder/133x69.gif`},
+				{id: 1, logo: `${process.env.BASE_URL.replace(/\/$/, '')}/resources/placeholder/133x69.gif`},
+				{id: 2, logo: `${process.env.BASE_URL.replace(/\/$/, '')}/resources/placeholder/133x69.gif`},
+				{id: 3, logo: `${process.env.BASE_URL.replace(/\/$/, '')}/resources/placeholder/133x69.gif`},
+				{id: 4, logo: `${process.env.BASE_URL.replace(/\/$/, '')}/resources/placeholder/133x69.gif`},
+				{id: 5, logo: `${process.env.BASE_URL.replace(/\/$/, '')}/resources/placeholder/133x69.gif`},
+				{id: 6, logo: `${process.env.BASE_URL.replace(/\/$/, '')}/resources/placeholder/133x69.gif`},
 			]
 		}
 	}

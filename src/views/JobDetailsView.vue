@@ -70,10 +70,10 @@
 						<div class="sidebar-widget" id="share">
 							<h2>Compartilhe essa Vaga</h2>
 							<ul>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://plus.google.com/share?url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html&amp;title=Jobseek%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-linkedin"></i></a></li>
+								<li><a :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+								<li><a :href="`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(job.title)}`" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
+								<li><a :href="`https://api.whatsapp.com/send?text=${encodeURIComponent(job.title + ' - ' + shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i></a></li>
+								<li><a :href="`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 						<hr>
@@ -81,13 +81,13 @@
 							<h2>Sobre essa Empresa</h2>
 							<p><img :src="`${baseUrl}/resources/placeholder/300x109.gif`" alt="" class="img-responsive"></p>
 							<p>{{job.company.description}}</p>
-							<p><a :href="`/empresa?id=${job.company.id}`" class="btn btn-primary">Leia mais</a></p>
+							<p><a :href="`#/empresa?id=${job.company.id}`" class="btn btn-primary">Leia mais</a></p>
 						</div>
 						<hr>
 						<div class="sidebar-widget" id="company-jobs">
 							<h2>Mais vagas desta Empresa</h2>
 							<ul>
-								<li v-for="(j,i) in jobs" :key="i"><a :href="`/detalhes_vaga?id=${j.id}`">{{j.title}}</a></li>
+								<li v-for="(j,i) in jobs" :key="i"><a :href="`#/detalhes_vaga?id=${j.id}`">{{j.title}}</a></li>
 								
 							</ul>
 						</div>
@@ -123,7 +123,8 @@ export default {
     },
 	data(){
 		return{
-			baseUrl: window.location.origin,
+			baseUrl: process.env.BASE_URL.replace(/\/$/, ''),
+			shareUrl: window.location.href,
 			jobId:0,
 			job: null,
 			jobs: []

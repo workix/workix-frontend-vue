@@ -8,9 +8,9 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-6">
 						<p>&nbsp;</p>
-						<h2>EM BREVE VOCÊ PODERÁ BAIXAR O WORKIX MOBILE</h2>
-						<p>Em Desenvolvimento... Imagine as mesmas vagas, comunicados e alertas...
-							Uma experiência mais confortável em seu aparelho celular. E o melhor Tudo de Graça!</p>
+						<h2>EM BREVE, O WORKIX NO SEU CELULAR</h2>
+						<p>Em desenvolvimento: as mesmas vagas, notificações e alertas do site,
+							agora numa experiência pensada para o seu celular. E continua tudo de graça.</p>
 						<p>							
 							<a href="https://play.google.com/store/apps/details?id=br.com.frmichetti.openjobs.android" class="btn btn-default"><i class="fa fa-android"></i> Android</a>
 						</p>

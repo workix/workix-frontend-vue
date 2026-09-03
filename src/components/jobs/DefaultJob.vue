@@ -1,5 +1,5 @@
 <template>
-    <a :href="`/detalhes_vaga?id=${job.id}`" :class="isHidden()">
+    <a :href="`#/detalhes_vaga?id=${job.id}`" :class="isHidden()">
         <div class="row">
             <div class="col-md-1 hidden-sm hidden-xs">
                 <img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
@@ -41,7 +41,7 @@ export default {
     },
     data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: process.env.BASE_URL.replace(/\/$/, '')
 		}
 	},
     methods:{

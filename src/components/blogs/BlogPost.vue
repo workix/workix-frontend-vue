@@ -7,7 +7,7 @@
             <span><i class="fa fa-comment"></i>8 Comments</span>
         </h5>
         <p>{{blog.resume}}</p>
-        <p><a :href="`/postagem?id=${blog.id}`" class="btn btn-primary">Leia Mais</a></p>
+        <p><a :href="`#/postagem?id=${blog.id}`" class="btn btn-primary">Leia Mais</a></p>
     </div>
 </template>
 

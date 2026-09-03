@@ -5,7 +5,7 @@
 			<div id="header-background"></div>
 			<div class="container">
 				<div class="pull-left">
-					<div id="logo"><a href="/"><img src="images/logo.png" alt="Jobseek - Job Board Responsive HTML Template" /></a></div>
+					<div id="logo"><a href="#/"><img src="images/logo.png" alt="Workix - Plataforma de Empregos Totalmente Grátis" /></a></div>
 				</div>
 				<div id="menu-open" class="pull-right">
 					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
@@ -14,7 +14,7 @@
 					<form @submit.prevent="sendToSearcher">
 						<div class="form-group">
 							<label class="sr-only" for="searchfield">Searchbox</label>
-							<input v-model="keyword" type="text" class="form-control" id="searchfield" placeholder="Procurando por ?">							
+							<input v-model="keyword" type="text" class="form-control" id="searchfield" placeholder="O que você está procurando?">
 						</div>
 					</form>
 				</div>

@@ -12,7 +12,7 @@
 						<div class="slide-content">
 							<h2>Procurando emprego?</h2>
 							<h3>Não há lugar melhor para começar</h3>
-							<p><a href="/vagas" class="btn btn-lg btn-default">Encontre Vagas</a></p>
+							<p><a href="#/vagas" class="btn btn-lg btn-default">Encontre Vagas</a></p>
 						</div>
 					</div>
 				</div>
@@ -24,7 +24,7 @@
 						<div class="slide-content">
 							<h2>Precisa de um empregado?</h2>
 							<h3>Temos candidatos perfeitos</h3>
-							<p><a href="/candidatos" class="btn btn-lg btn-default">Publicar uma Vaga</a></p>
+							<p><a href="#/candidatos" class="btn btn-lg btn-default">Publicar uma Vaga</a></p>
 						</div>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 						<div class="slide-content">
 							<h2>Evoluindo sua carreira?</h2>
 							<h3>Encontre novas oportunidades aqui</h3>
-							<p><a href="/vagas" class="btn btn-lg btn-default">Procurar Vagas</a></p>
+							<p><a href="#/vagas" class="btn btn-lg btn-default">Procurar Vagas</a></p>
 						</div>
 					</div>
 				</div>
@@ -48,7 +48,7 @@
 						<div class="slide-content">
 							<h2>Estendendo sua equipe?</h2>
 							<h3>Encontre uma combinação perfeita</h3>
-							<p><a href="/candidatos" class="btn btn-lg btn-default">Encontre um Candidato</a></p>
+							<p><a href="#/candidatos" class="btn btn-lg btn-default">Encontre um Candidato</a></p>
 						</div>
 					</div>
 				</div>

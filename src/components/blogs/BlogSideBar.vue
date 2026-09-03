@@ -13,7 +13,7 @@
 							</h5>
 							<ul>
 								<template v-for="(c,i) in categories" :key="i">
-									<li><a :href="`/blog?categoria=${c}`">{{c}}</a></li>								
+									<li><a :href="`#/blog?categoria=${c}`">{{c}}</a></li>								
 								</template>
 							</ul>
 						</div>
@@ -28,7 +28,7 @@
 							</h5>
 							<ul>
 								<template v-for="(tp,i) in timePeriods" :key="i">
-								<li><a :href="`/blog?periodo=${tp.month} ${tp.year}`">{{getMonth(tp.month)}} {{tp.year}}</a></li>								
+								<li><a :href="`#/blog?periodo=${tp.month} ${tp.year}`">{{getMonth(tp.month)}} {{tp.year}}</a></li>								
 								</template>
 							</ul>
 						</div>
@@ -43,7 +43,7 @@
 							</h5>
 							<ul>
 								<template v-for="(rp,i) in recentPosts" :key="i">
-								<li><a :href="`/postagem?id=${rp.id}`"><span class="meta">{{rp.date.toLocaleString("pt-BR")}} por {{rp.author.name}}</span>{{rp.title}}</a></li>
+								<li><a :href="`#/postagem?id=${rp.id}`"><span class="meta">{{rp.date.toLocaleString("pt-BR")}} por {{rp.author.name}}</span>{{rp.title}}</a></li>
 								</template>
 							</ul>
 						</div>

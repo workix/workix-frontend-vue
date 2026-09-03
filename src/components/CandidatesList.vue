@@ -11,7 +11,7 @@
 							<!-- Candidate -->
 							<!-- possible class to a : featured -->
 							<template v-for="(c,i) in candidates" :key="i">
-								<a :href="`/curriculo?id=${c.id}`">
+								<a :href="`#/curriculo?id=${c.id}`">
 									<div class="row">
 										<div class="col-xs-3 col-sm-2 col-lg-1">
 											<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle img-responsive" />
@@ -40,11 +40,11 @@
 						<nav>
 						<!-- PAGINATION START -->
 						<ul class="pagination" data-scroll-reveal v-if="paginator">
-							<li v-if="paginator.currentPage > 1"><a :href="`/candidatos?pagina=${paginator.currentPage-1}&limite=${paginator.limitRows}`">Anterior &nbsp; <i class="fa fa-angle-left"></i></a></li>
-							<li class="active"><a :href="`/candidatos?pagina=${paginator.currentPage}&limite=${paginator.limitRows}`">{{paginator.currentPage}}</a></li>
+							<li v-if="paginator.currentPage > 1"><a :href="`#/candidatos?pagina=${paginator.currentPage-1}&limite=${paginator.limitRows}`">Anterior &nbsp; <i class="fa fa-angle-left"></i></a></li>
+							<li class="active"><a :href="`#/candidatos?pagina=${paginator.currentPage}&limite=${paginator.limitRows}`">{{paginator.currentPage}}</a></li>
 							<!--<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>-->
-							<li v-if="paginator.currentPage < paginator.totalPages"><a :href="`/candidatos?pagina=${paginator.currentPage+1}&limite=${paginator.limitRows}`">Próxima &nbsp; <i class="fa fa-angle-right"></i></a></li>
+							<li v-if="paginator.currentPage < paginator.totalPages"><a :href="`#/candidatos?pagina=${paginator.currentPage+1}&limite=${paginator.limitRows}`">Próxima &nbsp; <i class="fa fa-angle-right"></i></a></li>
 						</ul>
 						<!-- PAGINATION END -->
 						</nav>
@@ -282,7 +282,7 @@ export default {
 	},
 	data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: process.env.BASE_URL.replace(/\/$/, '')
 		}
 	}
 }

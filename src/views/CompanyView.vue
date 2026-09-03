@@ -41,7 +41,7 @@
 								
 								<!-- Job offer -->
 								<template v-for="(j,i) in jobs" :key="i">
-								<a :href="`/vagas?id=${j.id}`">
+								<a :href="`#/vagas?id=${j.id}`">
 									<div class="featured"></div>
 									<img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
 									<div class="title">
@@ -64,10 +64,10 @@
 						<div class="sidebar-widget" id="share">
 							<h2>Redes Sociais</h2>
 							<ul v-if="company.medias.length == 0">
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://plus.google.com/share?url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.coffeecreamthemes.com/themes/jobseek/site/job-details.html&amp;title=Jobseek%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-linkedin"></i></a></li>
+								<li><a :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+								<li><a :href="`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(company.name)}`" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
+								<li><a :href="`https://api.whatsapp.com/send?text=${encodeURIComponent(company.name + ' - ' + shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i></a></li>
+								<li><a :href="`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 							<ul v-else>
 								<template v-for="(m,i) in company.medias" :key="i">
@@ -120,7 +120,8 @@ export default {
     },
 	data(){
 		return{
-			baseUrl: window.location.origin,
+			baseUrl: process.env.BASE_URL.replace(/\/$/, ''),
+			shareUrl: window.location.href,
 			companyId: 0,
 			company: null,
 			jobs: []

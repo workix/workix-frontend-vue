@@ -92,13 +92,20 @@ export default {
 		}
 	},
 	created(){
-		onAuthStateChanged(getAuth(), user => {
-			if (user){
-				this.isLoggedIn = true
-			} else {
-				this.isLoggedIn = false
-			}
-		})
+		try {
+			onAuthStateChanged(getAuth(), user => {
+				if (user){
+					this.isLoggedIn = true
+				} else {
+					this.isLoggedIn = false
+				}
+			})
+		} catch (error) {
+			// Sem credenciais válidas do Firebase (ex: site estático sem .env configurado),
+			// segue como deslogado em vez de travar a renderização da página inteira.
+			console.error(error)
+			this.isLoggedIn = false
+		}
 	},
 	methods: {
 		disposeModal(){

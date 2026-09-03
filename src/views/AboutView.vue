@@ -9,8 +9,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-            <h1>Sobre nós</h1>
-            <h4>Breve descrição do Nosso Projeto</h4>
+            <h1>Sobre a Workix</h1>
+            <h4>Uma rede profissional enxuta, feita para conectar quem contrata a quem procura</h4>
 					</div>
 				</div>
 			</div>
@@ -22,149 +22,257 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6">
-						<h2>Afinal o que é Workix ?</h2>
+						<h2>Afinal, o que é a Workix?</h2>
 
-						<p>Workix é uma ferramenta de busca ; Um projeto ; Um site ,
-							Um backend , uma ferramenta que visa facilitar o processo
-							engessado e cansativo de Seleção de Candidatos e publicação de
-							Empregos.</p>
-						
-						<p>O objetivo da Workix é harmonizar os processos de
-							Recrutamento e reduzir as más práticas.</p>
+						<p>A Workix é uma plataforma de recrutamento gratuita: parte
+							site de vagas, parte rede de perfis profissionais, parte
+							backend que conecta as duas pontas. O objetivo é simples —
+							tirar o peso e a demora de um processo seletivo que, na
+							maioria das vezes, é engessado e pouco transparente.</p>
 
-						<h2>Qual empresa administra a Workix?</h2>
+						<h2>Inspirada no LinkedIn, com um propósito direto</h2>
 
-						<p>Workix não é empresa, não há pessoas por trás da
-							ferramenta. Somente a inteligência do algoritmo. Pessoas existem
-							nas pontas ... que alimentam o sistema e usufruem das
-							informações, chegando ao resultado final que é a contratação.</p>
+						<p>O conceito nasce do modelo consagrado pelo LinkedIn: perfis
+							profissionais completos, páginas de empresa e conexão direta
+							entre quem contrata e quem busca uma oportunidade. A diferença
+							está no foco. Aqui não existe feed infinito, anúncio
+							patrocinado ou assinatura premium — apenas as ferramentas
+							essenciais para um processo de recrutamento funcionar bem, sem
+							ruído e sem custo para nenhum dos lados.</p>
 
-						<h2>Diferenciais da Nossa ferramenta.</h2>
+						<h2>Quem está por trás da Workix?</h2>
 
-						<b>Fornecer FeedBack</b>
-						
-						<p>Quem nunca participou de um processo e nem ao menos recebeu
-							uma resposta do que aconteceu no final?</p>
-
-						<p>Workix mantém a relação de confiança entre as duas pontas,
-							o processo é transparente e comunicatível. Toda Iteração é
-							passivel de alertas...</p>
-
-						<b>Ambiente Acessível de Qualquer dispositivo</b>
-						
-						<p>No Tablet, No Celular, No Notebook, No Pc, No Vídeo Game...
-							Não interessa o ambiente. Workix oferece Site Responsivo e
-							Aplicativo Mobile. As Mesmas Informações em Todos os lugares.</p>
-
-						<h3>Cadastre seu Currículo e visualize aonde precisar...</h3>
-
-
-						<b>Foco em Escalabilidade e Crescimento</b>
-						
-						<p>Workix visa o Crescimento "Orgânico". Novas Ferramentas
-							poderão ser implementadas para aumentar a experiência e
-							automatizar os processos.</p>
-						
-						<em>**Validadores e Verificadores podem ser usados para
-							garantir a Veracidade das informaçoes trocadas pelas pessoas.</em> <br />
-
-						<b>Vagas Fantasmas ou Inexistentes no Banco de Dados </b>
-						
-						<p>Workix possue algoritmos de auto-limpeza e finaliza os
-							processos realizados com "Sucesso" do Banco de Dados. As vagas
-							possuem Validade. E tudo o que acontece você fica sabendo.</p>
-
-						<b>*Privacidade dos Dados</b>
-						
-						<p>Não armazenamos senhas ou nomes de usuários. Apenas os
-							Dados Minimos para inicializar o processo de contratação é
-							armazenado.</p>
-						
-						<p>Você também poderá ativar ou desativar o currículo conforme
-							necessidade.E poderá solicitar a remoção de informaçao caso
-							desejar.</p>
-						
-						<em>**CPF para pessoas Fisicas e CNPJ para pessoas Juridicas
-							,para manter integridade do Cadastro 1 x 1.</em>
-
-
+						<p>A Workix não pertence a uma empresa de recrutamento nem
+							cobra comissão sobre contratações. É um projeto independente,
+							construído para provar que encontrar uma vaga — ou o
+							profissional certo — não precisa ser caro nem obscuro. As
+							pessoas estão sempre nas duas pontas: alimentando o sistema
+							com currículos e vagas, e colhendo o resultado, que é a
+							contratação.</p>
 					</div>
 
 					<div class="col-sm-6">
 
-						<h2>Mais uma ferramenta de busca que vende anúncios VIP e
-							Vagas Destaque?</h2>
-						
-						<p>Mais um diferencial da Workix. Nós não vendemos vagas ou
-							acesso a conteúdos de veracidade duvidosa. Nós fornecemos a
-							ferramenta para as pessoas de interesse comum se encontrarem.
-							Empregador x Empregado.</p>
+						<h2>Mais uma plataforma que vende destaque e anúncio VIP?</h2>
+
+						<p>Esse é justamente o diferencial da Workix. Não vendemos
+							posições de destaque nem conteúdo de veracidade duvidosa.
+							Entregamos a ferramenta para que as duas partes interessadas
+							— empresa e candidato — se encontrem por conta própria.</p>
 
 						<h2>Garantias</h2>
-						
-						<p>
-							Nós não fornecemos garantias no processo de recrutamento.<br />
-							Fornecemos a ferramenta de busca para encontrar vagas e damos o
-							feedback. O processo seletivo ou qualquer má prática de seus
-							usuários é de responsabilidade de seus autores.
-						</p>
-
-						<h2>Fase Atual do Projeto</h2>
-						
-						<p>Projeto encontra-se em desenvolvimento e testes... </p>
-							
-							<p>85% de Tradução dos Templates</p>
-							
-							<div class="progress">
-							
-							<div class="progress-bar progress-bar-danger progress-bar-striped active"
-								role="progressbar" aria-valuenow="85" aria-valuemin="0"
-								aria-valuemax="100" style="width: 85%">85%</div>
-							</div>
-						
-							<p>75% do Backend Web Pronto</p>
-							
-							<div class="progress">
-							
-							<div class="progress-bar progress-bar-success progress-bar-striped active"
-								role="progressbar" aria-valuenow="75" aria-valuemin="0"
-								aria-valuemax="100" style="width: 75%">75%</div>
-							</div>
-							
-							<p>60% do CMS Front End Web Pronto</p>
-							
-							<div class="progress">
-							
-							<div class="progress-bar progress-bar-warning progress-bar-striped active"
-								role="progressbar" aria-valuenow="60" aria-valuemin="0"
-								aria-valuemax="100" style="width: 60%">60%</div>
-							</div>
-							
-							<p>20% da Fase de Desenvolvimento Mobile...</p>
-						
-							<div class="progress">
-							
-							<div class="progress-bar progress-bar-info progress-bar-striped active"
-								role="progressbar" aria-valuenow="20" aria-valuemin="0"
-								aria-valuemax="100" style="width: 20%">20%</div>
-							</div>						
 
 						<p>
-							<em>As mesmas Vagas aqui estarão disponíveis em qualquer
-								Lugar.</em>
+							Não garantimos o resultado de nenhum processo seletivo.<br />
+							Fornecemos a ferramenta de busca, o cadastro de currículos e o
+							canal de feedback entre as partes. A conduta durante o
+							processo seletivo é sempre de responsabilidade de quem o
+							conduz.
 						</p>
 
 						<h3>Quem criou o Projeto Workix?</h3>
-						
-						<p>
-							<a href="http://www.codecode.com.br">Felipe Rodrigues Michetti</a>. Desenvolvedor Web e Mobile.
-						</p>
 
+						<p>
+							<a href="http://www.codecode.com.br">Felipe Rodrigues Michetti</a> — Desenvolvedor Full Stack, Web e Mobile.
+						</p>
 					</div>
 				</div>
 			</div>
 		</section>
   <!-- ============ STORY END ============ -->
+
+  <!-- ============ CAPABILITIES START ============ -->
+	<section id="capabilities" class="color1">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-sm-12">
+						<h2>O que a Workix entrega</h2>
+						<h4>As capacidades da plataforma, para quem contrata e para quem busca uma vaga</h4>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 30px;">
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-id-card fa-2x"></i>
+								<h5>Perfil Profissional Completo</h5>
+								<p>Currículo estruturado com formação, experiências e habilidades, sempre visível para recrutadores.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-building fa-2x"></i>
+								<h5>Página de Empresa</h5>
+								<p>Perfil público por empresa, com vagas abertas, localização e redes sociais em um só lugar.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-search fa-2x"></i>
+								<h5>Busca de Vagas e Candidatos</h5>
+								<p>Listagens paginadas, com filtro por tipo de contrato, cidade e nível de experiência.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-bullhorn fa-2x"></i>
+								<h5>Publicação Gratuita de Vagas</h5>
+								<p>Empresas publicam quantas vagas quiserem, sem taxa por publicação e sem vaga patrocinada.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-bell fa-2x"></i>
+								<h5>Notificações em Tempo Real</h5>
+								<p>Alertas por push e e-mail quando seu currículo é visualizado ou uma mensagem chega.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-newspaper-o fa-2x"></i>
+								<h5>Blog e Conteúdo</h5>
+								<p>Artigos sobre carreira e mercado de trabalho, organizados por categoria e período.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-lock fa-2x"></i>
+								<h5>Login Seguro</h5>
+								<p>Autenticação via Firebase, com e-mail e senha ou conta Google, sem senhas armazenadas por nós.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-mobile fa-2x"></i>
+								<h5>Responsiva em Qualquer Tela</h5>
+								<p>Site e aplicativo mobile com a mesma experiência e as mesmas informações, onde você estiver.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+  <!-- ============ CAPABILITIES END ============ -->
+
+  <!-- ============ DIFFERENTIALS START ============ -->
+	<section id="differentials">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2>Diferenciais da nossa ferramenta</h2>
+
+						<b>Feedback de verdade</b>
+
+						<p>Quem nunca participou de um processo seletivo e nem ao
+							menos recebeu uma resposta sobre o resultado final?</p>
+
+						<p>A Workix mantém a relação de confiança entre as duas
+							pontas: o processo é transparente e cada interação relevante
+							gera um alerta.</p>
+
+						<b>Acessível em qualquer dispositivo</b>
+
+						<p>Tablet, celular, notebook ou desktop — o ambiente não
+							importa. A Workix oferece site responsivo e aplicativo
+							mobile, com as mesmas informações em todos os lugares.</p>
+
+						<b>Foco em escalabilidade e crescimento orgânico</b>
+
+						<p>Novas ferramentas são adicionadas aos poucos, sempre para
+							melhorar a experiência e automatizar etapas do processo —
+							incluindo validadores para garantir a veracidade das
+							informações trocadas entre as partes.</p>
+					</div>
+
+					<div class="col-sm-6">
+						<h2>&nbsp;</h2>
+
+						<b>Sem vagas fantasmas</b>
+
+						<p>A Workix conta com rotinas de limpeza automática que
+							encerram processos já concluídos com sucesso. Toda vaga tem
+							validade, e você é avisado sobre o que muda.</p>
+
+						<b>Privacidade dos dados</b>
+
+						<p>Não armazenamos senhas. Apenas os dados mínimos necessários
+							para iniciar o processo de contratação são mantidos, e você
+							pode ativar, desativar ou solicitar a remoção do seu
+							currículo a qualquer momento.</p>
+
+						<p><em>CPF para pessoas físicas e CNPJ para pessoas jurídicas
+							garantem que cada cadastro seja único.</em></p>
+					</div>
+				</div>
+			</div>
+		</section>
+  <!-- ============ DIFFERENTIALS END ============ -->
+
+  <!-- ============ PROGRESS START ============ -->
+	<section id="progress-status" class="color1">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-sm-12">
+						<h2>Fase atual do projeto</h2>
+						<h4>A Workix é um projeto vivo, em desenvolvimento e testes contínuos</h4>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 20px;">
+					<div class="col-sm-6">
+						<p>Tradução e revisão dos textos</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-danger progress-bar-striped active"
+								role="progressbar" aria-valuenow="90" aria-valuemin="0"
+								aria-valuemax="100" style="width: 90%">90%</div>
+						</div>
+
+						<p>Backend web</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-success progress-bar-striped active"
+								role="progressbar" aria-valuenow="75" aria-valuemin="0"
+								aria-valuemax="100" style="width: 75%">75%</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<p>Front-end web</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-warning progress-bar-striped active"
+								role="progressbar" aria-valuenow="70" aria-valuemin="0"
+								aria-valuemax="100" style="width: 70%">70%</div>
+						</div>
+
+						<p>Aplicativo mobile</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-info progress-bar-striped active"
+								role="progressbar" aria-valuenow="20" aria-valuemin="0"
+								aria-valuemax="100" style="width: 20%">20%</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<p><em>As mesmas vagas cadastradas aqui estarão disponíveis em qualquer dispositivo.</em></p>
+					</div>
+				</div>
+			</div>
+		</section>
+  <!-- ============ PROGRESS END ============ -->
 
     <TestimonialsWrapper />
     <TeamWrapper />

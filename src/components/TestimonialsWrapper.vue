@@ -16,7 +16,7 @@
 							
 
 						</div>
-						<p><a href="/depoimentos" class="btn btn-primary">Ler Todos</a></p>
+						<p><a href="#/depoimentos" class="btn btn-primary">Ler Todos</a></p>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@ export default {
 	},
 	data(){
 		return{
-			baseUrl: window.location.origin,
+			baseUrl: process.env.BASE_URL.replace(/\/$/, ''),
 			testimonials: []
 		}
 	},

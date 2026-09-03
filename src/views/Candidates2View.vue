@@ -555,7 +555,7 @@ export default {
     },
 	data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: process.env.BASE_URL.replace(/\/$/, '')
 		}
 	},
 	created(){

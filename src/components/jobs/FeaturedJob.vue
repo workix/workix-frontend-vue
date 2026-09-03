@@ -1,5 +1,5 @@
 <template>
-    <a :href="`/detalhes_vaga?id=${job.id}`">
+    <a :href="`#/detalhes_vaga?id=${job.id}`">
         <img :src="`${baseUrl}/resources/placeholder/400x265.jpg`" alt="Featured Job" class="img-responsive" />
         <div class="featured-job">
             <img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-circle" />
@@ -24,7 +24,7 @@ export default {
     },
     data(){
 		return{
-			baseUrl: window.location.origin
+			baseUrl: process.env.BASE_URL.replace(/\/$/, '')
 		}
 	}
 }
