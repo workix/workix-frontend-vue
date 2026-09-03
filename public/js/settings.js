@@ -12,22 +12,47 @@
 
 		$('#index-modal').modal('show');
 
+		// Este arquivo é re-injetado (nova <script> tag) a cada troca de rota,
+		// já que cada view chama isso no seu created(). Isso é necessário para
+		// os plugins que dependem de elementos recriados pelo Vue a cada view
+		// (carrosséis, sliders, botões "+ Adicionar"). Só que $(window) e
+		// $(document) persistem durante toda a sessão SPA: se os handlers
+		// abaixo fossem religados a cada navegação, eles se acumulariam
+		// indefinidamente e cada scroll/resize passaria a disparar múltiplas
+		// animações concorrentes sobre os mesmos elementos, deixando o layout
+		// "torto"/tremido só depois de navegar (um F5 zera tudo e mascara o
+		// problema). Por isso esses handlers globais só são ligados uma vez.
+		var isFirstGlobalInit = !window.__wxGlobalHandlersBound;
+		window.__wxGlobalHandlersBound = true;
+
 		// ====================================================================
 
 		// Header scroll function
 
-		$(window).scroll(function() {    
-			var scroll = $(window).scrollTop();
-			if (scroll > 50) {
-				$("#header-background").slideDown(300);
-			} else {
-				$("#header-background").slideUp(300);
-			}
-		});
+		if (isFirstGlobalInit) {
+			$(window).scroll(function() {
+				var scroll = $(window).scrollTop();
+				if (scroll > 50) {
+					$("#header-background").slideDown(300);
+				} else {
+					$("#header-background").slideUp(300);
+				}
+			});
+		}
 
 		// ====================================================================
 
 		// Flex Menu
+		//
+		// No modo off-canvas o flexMenu envolve TODO o conteúdo do <body> em
+		// .fm-outer > .fm-inner a cada init. Só que o <body> persiste durante
+		// toda a sessão SPA, enquanto a .menu é recriada pelo Vue a cada view —
+		// então, sem desfazer o wrapper anterior, cada navegação empilhava mais
+		// um par de wrappers e o conteúdo saía do lugar/descentralizado. Só
+		// voltava ao normal ao abrir e fechar o menu, porque a animação de
+		// fechar reseta left:0 em todos os .fm-inner acumulados. Desfazemos o
+		// wrapper anterior para que exista sempre um único par.
+		$('body > .fm-outer > .fm-inner').children().unwrap().unwrap();
 
 		$('.menu').flexMenu({
 			breakpoint: 3000,
@@ -116,86 +141,90 @@
 
 		}
 
-		$(window).resize(function() {
+		if (isFirstGlobalInit) {
+			$(window).resize(function() {
 
-			if ($(document).width() > 480) {
+				if ($(document).width() > 480) {
 
-				$("#searchbox").css({
-					'opacity': '0',
-					'position': 'relative',
-					'top': '0',
-					'width': '0'
-				});
+					$("#searchbox").css({
+						'opacity': '0',
+						'position': 'relative',
+						'top': '0',
+						'width': '0'
+					});
 
-				$("#search a").click(function(){
+					$("#search a").click(function(){
 
-					if($("#searchbox").css('opacity') == '0'){
-						$("#searchbox").stop().animate({
-							opacity: '1',
-							position: 'relative',
-							top:'0',
-							width:'200px'
-						},300);
-					};
+						if($("#searchbox").css('opacity') == '0'){
+							$("#searchbox").stop().animate({
+								opacity: '1',
+								position: 'relative',
+								top:'0',
+								width:'200px'
+							},300);
+						};
 
-					if($("#searchbox").css('opacity') == '1'){
-						$("#searchbox").stop().animate({
-							opacity: '0',
-							position: 'relative',
-							top:'0',
-							width:'0px'
-						},300);
-					};
+						if($("#searchbox").css('opacity') == '1'){
+							$("#searchbox").stop().animate({
+								opacity: '0',
+								position: 'relative',
+								top:'0',
+								width:'0px'
+							},300);
+						};
 
-				});
+					});
 
-			}
+				}
 
-			// Searchbox for smartphones
+				// Searchbox for smartphones
 
-			else {
+				else {
 
-				$("#searchbox").css({
-					'opacity': '0',
-					'position': 'absolute',
-					'top': '-62px',
-					'width': '100%'
-				});
+					$("#searchbox").css({
+						'opacity': '0',
+						'position': 'absolute',
+						'top': '-62px',
+						'width': '100%'
+					});
 
-				$("#search a").click(function(){
+					$("#search a").click(function(){
 
-					if($("#searchbox").css('opacity') == '0'){
-						$("#searchbox").stop().animate({
-							position: 'absolute',
-							top:'50px',
-							opacity: '1',
-							width:'100%'
-						},300);
-					};
+						if($("#searchbox").css('opacity') == '0'){
+							$("#searchbox").stop().animate({
+								position: 'absolute',
+								top:'50px',
+								opacity: '1',
+								width:'100%'
+							},300);
+						};
 
-					if($("#searchbox").css('opacity') == '1'){
-						$("#searchbox").stop().animate({
-							position: 'absolute',
-							top:'-62px',
-							opacity: '0',
-							width:'100%'
-						},300);
-					};
+						if($("#searchbox").css('opacity') == '1'){
+							$("#searchbox").stop().animate({
+								position: 'absolute',
+								top:'-62px',
+								opacity: '0',
+								width:'100%'
+							},300);
+						};
 
-				});
+					});
 
-			}
+				}
 
-		});
+			});
+		}
 
 		// ====================================================================
 
 		// Slider
 
 		$('#slider').css({'height': (($(window).height()-0))+'px'});
-		$(window).resize(function(){
-			$('#slider').css({'height': (($(window).height()-0))+'px'});
-		});
+		if (isFirstGlobalInit) {
+			$(window).resize(function(){
+				$('#slider').css({'height': (($(window).height()-0))+'px'});
+			});
+		}
 
 		var Page = (function() {
 
@@ -280,7 +309,18 @@
 		// imediatamente pode rodar antes desse conteúdo ser renderizado,
 		// deixando o carrossel "empilhado" ou o contador zerado. Um pequeno
 		// atraso dá tempo do Vue terminar de renderizar antes do plugin ler o DOM.
-		setTimeout(function() {
+		//
+		// Se o usuário navegar para outra rota antes desses 500ms (o tempo de
+		// um toque na navegação, bem comum), o timer da view ANTERIOR ainda
+		// está pendente e dispara owlCarousel() sobre os elementos da view
+		// NOVA (que já tem seu próprio timer agendado) — dois inits
+		// concorrentes no mesmo carrossel corrompem a estrutura montada pelo
+		// plugin (fica com 0 itens/stage vazio) até um F5 recarregar do zero.
+		// Por isso cancelamos qualquer timer pendente antes de agendar o novo.
+		if (window.__wxCarouselInitTimer) {
+			clearTimeout(window.__wxCarouselInitTimer);
+		}
+		window.__wxCarouselInitTimer = setTimeout(function() {
 
 			$("#blog .owl-carousel").owlCarousel({
 				margin: 20,
