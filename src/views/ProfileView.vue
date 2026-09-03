@@ -231,7 +231,9 @@ export default {
           this.uuidCandidate = this.candidate.uuid
           this.idCandidate = this.candidate.id
           this.nameCandidate = this.candidate.name
-          this.birthDateCandidate = this.candidate.birthDate
+          this.birthDateCandidate = this.candidate.birthDate instanceof Date
+            ? this.candidate.birthDate.toLocaleDateString('pt-BR')
+            : this.candidate.birthDate
           this.cpfCandidate = this.candidate.cpf
 
           if(this.candidate.contact){

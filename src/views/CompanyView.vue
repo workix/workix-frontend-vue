@@ -28,11 +28,6 @@
 						<article>
 							<h2>Sobre {{company.name}}</h2>
 							<p>{{company.description}}</p>
-							
-							<hr>
-							<h2>Localização</h2>							
-
-							<div id="map-canvas"></div>
 
 							<hr>
 							<h2>Vagas</h2>
@@ -51,7 +46,7 @@
 									<div class="data">
 										<span class="city"><i class="fa fa-map-marker"></i> {{j.company.locale.city}}</span>
 										<span class="type full-time"><i class="fa fa-clock-o"></i> {{j.jobType}}</span>
-										<span class="sallary"><i class="fa fa-dollar"></i> R$ {{j.maxPayment.toFixed(2)}}</span>
+										<span class="sallary"><i class="fa fa-dollar"></i> {{$currency(j.maxPayment)}}</span>
 									</div>
 								</a>	
 								</template>							
@@ -81,8 +76,8 @@
 							<ul>
 								<li><i class="fa fa-building"></i>{{company.segment}}</li>
 								<li><i class="fa fa-map-marker"></i>{{company.locale.street}}</li>
-								<li><i class="fa"></i>{{company.locale.city}}, {{company.locale.zipCode}} {{company.locale.estate}}</li>
-								<li><i class="fa fa-phone"></i>{{company.contact.mobilePhone}}</li>
+								<li><i class="fa"></i>{{company.locale.city}} - {{company.locale.estate}}, CEP {{$cep(company.locale.zipCode)}}</li>
+								<li><i class="fa fa-phone"></i>{{$phone(company.contact.mobilePhone)}}</li>
 								<li><i class="fa fa-envelope"></i><a :href="`mailto:${company.user.email}`">Enviar Email</a></li>
 							</ul>
 						</div>
@@ -128,96 +123,6 @@ export default {
 		}
 	},
     methods: {
-        initialize(google) {
-        //-----------------------------------------------------------------------
-        // Create an array of styles.
-        
-        var styles = [
-            {
-            "stylers": [
-                { "saturation": -100 },
-                { "gamma": 1 }
-            ]
-            },{
-                "featureType": "water",
-                "stylers": [
-                    { "lightness": -12 }
-                ]
-            }
-        ];
-
-        //-----------------------------------------------------------------------
-        // Create a new StyledMapType object, passing it the array of styles,
-        // as well as the name to be displayed on the map type control.
-        
-        var styledMap = new google.maps.StyledMapType(styles, {
-            name: "Styled Map"
-        });
-
-        //-----------------------------------------------------------------------
-        // Set up map pin position
-        
-        var latlng = new google.maps.LatLng(40.742284, -73.987866);
-
-        //-----------------------------------------------------------------------
-        // Set up map options
-
-        var myOptions =
-        {
-            scrollwheel: false,
-            zoom: 13,
-            center: latlng,
-            mapTypeControlOptions: {
-                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-            }
-        };
-
-        //-----------------------------------------------------------------------
-        // Set up map ID's
-
-        var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-
-        //-----------------------------------------------------------------------
-        // Associate the styled map with the MapTypeId and set it to display.
-
-        map.mapTypes.set('map_style', styledMap);
-        map.setMapTypeId('map_style');
-
-        //-----------------------------------------------------------------------
-        // Setup up map pin image
-
-        var image = {
-            // Path to your map pin image
-            url: 'images/map-marker.png',
-            // This marker is 40 pixels wide by 42 pixels tall.
-            size: new google.maps.Size(40, 42),
-            // The origin for this image is 0,0.
-            origin: new google.maps.Point(0,0),
-            // The anchor for this image is the base of the pin at 20,42.
-            anchor: new google.maps.Point(20, 42)
-        };
-
-        //-----------------------------------------------------------------------
-        // Add marker
-
-        var myMarker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-            icon: image,
-            clickable: true,
-            title:"Netvibes Inc."
-        });
-
-        myMarker.info = new google.maps.InfoWindow({
-            content: "<b>Netvibes Inc.</b><br>2 Madison Avenue<br>New York City, 29478 USA"
-        });
-
-        google.maps.event.addListener(myMarker, 'click', function() {
-            myMarker.info.open(map, myMarker);
-        });
-
-		google.maps.event.addDomListener(window, 'load', this.initialize);
-    },
 		getCompany() {
 			return this.$http.get(`http://localhost:8080/workix/services/v1/companies/${this.companyId}`)
 		},

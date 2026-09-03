@@ -15,7 +15,7 @@
 						<h1>{{post.title}}</h1>
 						<div class="meta">
 							<span><i class="fa fa-user"></i>{{post.author.name}}</span>
-							<span><i class="fa fa-calendar"></i>{{post.date.toLocaleString("pt-BR")}}</span>
+							<span><i class="fa fa-calendar"></i>{{post.date.toLocaleDateString("pt-BR")}}</span>
 							<span><i class="fa fa-comment"></i>{{post.comments.length}}</span>
 						</div>
 					</div>
@@ -124,7 +124,7 @@
 									<li class="media">
 										<a class="pull-left media-photo" href="#comentarios"><img class="media-object img-responsive img-circle" :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" /></a>
 										<div class="media-body">
-											<p class="media-heading"><a href="#comentarios">{{c.name}}, {{c.createdAt.toLocaleString("pt-BR").replace("T", " as ")}}:</a><a v-if="false" href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Responder</a></p>
+											<p class="media-heading"><a href="#comentarios">{{c.name}}, {{c.createdAt.toLocaleDateString("pt-BR").replace("T", " as ")}}:</a><a v-if="false" href="#" class="pull-right"><i class="fa fa-reply"></i> &nbsp; Responder</a></p>
 											<p>{{c.text}}</p>																						
 										</div>
 									</li>

@@ -10,7 +10,7 @@
             <div class="data">
                 <span class="city"><i class="fa fa-map-marker"></i>{{job.company.locale.city}}</span>
                 <span class="type full-time"><i class="fa fa-clock-o"></i>{{job.jobType}}</span>
-                <span class="salary"><i class="fa fa-dollar"></i>R$ {{job.maxPayment.toFixed(2)}}</span>
+                <span class="salary"><i class="fa fa-dollar"></i>{{$currency(job.maxPayment)}}</span>
             </div>
             <div class="description">{{job.description}}</div>
         </div>

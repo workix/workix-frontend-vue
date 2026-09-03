@@ -20,11 +20,9 @@
 									</div>
 									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
 										<p><strong>{{j.company.locale.city}}, {{j.company.locale.estate}}, BR</strong></p>
-										<p class="hidden-xs">1168.7 miles away</p>
 									</div>
 									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										<!-- <p class="job-salary"><strong>R$ {{j.minPayment.toFixed(2)}} - {{j.maxPayment.toFixed(2)}}</strong></p>-->
-										<p class="job-salary"><strong>R$ {{j.maxPayment.toFixed(2)}}</strong></p>
+										<p class="job-salary"><strong>{{$currency(j.maxPayment)}}</strong></p>
 										<p :class="getBadge(j.jobType)">{{j.jobType}}</p>
 									</div>
 								</div>
@@ -67,7 +65,7 @@
 									<div class="data">
 										<span class="city"><i class="fa fa-map-marker"></i>{{featuredJob.company.locale.city}}</span>
 										<span class="type full-time"><i class="fa fa-clock-o"></i>{{featuredJob.jobType}}</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>R$ {{featuredJob.minPayment.toFixed(2)}} - {{featuredJob.maxPayment.toFixed(2)}}</span>
+										<span class="sallary"><i class="fa fa-dollar"></i>{{$currency(featuredJob.minPayment)}} - {{$currency(featuredJob.maxPayment)}}</span>
 									</div>
 									<div class="description">{{featuredJob.description}}</div>
 								</div>
@@ -77,13 +75,13 @@
 
 						<!-- Find a Job Start -->
 						<div class="sidebar-widget" id="jobsearch">
-							<h2>Find a Job</h2>
+							<h2>Buscar Vaga</h2>
 							<form>
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="form-group" id="job-search-group">
-											<label for="job-search" class="sr-only">Search</label>
-											<input type="text" class="form-control" id="job-search" placeholder="Type and press enter">
+											<label for="job-search" class="sr-only">Buscar</label>
+											<input type="text" class="form-control" id="job-search" placeholder="Digite e pressione Enter">
 										</div>
 									</div>
 								</div>
@@ -94,58 +92,53 @@
 								</div>
 								<div class="row">
 									<div class="col-xs-6">
-										<h5>Career Level</h5>
+										<h5>Nível de Carreira</h5>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> All Types
+												<input type="checkbox"> Todos os Níveis
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Junior
+												<input type="checkbox"> Júnior
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Middle
+												<input type="checkbox"> Pleno
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Senior
+												<input type="checkbox"> Sênior
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Expert
+												<input type="checkbox"> Especialista
 											</label>
 										</div>
 									</div>
 									<div class="col-xs-6">
-										<h5>Presence</h5>
+										<h5>Modelo de Trabalho</h5>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> All Types
+												<input type="checkbox"> Todos
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Remote
+												<input type="checkbox"> Remoto
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Office
+												<input type="checkbox"> Presencial
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Relocation
-											</label>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> Travel a lot
+												<input type="checkbox"> Híbrido
 											</label>
 										</div>
 									</div>
@@ -157,10 +150,10 @@
 								</div>
 								<div class="row">
 									<div class="col-xs-6">
-										<h5>Job Type</h5>
+										<h5>Tipo de Vaga</h5>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> All Types
+												<input type="checkbox"> Todos os Tipos
 											</label>
 										</div>
 										<div class="checkbox">
@@ -170,55 +163,55 @@
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Part Time
+												<input type="checkbox"> Meio Período
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Full Time
+												<input type="checkbox"> Tempo Integral
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Internship
+												<input type="checkbox"> Estágio
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Volunteer
+												<input type="checkbox"> Temporário
 											</label>
 										</div>
 									</div>
 									<div class="col-xs-6">
-										<h5>Location</h5>
+										<h5>Localização</h5>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> All Types
+												<input type="checkbox"> Todas as Cidades
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> New York
+												<input type="checkbox"> São Paulo
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Los Angeles
+												<input type="checkbox"> Rio de Janeiro
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> San Francisco
+												<input type="checkbox"> Curitiba
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Chicago
+												<input type="checkbox"> Belo Horizonte
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Boston
+												<input type="checkbox"> Florianópolis
 											</label>
 										</div>
 									</div>
@@ -230,27 +223,9 @@
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
-										<h5>Experience</h5>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<p>More than <b><span id="years-field"></span></b> years</p>
-									</div>
-									<div class="col-xs-6">
-										<div class="form-slider" id="years"></div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<h5>Salary</h5>
+										<h5>Salário</h5>
 										<div class="form-slider" id="salary"></div>
-										<p>From <b><span id="salary-field-lower"></span></b> to  <b><span id="salary-field-upper"></span></b></p>
+										<p>De <b><span id="salary-field-lower"></span></b> até <b><span id="salary-field-upper"></span></b></p>
 									</div>
 								</div>
 								<div class="row">
@@ -260,7 +235,7 @@
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
-										<a class="btn btn-primary">Reset All Filters</a>
+										<a class="btn btn-primary">Limpar Filtros</a>
 									</div>
 								</div>
 							</form>

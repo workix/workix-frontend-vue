@@ -38,6 +38,18 @@ try {
  const app = createApp(App);
  app.config.globalProperties.$http = mockHttp; // Site 100% estático: respostas simuladas em src/mock, sem backend real
  app.config.globalProperties.$firebase = fbApp;
+ app.config.globalProperties.$currency = (value) =>
+   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value || 0);
+ app.config.globalProperties.$phone = (value) => {
+   const digits = String(value || '').replace(/\D/g, '');
+   if (digits.length === 11) return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+   if (digits.length === 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+   return value;
+ };
+ app.config.globalProperties.$cep = (value) => {
+   const digits = String(value || '').replace(/\D/g, '').padStart(8, '0');
+   return `${digits.slice(0, 5)}-${digits.slice(5)}`;
+ };
 
  const toast_options = {
     // You can set your default options here

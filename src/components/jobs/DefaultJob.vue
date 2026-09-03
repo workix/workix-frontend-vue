@@ -1,5 +1,5 @@
 <template>
-    <a :href="`#/detalhes_vaga?id=${job.id}`" :class="isHidden()">
+    <a :href="`#/detalhes_vaga?id=${job.id}`" :class="cardClass()">
         <div class="row">
             <div class="col-md-1 hidden-sm hidden-xs">
                 <img :src="`${baseUrl}/resources/placeholder/60x60.jpg`" alt="" class="img-responsive" />
@@ -10,10 +10,9 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
                 <p><strong>{{job.company.locale.city}}, {{job.company.locale.estate}}</strong></p>
-                <p class="hidden-xs">126.3 miles away</p>
             </div>
             <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-                <p class="job-salary"><strong>R$ {{job.maxPayment.toFixed(2)}}</strong></p>
+                <p class="job-salary"><strong>{{$currency(job.maxPayment)}}</strong></p>
                 <p :class="badge(job.jobType)">{{job.jobType}}</p>
             </div>
         </div>
@@ -37,7 +36,11 @@ class="badge internship" -->
 <script>
 export default {
     props: {
-        job: Object
+        job: Object,
+        index: {
+            type: Number,
+            default: 0
+        }
     },
     data(){
 		return{
@@ -45,8 +48,11 @@ export default {
 		}
 	},
     methods:{
-        isHidden(){
-            return this.job.active ? 'applied' : 'hidden-job'
+        cardClass(){
+            // Mostra as primeiras vagas normalmente; o restante fica oculto
+            // até o clique em "Mostrar mais Vagas" (ver #more-jobs em settings.js)
+            if (this.index >= 6) return 'hidden-job'
+            return this.job.featured ? 'featured' : ''
         },
         badge(jobType){
             switch (jobType) {

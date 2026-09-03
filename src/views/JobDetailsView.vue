@@ -13,7 +13,7 @@
 						<h4>
 							<span><i class="fa fa-map-marker"></i>{{job.company.locale.city}}</span>
 							<span><i class="fa fa-clock-o"></i>{{job.jobType}}</span>
-							<span><i class="fa fa-dollar"></i>R$ {{job.minPayment.toFixed(2)}} - {{job.maxPayment.toFixed(2)}}</span>
+							<span><i class="fa fa-dollar"></i>{{$currency(job.minPayment)}} - {{$currency(job.maxPayment)}}</span>
 						</h4>
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 								<li>Morbi rhoncus luctus interdum.</li>
 							</ul>
 							<h3>Como se Candidatar</h3>
-							<p>Vivamus pulvinar <a :href="`mailto:${job.company.user.email}`">{{job.company.user.email}}</a> lobortis placerat. Cras non est nibh. In a quam id justo aliquam elementum. In cursus urna ac sem tincidunt aliquet. Vivamus a aliquet purus, luctus tincidunt orci.</p>
+							<p>Envie seu currículo diretamente para <a :href="`mailto:${job.company.user.email}`">{{job.company.user.email}}</a> ou use os botões abaixo para se candidatar pela Workix.</p>
 							<p>
 								<a href="#" class="btn btn-primary btn-lg">Candidatar Aqui</a>
 								&nbsp;

@@ -376,33 +376,18 @@
 
 		// Form Sliders
 
-		$('#years').noUiSlider({
-			start: [3],
-			connect: "lower",
-			step: 1,
-			range: {
-				'min': 0,
-				'max': 15
-			},
-			format: wNumb({
-				decimals: 0
-			})
-		});
-
-		$("#years").Link('lower').to($("#years-field"));
-
 		$('#salary').noUiSlider({
-			start: [40000,80000],
+			start: [1500,9000],
 			connect: true,
-			step: 1000,
+			step: 100,
 			range: {
 				'min': 0,
-				'max': 150000
+				'max': 20000
 			},
 			format: wNumb({
 				decimals: 0,
 				thousand: '.',
-				prefix: '$'
+				prefix: 'R$ '
 			})
 		});
 
@@ -481,7 +466,7 @@
 
 		// 1. Adding social networks
 
-		var NewSocialNetwork='<div class="row social-network"><div class="col-sm-6"><div class="form-group" id="resume-social-network-group"><label for="resume-social-network">Choose Social Network</label><select  class="form-control" id="resume-social-network"><option>Choose social network</option><option>Facebook</option><option>Twitter</option><option>Google+</option><option>LinkedIn</option><option>YouTube</option><option>Vimeo</option><option>Github</option><option>Flickr</option><option>YouTube</option><option>DeviantArt</option><option>ThemeForest</option><option>CodeCanyon</option><option>VideoHive</option><option>AudioJungle</option><option>GraphicRiver</option><option>PhotoDune</option><option>3dOcean</option><option>ActiveDen</option><option>Other</option></select></div></div><div class="col-sm-6"><div class="form-group" id="resume-social-network-url-group"><label for="resume-social-network-url">URL</label><input type="text" class="form-control" id="resume-social-network-url" placeholder="http://"></div></div></div><div class="row"><div class="col-sm-12"><hr class="dashed"></div></div>'
+		var NewSocialNetwork='<div class="row social-network"><div class="col-sm-6"><div class="form-group" id="resume-social-network-group"><label for="resume-social-network">Rede Social</label><select  class="form-control" id="resume-social-network"><option>Escolha uma rede social</option><option>Facebook</option><option>Twitter</option><option>Instagram</option><option>LinkedIn</option><option>GitHub</option><option>Outra</option></select></div></div><div class="col-sm-6"><div class="form-group" id="resume-social-network-url-group"><label for="resume-social-network-url">URL</label><input type="text" class="form-control" id="resume-social-network-url" placeholder="http://"></div></div></div><div class="row"><div class="col-sm-12"><hr class="dashed"></div></div>'
 
 		$("#add-social-network").click(function(){
 			$(this).parent().parent().parent().before(NewSocialNetwork);
@@ -489,7 +474,7 @@
 
 		// 2. Adding experience
 
-		var NewExperience='<div class="row experience"><div class="col-sm-6"><div class="form-group" id="resume-employer-group"><label for="resume-employer">Employer</label><input type="text" class="form-control" id="resume-employer" placeholder="Company name"></div></div><div class="col-sm-6"><div class="form-group" id="resume-experience-dates-group"><label for="resume-experience-dates">Start/End Date</label><input type="text" class="form-control" id="resume-experience-dates" placeholder="e.g. April 2010 - June 2013"></div></div></div><div class="row"><div class="col-sm-6"><div class="form-group" id="resume-job-title-group"><label for="resume-job-title">Job Title</label><input type="text" class="form-control" id="resume-job-title" placeholder="e.g. Web Designer"></div></div><div class="col-sm-6"><div class="form-group" id="resume-responsibilities-group"><label for="resume-responsibilities">Responsibilities (Optional)</label><input type="text" class="form-control" id="resume-responsibilities" placeholder="e.g. Developing new websites"></div></div></div><div class="row"><div class="col-sm-12"><hr class="dashed"></div></div>'
+		var NewExperience='<div class="row experience"><div class="col-sm-6"><div class="form-group" id="resume-employer-group"><label for="resume-employer">Empregador</label><input type="text" class="form-control" id="resume-employer" placeholder="Nome da empresa"></div></div><div class="col-sm-6"><div class="form-group" id="resume-experience-dates-group"><label for="resume-experience-dates">Data de Início/Fim</label><input type="text" class="form-control" id="resume-experience-dates" placeholder="ex.: Abril 2020 - Junho 2023"></div></div></div><div class="row"><div class="col-sm-6"><div class="form-group" id="resume-job-title-group"><label for="resume-job-title">Cargo</label><input type="text" class="form-control" id="resume-job-title" placeholder="ex.: Analista de Marketing"></div></div><div class="col-sm-6"><div class="form-group" id="resume-responsibilities-group"><label for="resume-responsibilities">Responsabilidades (Opcional)</label><input type="text" class="form-control" id="resume-responsibilities" placeholder="ex.: Gestão de campanhas digitais"></div></div></div><div class="row"><div class="col-sm-12"><hr class="dashed"></div></div>'
 
 		$("#add-experience").click(function(){
 			$(this).parent().parent().parent().before(NewExperience);
@@ -497,7 +482,7 @@
 
 		// 3. Adding education
 
-		var NewEducation='<div class="row education"><div class="col-sm-6"><div class="form-group" id="resume-school-group"><label for="resume-school">School Name</label><input type="text" class="form-control" id="resume-school" placeholder="School name, city and country"></div></div><div class="col-sm-6"><div class="form-group" id="resume-education-dates-group"><label for="resume-education-dates">Start/End Date</label><input type="text" class="form-control" id="resume-education-dates" placeholder="e.g. April 2010 - June 2013"></div></div></div><div class="row"><div class="col-sm-6"><div class="form-group" id="resume-qualifications-group"><label for="resume-qualifications">Qualifications</label><input type="text" class="form-control" id="resume-qualifications" placeholder="e.g. Master Engineer"></div></div><div class="col-sm-6"><div class="form-group" id="resume-notes-group"><label for="resume-notes">Notes (Optional)</label><input type="text" class="form-control" id="resume-notes" placeholder="Any achievements"></div></div></div><div class="row"><div class="col-sm-12"><hr class="dashed"></div></div>'
+		var NewEducation='<div class="row education"><div class="col-sm-6"><div class="form-group" id="resume-school-group"><label for="resume-school">Instituição de Ensino</label><input type="text" class="form-control" id="resume-school" placeholder="Nome da instituição e cidade"></div></div><div class="col-sm-6"><div class="form-group" id="resume-education-dates-group"><label for="resume-education-dates">Data de Início/Fim</label><input type="text" class="form-control" id="resume-education-dates" placeholder="ex.: Fevereiro 2018 - Dezembro 2022"></div></div></div><div class="row"><div class="col-sm-6"><div class="form-group" id="resume-qualifications-group"><label for="resume-qualifications">Qualificação</label><input type="text" class="form-control" id="resume-qualifications" placeholder="ex.: Bacharelado em Engenharia"></div></div><div class="col-sm-6"><div class="form-group" id="resume-notes-group"><label for="resume-notes">Observações (Opcional)</label><input type="text" class="form-control" id="resume-notes" placeholder="Alguma conquista ou destaque"></div></div></div><div class="row"><div class="col-sm-12"><hr class="dashed"></div></div>'
 
 		$("#add-education").click(function(){
 			$(this).parent().parent().parent().before(NewEducation);

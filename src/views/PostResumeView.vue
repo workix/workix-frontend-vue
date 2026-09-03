@@ -8,8 +8,8 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-sm-12">
-						<h1>Post a Resume</h1>
-						<h4>Find your perfect job</h4>
+						<h1>Cadastrar Currículo</h1>
+						<h4>Encontre a vaga perfeita para você</h4>
 													
 						<HaveAnAccount />
 						
@@ -21,22 +21,22 @@
 					<!-- Resume Details Start -->
 					<div class="row">
 						<div class="col-sm-6">
-							<h2>Resume details</h2>
+							<h2>Detalhes do Currículo</h2>
 						</div>
 						<div class="col-sm-6 text-right">
-							<a class="btn btn-primary"><i class="fa fa-linkedin-square"></i> LinkedIn Import</a>
+							<a class="btn btn-primary"><i class="fa fa-linkedin-square"></i> Importar do LinkedIn</a>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-name-group">
-								<label for="resume-name">Name</label>
-								<input type="text" class="form-control" id="resume-name" placeholder="e.g. John Doe">
+								<label for="resume-name">Nome</label>
+								<input type="text" class="form-control" id="resume-name" placeholder="ex.: Maria da Silva">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-photo-group">
-								<label for="resume-photo">Photo (Optional)</label>
+								<label for="resume-photo">Foto (Opcional)</label>
 								<input type="file" id="resume-photo">
 							</div>
 						</div>
@@ -44,14 +44,14 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-title-group">
-								<label for="resume-title">Title</label>
-								<input type="text" class="form-control" id="resume-title" placeholder="e.g. Web Designer">
+								<label for="resume-title">Cargo Pretendido</label>
+								<input type="text" class="form-control" id="resume-title" placeholder="ex.: Designer UX/UI">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-video-group">
-								<label for="resume-video">Video (Optional)</label>
-								<input type="text" class="form-control" id="resume-video" placeholder="Video URL">
+								<label for="resume-video">Vídeo (Opcional)</label>
+								<input type="text" class="form-control" id="resume-video" placeholder="URL do vídeo">
 							</div>
 						</div>
 					</div>
@@ -59,19 +59,20 @@
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-email-group">
 								<label for="resume-email">Email</label>
-								<input type="email" class="form-control" id="resume-email" placeholder="you@yourdomain.com">
+								<input type="email" class="form-control" id="resume-email" placeholder="voce@exemplo.com">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-category-group">
-								<label for="resume-category">Job Category</label>
+								<label for="resume-category">Área de Interesse</label>
 								<select  class="form-control" id="resume-category">
-									<option>Choose a category</option>
-									<option>Internet Services</option>
-									<option>Banking</option>
-									<option>Financial</option>
-									<option>Marketing</option>
-									<option>Management</option>
+									<option>Escolha uma área</option>
+									<option>Tecnologia da Informação</option>
+									<option>Construção Civil</option>
+									<option>Saúde</option>
+									<option>Educação</option>
+									<option>Logística</option>
+									<option>Design & Marketing</option>
 								</select>
 							</div>
 						</div>
@@ -79,21 +80,21 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-location-group">
-								<label for="resume-location">Location</label>
-								<input type="text" class="form-control" id="resume-location" placeholder="e.g. New York City">
+								<label for="resume-location">Cidade</label>
+								<input type="text" class="form-control" id="resume-location" placeholder="ex.: São Paulo">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-skills-group">
-								<label for="resume-skills">Skills</label>
-								<input type="text" class="form-control" id="resume-skills" placeholder="e.g. Photoshop, HTML, CSS">
+								<label for="resume-skills">Habilidades</label>
+								<input type="text" class="form-control" id="resume-skills" placeholder="ex.: Figma, Comunicação, Inglês">
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group" id="resume-content-group">
-								<label for="resume-content">Resume Content</label>
+								<label for="resume-content">Resumo Profissional</label>
 								<div class="textarea form-control" id="resume-content"></div>
 							</div>
 						</div>
@@ -106,28 +107,15 @@
 					<div class="row social-network">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-social-network-group">
-								<label for="resume-social-network">Choose Social Network</label>
+								<label for="resume-social-network">Rede Social</label>
 								<select  class="form-control" id="resume-social-network">
-									<option>Choose social network</option>
+									<option>Escolha uma rede social</option>
 									<option>Facebook</option>
 									<option>Twitter</option>
-									<option>Google+</option>
+									<option>Instagram</option>
 									<option>LinkedIn</option>
-									<option>YouTube</option>
-									<option>Vimeo</option>
-									<option>Github</option>
-									<option>Flickr</option>
-									<option>YouTube</option>
-									<option>DeviantArt</option>
-									<option>ThemeForest</option>
-									<option>CodeCanyon</option>
-									<option>VideoHive</option>
-									<option>AudioJungle</option>
-									<option>GraphicRiver</option>
-									<option>PhotoDune</option>
-									<option>3dOcean</option>
-									<option>ActiveDen</option>
-									<option>Other</option>
+									<option>GitHub</option>
+									<option>Outra</option>
 								</select>
 							</div>
 						</div>
@@ -145,7 +133,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a id="add-social-network">+ Add Social Network</a></p>
+							<p><a id="add-social-network">+ Adicionar Rede Social</a></p>
 							<hr>
 						</div>
 					</div>
@@ -155,34 +143,34 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
-							<h2>Experience</h2>
+							<h2>Experiência Profissional</h2>
 						</div>
 					</div>
 					<div class="row experience">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-employer-group">
-								<label for="resume-employer">Employer</label>
-								<input type="text" class="form-control" id="resume-employer" placeholder="Company name">
+								<label for="resume-employer">Empregador</label>
+								<input type="text" class="form-control" id="resume-employer" placeholder="Nome da empresa">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-experience-dates-group">
-								<label for="resume-experience-dates">Start/End Date</label>
-								<input type="text" class="form-control" id="resume-experience-dates" placeholder="e.g. April 2010 - June 2013">
+								<label for="resume-experience-dates">Data de Início/Fim</label>
+								<input type="text" class="form-control" id="resume-experience-dates" placeholder="ex.: Abril 2020 - Junho 2023">
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-job-title-group">
-								<label for="resume-job-title">Job Title</label>
-								<input type="text" class="form-control" id="resume-job-title" placeholder="e.g. Web Designer">
+								<label for="resume-job-title">Cargo</label>
+								<input type="text" class="form-control" id="resume-job-title" placeholder="ex.: Analista de Marketing">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-responsibilities-group">
-								<label for="resume-responsibilities">Responsibilities (Optional)</label>
-								<input type="text" class="form-control" id="resume-responsibilities" placeholder="e.g. Developing new websites">
+								<label for="resume-responsibilities">Responsabilidades (Opcional)</label>
+								<input type="text" class="form-control" id="resume-responsibilities" placeholder="ex.: Gestão de campanhas digitais">
 							</div>
 						</div>
 					</div>
@@ -193,7 +181,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a id="add-experience">+ Add Experience</a></p>
+							<p><a id="add-experience">+ Adicionar Experiência</a></p>
 							<hr>
 						</div>
 					</div>
@@ -203,34 +191,34 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
-							<h2>Education</h2>
+							<h2>Formação Acadêmica</h2>
 						</div>
 					</div>
 					<div class="row education">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-school-group">
-								<label for="resume-school">School Name</label>
-								<input type="text" class="form-control" id="resume-school" placeholder="School name, city and country">
+								<label for="resume-school">Instituição de Ensino</label>
+								<input type="text" class="form-control" id="resume-school" placeholder="Nome da instituição e cidade">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-education-dates-group">
-								<label for="resume-education-dates">Start/End Date</label>
-								<input type="text" class="form-control" id="resume-education-dates" placeholder="e.g. April 2010 - June 2013">
+								<label for="resume-education-dates">Data de Início/Fim</label>
+								<input type="text" class="form-control" id="resume-education-dates" placeholder="ex.: Fevereiro 2018 - Dezembro 2022">
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-qualifications-group">
-								<label for="resume-qualifications">Qualifications</label>
-								<input type="text" class="form-control" id="resume-qualifications" placeholder="e.g. Master Engineer">
+								<label for="resume-qualifications">Qualificação</label>
+								<input type="text" class="form-control" id="resume-qualifications" placeholder="ex.: Bacharelado em Engenharia">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-notes-group">
-								<label for="resume-notes">Notes (Optional)</label>
-								<input type="text" class="form-control" id="resume-notes" placeholder="Any achievements">
+								<label for="resume-notes">Observações (Opcional)</label>
+								<input type="text" class="form-control" id="resume-notes" placeholder="Alguma conquista ou destaque">
 							</div>
 						</div>
 					</div>
@@ -241,7 +229,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a id="add-education">+ Add Education</a></p>
+							<p><a id="add-education">+ Adicionar Formação</a></p>
 							<hr>
 						</div>
 					</div>
@@ -251,15 +239,15 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
-							<h2>Resume File</h2>
+							<h2>Arquivo do Currículo</h2>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group" id="resume-file-group">
-								<label for="resume-file">Upload Your Resume (Optional)</label>
+								<label for="resume-file">Enviar Currículo em PDF (Opcional)</label>
 								<input type="file" id="resume-file">
-								<p class="help-block">Optionally upload your resume for employers to view. Max. file size: 64 MB.</p>
+								<p class="help-block">Opcionalmente, envie seu currículo em PDF para as empresas visualizarem. Tamanho máx.: 64 MB.</p>
 							</div>
 						</div>
 					</div>
@@ -268,7 +256,7 @@
 					<div class="row text-center">
 						<div class="col-sm-12">
 							<p>&nbsp;</p>
-							<a href="#" class="btn btn-primary btn-lg">Preview <i class="fa fa-arrow-right"></i></a>
+							<a href="#" class="btn btn-primary btn-lg">Visualizar <i class="fa fa-arrow-right"></i></a>
 						</div>
 					</div>
 

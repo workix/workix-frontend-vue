@@ -43,7 +43,7 @@
 							</h5>
 							<ul>
 								<template v-for="(rp,i) in recentPosts" :key="i">
-								<li><a :href="`#/postagem?id=${rp.id}`"><span class="meta">{{rp.date.toLocaleString("pt-BR")}} por {{rp.author.name}}</span>{{rp.title}}</a></li>
+								<li><a :href="`#/postagem?id=${rp.id}`"><span class="meta">{{rp.date.toLocaleDateString("pt-BR")}} por {{rp.author.name}}</span>{{rp.title}}</a></li>
 								</template>
 							</ul>
 						</div>

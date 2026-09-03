@@ -1,9 +1,8 @@
 <template>
   <div class="jumbotron">
-		<h3>Have an account?</h3>
-		<p>If you don’t have an account you can create one below by entering your email address/username.<br>
-		A password will be automatically emailed to you.</p>
-		<p><a href="#" class="btn btn-primary">Sign In</a></p>
+		<h3>Já tem uma conta?</h3>
+		<p>Se ainda não tem uma conta na Workix, você pode criar uma em poucos segundos com seu e-mail ou sua conta Google.</p>
+		<p><a class="btn btn-primary link-login">Entrar</a></p>
 	</div>
 </template>
 

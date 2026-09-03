@@ -47,7 +47,7 @@
 										</div>
 									</div>
 									<div class="col-sm-10">
-										<h4>{{exp.startDate.toLocaleString("pt-BR")}} - {{exp.endDate ? exp.endDate.toLocaleString("pt-BR") : "Atual"}}</h4>
+										<h4>{{exp.startDate.toLocaleDateString("pt-BR")}} - {{exp.endDate ? exp.endDate.toLocaleDateString("pt-BR") : "Atual"}}</h4>
 										<h5>{{exp.employerName}} - {{exp.jobTitle}}</h5>
 										<p>{{exp.description}}</p>
 									</div>								
@@ -63,7 +63,7 @@
 									</div>
 								</div>
 								<div class="col-sm-10">
-									<h4>{{edu.startDate.toLocaleString("pt-BR")}} - {{edu.endDate ? edu.endDate.toLocaleString("pt-BR") : "Atual"}}</h4>
+									<h4>{{edu.startDate.toLocaleDateString("pt-BR")}} - {{edu.endDate ? edu.endDate.toLocaleDateString("pt-BR") : "Atual"}}</h4>
 										<h5>{{edu.schoolName}} - {{edu.qualification}}</h5>
 										<p>{{edu.description}}</p>
 								</div>
@@ -90,9 +90,9 @@
 							<ul>
 								<li><i class="fa fa-user"></i>{{resume.candidate.name}}</li>
 								<li><i class="fa fa-briefcase"></i>{{resume.objective}}</li>
-								<li><i class="fa fa-birthday-cake"></i>{{resume.candidate.birthDate.toLocaleString("pt-BR")}}</li>
+								<li><i class="fa fa-birthday-cake"></i>{{resume.candidate.birthDate.toLocaleDateString("pt-BR")}}</li>
 								<li><i class="fa fa-map-marker"></i>{{resume.candidate.locale.city}}</li>
-								<li><i class="fa fa-phone"></i>{{resume.candidate.contact.mobilePhone}}</li>
+								<li><i class="fa fa-phone"></i>{{$phone(resume.candidate.contact.mobilePhone)}}</li>
 								<!-- Trigger the modal with a button -->
 								<li><i class="fa fa-envelope"></i><a href="#" data-toggle="modal" data-target="#message-modal-mail">Enviar Email</a></li>
 								<!-- Trigger the modal with a button -->
@@ -101,18 +101,10 @@
 						</div>
 						<hr>
 						<div class="sidebar-widget" id="skills">
-							<h2>Key skills</h2>
-							<a class="badge">Photoshop</a>
-							<a class="badge">HTML5</a>
-							<a class="badge">CSS3</a>
-							<a class="badge">Javascript</a>
-							<a class="badge">jQuery</a>
-							<a class="badge">User Experience</a>
-							<a class="badge">User Interface</a>
-							<a class="badge">UX</a>
-							<a class="badge">UI</a>
-							<a class="badge">Front End Development</a>
-							<a class="badge">Responsive Design</a>
+							<h2>Principais Habilidades</h2>
+							<template v-for="(s,i) in resume.skills" :key="i">
+							<a class="badge">{{s.skillName}}</a>
+							</template>
 						</div>
 					</div>
 				</div>

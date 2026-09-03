@@ -8,7 +8,7 @@
 						<h2>Vagas Recentes</h2>
 						<!-- JOBS -->
 						<div class="jobs"> 
-							<div v-for="(j,i) in defaultJobs" :key="i"><DefaultJob :job="j"/></div>
+							<div v-for="(j,i) in defaultJobs" :key="i"><DefaultJob :job="j" :index="i"/></div>
 							
 						</div>
 						<!-- JOBS END -->

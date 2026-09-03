@@ -35,7 +35,7 @@
 									<h2>{{p.title}}</h2>
 									<div class="meta">
 										<span><i class="fa fa-user"></i>{{p.author.name}}</span>
-										<span><i class="fa fa-calendar"></i>{{p.date.toLocaleString("pt-BR")}}</span>
+										<span><i class="fa fa-calendar"></i>{{p.date.toLocaleDateString("pt-BR")}}</span>
 										<span><i class="fa fa-comment"></i>{{p.comments.length}}</span>
 									</div>
 									<p><img :src="p.pictures[0]" alt="" class="img-responsive" /></p>
