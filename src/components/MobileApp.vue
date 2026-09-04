@@ -10,7 +10,7 @@
 						<p>&nbsp;</p>
 						<h2>EM BREVE, O WORKIX NO SEU CELULAR</h2>
 						<p>Em desenvolvimento: as mesmas vagas, notificações e alertas do site,
-							agora numa experiência pensada para o seu celular. E continua tudo de graça.</p>
+							agora numa experiência pensada para o seu celular. Participar continua gratuito, como sempre foi.</p>
 						<p>							
 							<a href="https://play.google.com/store/apps/details?id=br.com.frmichetti.openjobs.android" class="btn btn-default"><i class="fa fa-android"></i> Android</a>
 						</p>

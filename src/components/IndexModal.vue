@@ -18,7 +18,7 @@
 
 					<p>Imagine uma plataforma de empregos...</p>
 
-					<p>...disponível na web e no celular, sem custo nenhum.</p>
+					<p>...disponível na web e no celular, sempre gratuita para quem procura uma vaga.</p>
 
 					<ul class="list-group">
 
@@ -40,8 +40,10 @@
 
 					</ul>
 					<div class="alert alert-success">
-						<p><strong>Essa é a Workix: uma plataforma de empregos completa,
-						gratuita do início ao fim.</strong></p>
+						<p><strong>Essa é a Workix: participar é e sempre será gratuito.
+						O projeto se sustenta com ferramentas de recrutamento para
+						empresas e visibilidade adicional opcional, dos dois lados,
+						sempre identificada como tal.</strong></p>
 					</div>
 
 					<div class="alert alert-danger">

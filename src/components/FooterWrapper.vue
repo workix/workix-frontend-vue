@@ -34,7 +34,7 @@
 				<div class="container text-center">
 					<div class="row">
 						<div class="col-sm-12" style="color: white;">
-							&copy; {{new Date().getFullYear()}} Workix - Plataforma de Empregos Totalmente Grátis<br>
+							&copy; {{new Date().getFullYear()}} Workix — conectando quem contrata a quem procura<br>
 							Desenvolvido por <a href="https://github.com/frmichetti" target="_blank">Felipe Rodrigues Michetti</a>
 						</div>
 					</div>

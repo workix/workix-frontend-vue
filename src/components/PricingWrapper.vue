@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<h1>Planos &amp; Preços</h1>
-						<h4>Um único preço para todo mundo: R$ 0,00. Escolha o perfil que combina com você</h4>
+						<h4>Participar é sempre gratuito. Ferramentas e visibilidade extra são opcionais e sempre identificadas</h4>
 					</div>
 				</div>
 				<div class="row pricing">
@@ -13,40 +13,40 @@
 						<ul>
 							<li class="title">Candidato</li>
 							<li class="price">R$ 0,00</li>
-							<li>Currículo completo e sempre visível</li>
-							<li>Candidaturas ilimitadas</li>
-							<li>Alertas de novas vagas por e-mail e push</li>
+							<li>Currículo completo, controlado por você</li>
+							<li>Candidaturas ilimitadas, sempre gratuitas</li>
+							<li>Sempre presente no resultado orgânico da busca</li>
 							<li><a href="#/cadastrar_curriculo" class="btn btn-primary">Cadastrar Currículo</a></li>
 						</ul>
 					</div>
 					<div class="col-sm-3">
 						<ul class="popular">
-							<li class="title">Startup</li>
-							<li class="price">R$ 0,00</li>
-							<li>Vagas ilimitadas, sem cobrança por publicação</li>
-							<li>Página de empresa personalizável</li>
-							<li>Sem contratos ou fidelidade</li>
-							<li><a href="#/cadastrar_vaga" class="btn btn-primary">Publicar Vaga</a></li>
+							<li class="title">Workix Premium</li>
+							<li class="price">Opcional</li>
+							<li>Perfil em destaque na busca, sempre identificado</li>
+							<li>Veja quem visualizou seu perfil e insights da vaga</li>
+							<li>Contato direto com recrutadores, com créditos mensais</li>
+							<li><a href="#/cadastrar_curriculo" class="btn btn-primary">Criar Perfil e Assinar</a></li>
 						</ul>
 					</div>
 					<div class="col-sm-3">
 						<ul>
 							<li class="title">Empresa</li>
 							<li class="price">R$ 0,00</li>
-							<li>Busca de candidatos por currículo</li>
-							<li>Sem limite de contratações</li>
-							<li>Sem taxas por candidato contratado</li>
-							<li><a href="#/candidatos" class="btn btn-primary">Buscar Candidatos</a></li>
+							<li>Publicação de vaga sempre gratuita, sem taxa</li>
+							<li>Planos pagos ampliam vagas simultâneas e usuários</li>
+							<li>Mesmo resultado orgânico, pago ou não</li>
+							<li><a href="#/cadastrar_vaga" class="btn btn-primary">Publicar Vaga</a></li>
 						</ul>
 					</div>
 					<div class="col-sm-3">
 						<ul>
-							<li class="title">Corporativo</li>
-							<li class="price">R$ 0,00</li>
-							<li>Múltiplas vagas e unidades</li>
-							<li>Sem vagas ou destaques pagos</li>
-							<li>Mesma visibilidade para todas as empresas</li>
-							<li><a href="#/cadastrar_vaga" class="btn btn-primary">Começar Agora</a></li>
+							<li class="title">Vaga em Destaque</li>
+							<li class="price">Opcional</li>
+							<li>Posição adicional na busca e no feed</li>
+							<li>Sempre rotulada como "Patrocinada"</li>
+							<li>Nunca substitui o resultado orgânico</li>
+							<li><a href="#/cadastrar_vaga" class="btn btn-primary">Destacar uma Vaga</a></li>
 						</ul>
 					</div>
 				</div>

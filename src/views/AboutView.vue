@@ -24,56 +24,96 @@
 					<div class="col-sm-6">
 						<h2>Afinal, o que é a Workix?</h2>
 
-						<p>A Workix é uma plataforma de recrutamento gratuita: parte
-							site de vagas, parte rede de perfis profissionais, parte
-							backend que conecta as duas pontas. O objetivo é simples —
-							tirar o peso e a demora de um processo seletivo que, na
-							maioria das vezes, é engessado e pouco transparente.</p>
+						<p>A Workix é uma plataforma de recrutamento que combina site de
+							vagas, rede de perfis profissionais, páginas de empresas,
+							ferramentas de busca e comunicação direta entre candidatos e
+							recrutadores. O objetivo é simples: reduzir o peso, a demora e
+							a burocracia dos processos seletivos tradicionais, tornando a
+							experiência mais direta, transparente e acessível.</p>
 
-						<h2>Inspirada no LinkedIn, com um propósito direto</h2>
+						<p>Participar da Workix — criar perfil, publicar vaga,
+							candidatar-se, buscar e ser encontrado — é e sempre será
+							gratuito. O projeto se sustenta com assinaturas de ferramentas
+							de recrutamento para empresas e com visibilidade adicional
+							opcional, dos dois lados, sempre identificada como tal.</p>
 
-						<p>O conceito nasce do modelo consagrado pelo LinkedIn: perfis
-							profissionais completos, páginas de empresa e conexão direta
-							entre quem contrata e quem busca uma oportunidade. A diferença
-							está no foco. Aqui não existe feed infinito, anúncio
-							patrocinado ou assinatura premium — apenas as ferramentas
-							essenciais para um processo de recrutamento funcionar bem, sem
-							ruído e sem custo para nenhum dos lados.</p>
+						<h2>Inspirada no LinkedIn, com regras mais claras</h2>
+
+						<p>O conceito nasce de um modelo semelhante ao de redes
+							profissionais consagradas: perfis completos, páginas de
+							empresa, publicação de vagas, busca por candidatos e conexão
+							direta entre as duas pontas. A diferença está nas regras que
+							colocamos em torno desse modelo — os Pactos da Workix:</p>
+
+						<ul>
+							<li><strong>Participar é sempre gratuito.</strong> Perfil,
+								candidatura, publicação de vaga e busca no resultado
+								orgânico não custam nada, em nenhum plano.</li>
+							<li><strong>Toda visibilidade paga é identificada, sempre.</strong>
+								Conteúdo pago nunca é disfarçado de resultado orgânico — e o
+								código que garante isso é aberto.</li>
+							<li><strong>Ninguém desaparece por não pagar.</strong> O
+								resultado orgânico existe sempre, ordenado por relevância.</li>
+							<li><strong>Seu contato só é liberado com o seu
+								consentimento.</strong> Nenhuma empresa recebe e-mail,
+								telefone ou currículo completo sem o seu aval.</li>
+							<li><strong>Sem vaga fantasma.</strong> Toda vaga tem prazo e
+								precisa de um desfecho.</li>
+						</ul>
 
 						<h2>Quem está por trás da Workix?</h2>
 
-						<p>A Workix não pertence a uma empresa de recrutamento nem
+						<p>A Workix não pertence a uma empresa de recrutamento e não
 							cobra comissão sobre contratações. É um projeto independente,
-							construído para provar que encontrar uma vaga — ou o
-							profissional certo — não precisa ser caro nem obscuro. As
-							pessoas estão sempre nas duas pontas: alimentando o sistema
-							com currículos e vagas, e colhendo o resultado, que é a
+							criado para demonstrar que encontrar uma oportunidade
+							profissional — ou o profissional certo — não precisa ser um
+							processo caro, complexo ou obscuro. Os próprios participantes
+							alimentam o sistema com currículos e vagas e utilizam a
+							plataforma para conduzir suas interações até uma possível
 							contratação.</p>
 					</div>
 
 					<div class="col-sm-6">
 
-						<h2>Mais uma plataforma que vende destaque e anúncio VIP?</h2>
+						<h2>O que torna a Workix diferente?</h2>
 
-						<p>Esse é justamente o diferencial da Workix. Não vendemos
-							posições de destaque nem conteúdo de veracidade duvidosa.
-							Entregamos a ferramenta para que as duas partes interessadas
-							— empresa e candidato — se encontrem por conta própria.</p>
+						<p>A Workix vende ferramentas de recrutamento para empresas
+							(busca avançada, gestão de candidaturas, créditos de contato),
+							a <strong>Vaga em Destaque</strong> — uma posição adicional de
+							visibilidade, comprada pela empresa e sempre identificada com o
+							rótulo "Patrocinada" — e o <strong>Workix Premium</strong>, para
+							candidatos que queiram mais visibilidade na busca do
+							recrutador e insights sobre suas candidaturas.</p>
+
+						<p>O que a Workix não faz, em nenhum plano: não exibe conteúdo
+							pago sem identificá-lo, não remove nem rebaixa quem não paga
+							do resultado orgânico, não libera contato ou dado pessoal sem
+							consentimento, não cobra do candidato para se candidatar ou
+							para ser encontrado no orgânico, não vende dados de candidatos
+							a terceiros e não cobra comissão sobre contratação.</p>
 
 						<h2>Garantias</h2>
 
 						<p>
-							Não garantimos o resultado de nenhum processo seletivo.<br />
-							Fornecemos a ferramenta de busca, o cadastro de currículos e o
-							canal de feedback entre as partes. A conduta durante o
-							processo seletivo é sempre de responsabilidade de quem o
-							conduz.
+							A Workix não garante o resultado de nenhum processo seletivo.
+							Comprar destaque não muda isso: destaque compra alcance, nunca
+							resultado.<br />
+							Fornecemos as ferramentas de busca, o cadastro de currículos e
+							vagas, a comunicação entre as partes e o feedback sobre
+							interações relevantes. A condução do processo seletivo, assim
+							como as decisões tomadas durante ele, é sempre de
+							responsabilidade das partes envolvidas.
 						</p>
 
 						<h3>Quem criou o Projeto Workix?</h3>
 
 						<p>
-							<a href="http://www.codecode.com.br">Felipe Rodrigues Michetti</a> — Desenvolvedor Full Stack, Web e Mobile.
+							<a href="http://www.codecode.com.br">Felipe Rodrigues Michetti</a>
+							— Fundador &amp; Desenvolvedor Full Stack, atuando na
+							construção da Workix desde o backend até o frontend e o
+							aplicativo mobile. A iniciativa tem como objetivo tornar a
+							busca por oportunidades profissionais mais justa, simples e
+							acessível no Brasil.
 						</p>
 					</div>
 				</div>
@@ -96,7 +136,7 @@
 							<div class="panel-body">
 								<i class="fa fa-id-card fa-2x"></i>
 								<h5>Perfil Profissional Completo</h5>
-								<p>Currículo estruturado com formação, experiências e habilidades, sempre visível para recrutadores.</p>
+								<p>Currículo estruturado com formação, experiências e habilidades. Você controla sua própria visibilidade, em três chaves independentes.</p>
 							</div>
 						</div>
 					</div>
@@ -105,7 +145,7 @@
 							<div class="panel-body">
 								<i class="fa fa-building fa-2x"></i>
 								<h5>Página de Empresa</h5>
-								<p>Perfil público por empresa, com vagas abertas, localização e redes sociais em um só lugar.</p>
+								<p>Perfil público com vagas, localização, redes sociais e taxa de resposta sempre pública, com Selo de Empresa Verificada quando aplicável.</p>
 							</div>
 						</div>
 					</div>
@@ -114,7 +154,7 @@
 							<div class="panel-body">
 								<i class="fa fa-search fa-2x"></i>
 								<h5>Busca de Vagas e Candidatos</h5>
-								<p>Listagens paginadas, com filtro por tipo de contrato, cidade e nível de experiência.</p>
+								<p>Listagens paginadas, com filtro por tipo de contrato, cidade e nível de experiência. O resultado orgânico está sempre presente.</p>
 							</div>
 						</div>
 					</div>
@@ -122,19 +162,37 @@
 						<div class="panel panel-default text-center">
 							<div class="panel-body">
 								<i class="fa fa-bullhorn fa-2x"></i>
-								<h5>Publicação Gratuita de Vagas</h5>
-								<p>Empresas publicam quantas vagas quiserem, sem taxa por publicação e sem vaga patrocinada.</p>
+								<h5>Publicação de Vagas</h5>
+								<p>Toda empresa publica uma vaga ativa gratuitamente, sem taxa de publicação. Planos pagos ampliam a capacidade de gestão, não a posição na busca.</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row" style="margin-top: 30px;">
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-star fa-2x"></i>
+								<h5>Vaga em Destaque</h5>
+								<p>Posição adicional, opcional e sempre identificada com o rótulo "Patrocinada". Nunca remove nem rebaixa o resultado orgânico.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="panel panel-default text-center">
+							<div class="panel-body">
+								<i class="fa fa-line-chart fa-2x"></i>
+								<h5>Workix Premium</h5>
+								<p>Destaque opcional do perfil na busca do recrutador, insights sobre a vaga e contato direto, dentro de um limite de créditos mensais.</p>
+							</div>
+						</div>
+					</div>
 					<div class="col-sm-3">
 						<div class="panel panel-default text-center">
 							<div class="panel-body">
 								<i class="fa fa-bell fa-2x"></i>
 								<h5>Notificações em Tempo Real</h5>
-								<p>Alertas por push e e-mail quando seu currículo é visualizado ou uma mensagem chega.</p>
+								<p>Alertas por push e e-mail quando seu currículo é visualizado, uma mensagem chega ou seu contato é liberado.</p>
 							</div>
 						</div>
 					</div>
@@ -143,16 +201,18 @@
 							<div class="panel-body">
 								<i class="fa fa-newspaper-o fa-2x"></i>
 								<h5>Blog e Conteúdo</h5>
-								<p>Artigos sobre carreira e mercado de trabalho, organizados por categoria e período.</p>
+								<p>Artigos sobre carreira, empregabilidade e mercado de trabalho, organizados por categoria e período.</p>
 							</div>
 						</div>
 					</div>
+				</div>
+				<div class="row" style="margin-top: 30px;">
 					<div class="col-sm-3">
 						<div class="panel panel-default text-center">
 							<div class="panel-body">
 								<i class="fa fa-lock fa-2x"></i>
 								<h5>Login Seguro</h5>
-								<p>Autenticação via Firebase, com e-mail e senha ou conta Google, sem senhas armazenadas por nós.</p>
+								<p>Autenticação via Firebase, com e-mail e senha ou conta Google. As senhas não são armazenadas pela Workix.</p>
 							</div>
 						</div>
 					</div>
@@ -160,8 +220,8 @@
 						<div class="panel panel-default text-center">
 							<div class="panel-body">
 								<i class="fa fa-mobile fa-2x"></i>
-								<h5>Responsiva em Qualquer Tela</h5>
-								<p>Site e aplicativo mobile com a mesma experiência e as mesmas informações, onde você estiver.</p>
+								<h5>Experiência Multiplataforma</h5>
+								<p>Desktop, notebook, tablet, smartphone e aplicativo mobile, com informações integradas entre os ambientes.</p>
 							</div>
 						</div>
 					</div>
@@ -182,22 +242,25 @@
 						<p>Quem nunca participou de um processo seletivo e nem ao
 							menos recebeu uma resposta sobre o resultado final?</p>
 
-						<p>A Workix mantém a relação de confiança entre as duas
-							pontas: o processo é transparente e cada interação relevante
-							gera um alerta.</p>
+						<p>A Workix busca melhorar essa relação por meio de uma
+							experiência mais transparente: interações relevantes geram
+							notificações e feedbacks para os envolvidos, e a taxa de
+							resposta de cada empresa é pública — com ou sem destaque
+							comprado, com ou sem selo.</p>
 
 						<b>Acessível em qualquer dispositivo</b>
 
 						<p>Tablet, celular, notebook ou desktop — o ambiente não
-							importa. A Workix oferece site responsivo e aplicativo
-							mobile, com as mesmas informações em todos os lugares.</p>
+							importa. A Workix mantém as mesmas informações e
+							funcionalidades essenciais em site responsivo e aplicativo
+							mobile.</p>
 
-						<b>Foco em escalabilidade e crescimento orgânico</b>
+						<b>Escalabilidade e crescimento orgânico</b>
 
-						<p>Novas ferramentas são adicionadas aos poucos, sempre para
-							melhorar a experiência e automatizar etapas do processo —
-							incluindo validadores para garantir a veracidade das
-							informações trocadas entre as partes.</p>
+						<p>Novas funcionalidades são adicionadas gradualmente, com foco
+							em melhorar a experiência, automatizar etapas, reduzir tarefas
+							manuais e aumentar a confiabilidade das informações trocadas
+							entre as partes.</p>
 					</div>
 
 					<div class="col-sm-6">
@@ -205,19 +268,33 @@
 
 						<b>Sem vagas fantasmas</b>
 
-						<p>A Workix conta com rotinas de limpeza automática que
-							encerram processos já concluídos com sucesso. Toda vaga tem
-							validade, e você é avisado sobre o que muda.</p>
+						<p>A Workix possui rotinas de manutenção que identificam e
+							encerram automaticamente processos já concluídos. Toda vaga
+							tem validade e seu status é atualizado ao longo do processo —
+							e isso vale igualmente para vagas em destaque: destaque compra
+							alcance, nunca isenta a vaga da validade e do desfecho
+							obrigatório.</p>
+
+						<b>Transparência de visibilidade</b>
+
+						<p>Todo conteúdo patrocinado é identificado no próprio
+							resultado, nunca misturado ao orgânico sem aviso — e a lógica
+							que garante essa identificação está no código aberto do
+							núcleo da Workix, não depende apenas da nossa palavra.</p>
 
 						<b>Privacidade dos dados</b>
 
-						<p>Não armazenamos senhas. Apenas os dados mínimos necessários
-							para iniciar o processo de contratação são mantidos, e você
-							pode ativar, desativar ou solicitar a remoção do seu
-							currículo a qualquer momento.</p>
+						<p>Não armazenamos senhas. Você tem controle sobre seu
+							currículo e sua própria visibilidade, pode ativá-lo,
+							desativá-lo ou solicitar a remoção dos seus dados a qualquer
+							momento. Contato e dados pessoais só são liberados a uma
+							empresa com o seu consentimento, mesmo quando ela tem plano
+							pago.</p>
 
-						<p><em>CPF para pessoas físicas e CNPJ para pessoas jurídicas
-							garantem que cada cadastro seja único.</em></p>
+						<p><em>O e-mail verificado identifica cada cadastro de pessoa
+							física — o CPF só é coletado na contratação efetiva, pela
+							empresa contratante. O CNPJ identifica e verifica as pessoas
+							jurídicas, por ser um dado público.</em></p>
 					</div>
 				</div>
 			</div>
